@@ -34,7 +34,7 @@ const HomePage = () => {
         </h1>
         <p style={{ color: '#666', marginBottom: '32px', lineHeight: '1.5' }}>
           결정 장애를 해결해 드릴게요.<br />
-          버튼을 눌러 메뉴를 추천받으세요!
+          버튼을 눌러 메뉴를 추천받으세요!!!!!
         </p>
         <button
           onClick={() => navigate('/lunch')}
