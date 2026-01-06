@@ -36,6 +36,7 @@ const styles = {
     border: '1px solid #eee',
     backgroundColor: '#f9fafb',
     fontSize: '16px',
+    color: '#333',
     marginBottom: '24px',
     outline: 'none',
     boxSizing: 'border-box',
@@ -53,7 +54,7 @@ const styles = {
     width: '100%',
     padding: '18px',
     borderRadius: '18px',
-    border: 'none',
+    borderColor: '#3182f6',
     color: 'white',
     fontSize: '16px',
     fontWeight: 'bold',
@@ -152,7 +153,7 @@ const LunchRoulette = () => {
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
-                  border: heavy === true ? 'none' : '1px solid #ddd',
+                  border: heavy === true ? '1px solid #3182f6' : '1px solid #ddd',
                   backgroundColor: heavy === true ? '#3182f6' : '#fff',
                 }}
               >
@@ -171,7 +172,7 @@ const LunchRoulette = () => {
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
-                  border: heavy === false ? 'none' : '1px solid #ddd',
+                  border: heavy === false ? '1px solid #3182f6' : '1px solid #ddd',
                   backgroundColor: heavy === false ? '#3182f6' : '#fff',
                 }}
               >
