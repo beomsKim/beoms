@@ -13,7 +13,7 @@
 }
 
 .roulette-card {
-  width: 360px;
+  min-width: 360px;
   padding: 40px 24px;
   background-color: white;
   border-radius: 32px;
