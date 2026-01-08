@@ -1,0 +1,37 @@
+// 변수 설정
+$max-width: 1100px;
+$min-width: 400px;
+$white: #ffffff;
+$primary: #3182f6;
+$primary-color: #3182f6;
+
+$secondary: #0064ff;
+$secondary-color: #0064ff;
+$light-blue: #e8f3ff;
+
+$black: #1d1d1f;
+$dark-gray: #424245;
+$silver: #86868b;
+$system-gray: #f5f5f7;
+
+$bg-color: #f2f4f6;
+$bg-light: #f9fafb;
+$border-color: #eee;
+$shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+$text-main: #333333;
+$text-sub: #666666;
+$transition: all 0.3s ease;
+
+// 믹스인 (자주 쓰는 스타일 묶음)
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin card-style {
+  background-color: $white;
+  border-radius: 32px;
+  box-shadow: $shadow;
+  padding: 40px 24px;
+}

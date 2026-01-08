@@ -1,5 +1,5 @@
 import React from 'react';
-const basename = import.meta.env.MODE === 'development' ? '/' : '/lunch-roulette';
+const basename = import.meta.env.MODE === 'development' ? '/' : '/beoms';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './layout/Layout';
 import Home from './pages/Home/Home';

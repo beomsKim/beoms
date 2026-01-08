@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { MENU_DATA } from './menuData';
-import './LunchRoulette.css';
+import { MENU_DATA } from '../../data/menuData';
+import './lunchRoulette.scss';
 
 const Roulette = () => {
   const navigate = useNavigate();
@@ -66,14 +66,20 @@ const Roulette = () => {
           >
             <h1 className="roulette-title">어떻게 먹고 싶어?</h1>
             
-            <div className="choice-box" onClick={() => setHeavy(true)}>
+            <div 
+              className={`choice-box ${heavy === true ? 'active' : ''}`} 
+              onClick={() => setHeavy(true)}
+            >
               <div className={`check-circle ${heavy === true ? 'active' : ''}`}>
                 {heavy === true && <Check size={14} color="white" />}
               </div>
               <span>든든하게 먹을래요</span>
             </div>
 
-            <div className="choice-box" onClick={() => setHeavy(false)}>
+            <div 
+              className={`choice-box ${heavy === false ? 'active' : ''}`} 
+              onClick={() => setHeavy(false)}
+            >
               <div className={`check-circle ${heavy === false ? 'active' : ''}`}>
                 {heavy === false && <Check size={14} color="white" />}
               </div>

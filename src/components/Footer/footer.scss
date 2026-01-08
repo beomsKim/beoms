@@ -1,0 +1,14 @@
+@use "../../styles/variables" as *;
+
+.footer {
+  background-color: $bg-light;
+  padding: 2rem;
+  text-align: center;
+  border-top: 1px solid #eee;
+  margin-top: auto;
+
+  .footer-contents p {
+    color: $text-sub;
+    font-size: 14px;
+  }
+}

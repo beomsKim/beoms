@@ -1,7 +1,7 @@
 // src/components/Header/Header.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './header.css';
+import './header.scss';
 
 const Header = () => {
   return (
