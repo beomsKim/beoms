@@ -152,7 +152,8 @@ const Home = () => {
                   <div className="exp-left">
                     <span className="period">{exp.period}</span>
                     <h3 className="company">{exp.company}</h3>
-                    <span className="position">{exp.position}</span>
+                    <strong className="position">{exp.team}</strong>
+                    <p className="position">{exp.position}</p>
                   </div>
                   <div className="exp-right">
                     <ul className="task-list">

@@ -143,8 +143,6 @@
         .reveal-text {
           display: inline-block;
           padding: 2px 8px;
-          background: rgba($primary, 0.05);
-          border-radius: 4px;
           font-weight: 500;
           color: $primary;
           transition: all 0.3s ease;
@@ -284,7 +282,7 @@
       gap: 8px;
       overflow-x: auto;
       margin-bottom: 32px;
-      padding-bottom: 10px;
+      padding: 10px 0;
       -webkit-overflow-scrolling: touch;
 
       button {
@@ -328,6 +326,7 @@
       border-radius: 20px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
       transition: all 0.3s;
+      cursor: pointer;
 
       // 이미지 확대 효과를 여기로 합쳤어!
       .card-image {
