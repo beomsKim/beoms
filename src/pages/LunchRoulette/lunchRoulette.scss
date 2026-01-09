@@ -12,6 +12,327 @@
   font-family: 'Pretendard', sans-serif;
   box-sizing: border-box;
 
+  // 0단계 
+  .roulette-card.intro-card {
+    padding: 60px 32px; // 좀 더 여백을 줘서 고급스럽게
+    
+    .intro-icon {
+      font-size: 64px;
+      margin-bottom: 24px;
+      display: inline-block;
+    }
+
+    .roulette-title.centered {
+      text-align: center;
+      margin-bottom: 12px;
+      font-size: 28px;
+      background: linear-gradient(to right, #191f28, #4e5968);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .intro-desc {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #4e5968;
+      margin-bottom: 40px;
+      strong {
+        color: $primary;
+        font-weight: 700;
+      }
+    }
+
+    .guide-tip {
+      background-color: #f9fafb;
+      padding: 12px 16px;
+      border-radius: 12px;
+      margin-bottom: 32px;
+      span {
+        font-size: 14px;
+        color: #8b95a1;
+        font-weight: 500;
+      }
+    }
+
+    .start-btn {
+      background: linear-gradient(135deg, $primary, darken($primary, 10%));
+      box-shadow: 0 10px 20px rgba($primary, 0.2);
+    }
+  }
+
+  // 1단계
+  .roulette-card.step-card {
+    .step-indicator {
+      display: inline-block;
+      padding: 4px 12px;
+      background-color: rgba($primary, 0.1);
+      color: $primary;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .title-group {
+      text-align: left;
+      margin-bottom: 32px;
+      
+      .roulette-title {
+        margin-bottom: 8px;
+        font-size: 24px;
+      }
+      
+      .sub-title {
+        font-size: 15px;
+        color: #8b95a1;
+        text-align: left;
+      }
+    }
+
+    .input-wrapper {
+      position: relative;
+      margin-bottom: 12px;
+
+      .input-icon {
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        z-index: 1;
+        transform: translateY(-50%);
+        font-size: 18px;
+      }
+
+      .custom-input {
+        height: 64px;
+        margin: 0;
+        padding-left: 52px;
+        background-color: #fff;
+        border: 2px solid #e5e8eb;
+        font-size: 18px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:focus {
+          border-color: $primary;
+          background-color: #fff;
+          box-shadow: 0 0 0 4px rgba($primary, 0.1);
+        }
+      }
+    }
+
+    .input-helper {
+      text-align: left;
+      padding-left: 4px;
+      margin-bottom: 32px;
+      span {
+        font-size: 13px;
+        color: #b0b8c1;
+      }
+    }
+
+    .next-btn {
+      transition: transform 0.2s;
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+  }
+
+  // 2단계
+  .roulette-card.step-card {
+    .choice-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .choice-card {
+      display: flex;
+      align-items: center;
+      padding: 24px;
+      border-radius: 20px;
+      border: 2px solid #f2f4f6;
+      background-color: #fff;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+
+      &:hover {
+        border-color: #e5e8eb;
+        background-color: #f9fafb;
+      }
+
+      &.active {
+        border-color: $primary;
+        background-color: rgba($primary, 0.04);
+        
+        .choice-icon { transform: scale(1.1); }
+      }
+
+      .choice-icon {
+        font-size: 32px;
+        margin-right: 20px;
+        transition: transform 0.3s;
+      }
+
+      .choice-info {
+        text-align: left;
+        flex: 1;
+
+        .choice-label {
+          display: block;
+          font-size: 18px;
+          font-weight: 700;
+          color: #191f28;
+          margin-bottom: 4px;
+        }
+
+        .choice-sub {
+          font-size: 14px;
+          color: #8b95a1;
+        }
+      }
+
+      .choice-check {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 2px solid #e5e8eb;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.2s;
+
+        &.active {
+          background-color: $primary;
+          border-color: $primary;
+        }
+      }
+    }
+
+    .confirm-btn {
+      opacity: 0.5;
+      &.ready {
+        opacity: 1;
+        background: linear-gradient(135deg, $primary, darken($primary, 10%));
+        box-shadow: 0 10px 20px rgba($primary, 0.2);
+      }
+    }
+  }
+
+  // 3단계
+  .roulette-card.result-card {
+    .result-header {
+      margin-bottom: 24px;
+      .header-emoji {
+        display: block;
+        font-size: 40px;
+        margin-bottom: 8px;
+      }
+      .roulette-title.centered {
+        text-align: center;
+        font-size: 24px;
+      }
+    }
+
+    .slot-machine {
+      background: #f2f4f6;
+      border-radius: 32px;
+      padding: 12px;
+      border: 4px solid #e5e8eb;
+      margin-bottom: 24px;
+      transition: all 0.3s;
+
+      &.spinning {
+        border-color: $primary;
+        box-shadow: 0 0 20px rgba($primary, 0.1);
+      }
+
+      .slot-window {
+        height: 110px;
+        background-color: #fff;
+        border-radius: 20px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
+
+        .slot-item {
+          height: 110px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 26px;
+          font-weight: 800;
+          color: $primary;
+          
+          &.result-name {
+            color: #191f28;
+            font-size: 32px;
+          }
+        }
+      }
+    }
+
+    .result-info {
+      .result-comment {
+        font-size: 18px;
+        color: #4e5968;
+        margin-bottom: 24px;
+        font-weight: 500;
+      }
+
+      .map-action {
+        background: #f9fafb;
+        padding: 20px;
+        border-radius: 24px;
+        margin-bottom: 32px;
+
+        .map-label {
+          display: block;
+          font-size: 14px;
+          color: #8b95a1;
+          margin-bottom: 12px;
+          font-weight: 600;
+        }
+
+        .map-buttons {
+          display: flex;
+          gap: 10px;
+          
+          .map-btn {
+            flex: 1;
+            padding: 14px;
+            border-radius: 14px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+
+            &.naver { background: #03c75a; color: white; }
+            &.google { background: #fff; color: #4285f4; border: 1px solid #e5e8eb; }
+          }
+        }
+      }
+    }
+
+    .go-main-link {
+      margin-top: 20px;
+      color: #b0b8c1;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      &:hover { color: #8b95a1; }
+    }
+  }
+  
+
+
+  // 기존 전체 코드
   .roulette-card {
     flex-shrink: 0;
     width: 480px; 

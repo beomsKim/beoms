@@ -8,7 +8,7 @@ import './lunchRoulette.scss';
 
 const Roulette = () => {
   const navigate = useNavigate();
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(0);
   const [yesterdayMenu, setYesterdayMenu] = useState('');
   const [heavy, setHeavy] = useState(null);
   const [result, setResult] = useState(null);
@@ -77,128 +77,246 @@ const Roulette = () => {
   return (
     <div className="roulette-container">
       <AnimatePresence mode="wait">
+
+        {/* 0단계: 인트로 가이드 화면 */}
+        {step === 0 && (
+          <motion.div
+            key="s0"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            className="roulette-card intro-card"
+          >
+            {/* 상단 장식 아이콘 애니메이션 */}
+            <motion.div 
+              className="intro-icon"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            >
+              🍱
+            </motion.div>
+
+            <motion.h1 
+              className="roulette-title centered"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              오늘 뭐 먹지 가이드
+            </motion.h1>
+
+            <motion.p 
+              className="intro-desc"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              매일 반복되는 점심 고민,<br />
+              <strong>100가지 음식 데이터</strong>로 해결해 드릴게요! ✨
+            </motion.p>
+
+            <motion.div 
+              className="guide-tip"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              <span>💡 어제 먹은 메뉴는 자동으로 제외돼요!</span>
+            </motion.div>
+
+            <motion.button 
+              onClick={() => setStep(1)} 
+              className="roulette-button start-btn"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              점심 메뉴 추천받기
+            </motion.button>
+          </motion.div>
+        )}
+
+        {/* 1단계: 어제 먹은 메뉴 입력 화면 */}
         {step === 1 && (
           <motion.div
             key="s1"
-            initial={{ x: 50, opacity: 0 }}
+            initial={{ x: 30, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -50, opacity: 0 }}
-            className="roulette-card"
+            exit={{ x: -30, opacity: 0 }}
+            className="roulette-card step-card"
           >
-            <h1 className="roulette-title">어제 먹은 점심은?</h1>
-            <input
-              className="roulette-input"
-              placeholder="예: 김치찌개"
-              value={yesterdayMenu}
-              onChange={(e) => setYesterdayMenu(e.target.value)}
-            />
-            <button onClick={() => setStep(2)} className="roulette-button">
-              다음
+            <div className="step-indicator">1 / 2</div>
+            
+            <div className="title-group">
+              <h1 className="roulette-title">어제 어떤 메뉴를 드셨나요?</h1>
+              <p className="sub-title">중복된 메뉴는 추천에서 자동으로 제외해 드릴게요.</p>
+            </div>
+
+            <div className="input-wrapper">
+              <span className="input-icon">🔍</span>
+              <input
+                className="roulette-input custom-input"
+                placeholder="예: 김치찌개, 돈가스"
+                value={yesterdayMenu}
+                onChange={(e) => setYesterdayMenu(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && setStep(2)}
+              />
+            </div>
+
+            <div className="input-helper">
+              <span>먹은 게 기억나지 않는다면 비워두셔도 돼요!</span>
+            </div>
+
+            <button 
+              onClick={() => setStep(2)} 
+              className="roulette-button next-btn"
+            >
+              다음 단계로
             </button>
           </motion.div>
         )}
 
+        {/* 2단계: 메뉴 선택 화면 */}
         {step === 2 && (
           <motion.div
             key="s2"
-            initial={{ x: 50, opacity: 0 }}
+            initial={{ x: 30, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -50, opacity: 0 }}
-            className="roulette-card"
+            exit={{ x: -30, opacity: 0 }}
+            className="roulette-card step-card"
           >
-            <h1 className="roulette-title">어떻게 먹고 싶어?</h1>
-            
-            <div 
-              className={`choice-box ${heavy === true ? 'active' : ''}`} 
-              onClick={() => setHeavy(true)}
-            >
-              <div className={`check-circle ${heavy === true ? 'active' : ''}`}>
-                {heavy === true && <Check size={14} color="white" />}
-              </div>
-              <span>든든하게 먹을래요</span>
+            <div className="step-indicator">2 / 2</div>
+
+            <div className="title-group">
+              <h1 className="roulette-title">어떤 스타일이 당기시나요?</h1>
+              <p className="sub-title">기분에 따라 오늘의 메뉴 스타일을 골라보세요.</p>
             </div>
 
-            <div 
-              className={`choice-box ${heavy === false ? 'active' : ''}`} 
-              onClick={() => setHeavy(false)}
-            >
-              <div className={`check-circle ${heavy === false ? 'active' : ''}`}>
-                {heavy === false && <Check size={14} color="white" />}
-              </div>
-              <span>가볍게 먹을래요</span>
+            <div className="choice-container">
+              <motion.div 
+                className={`choice-card ${heavy === true ? 'active' : ''}`} 
+                onClick={() => setHeavy(true)}
+                whileTap={{ scale: 0.97 }}
+              >
+                <div className="choice-icon">🍖</div>
+                <div className="choice-info">
+                  <span className="choice-label">든든하게</span>
+                  <span className="choice-sub">고기나 밥으로 꽉 채운 한 끼</span>
+                </div>
+                <div className={`choice-check ${heavy === true ? 'active' : ''}`}>
+                  {heavy === true && <Check size={16} color="white" strokeWidth={3} />}
+                </div>
+              </motion.div>
+
+              <motion.div 
+                className={`choice-card ${heavy === false ? 'active' : ''}`} 
+                onClick={() => setHeavy(false)}
+                whileTap={{ scale: 0.97 }}
+              >
+                <div className="choice-icon">🥗</div>
+                <div className="choice-info">
+                  <span className="choice-label">가볍게</span>
+                  <span className="choice-sub">속 편하고 깔끔한 스타일</span>
+                </div>
+                <div className={`choice-check ${heavy === false ? 'active' : ''}`}>
+                  {heavy === false && <Check size={16} color="white" strokeWidth={3} />}
+                </div>
+              </motion.div>
             </div>
 
             <button
               disabled={heavy === null}
-              onClick={() => setStep(3)}
-              className="roulette-button"
+              onClick={() => {
+                setStep(3);
+                // startSpin(); // 다음으로 넘어가면서 바로 룰렛 시작!
+              }}
+              className={`roulette-button confirm-btn ${heavy !== null ? 'ready' : ''}`}
             >
-              룰렛 확인하기
+              룰렛 돌리기
             </button>
           </motion.div>
         )}
-
+        
+        {/* 3단계: 룰렛 결과 화면 */}
         {step === 3 && (
           <motion.div
             key="s3"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className="roulette-card"
+            className="roulette-card result-card"
           >
-            <h1 className="roulette-title" style={{ textAlign: 'center' }}>
-              {isSpinning ? '고르는 중...' : '오늘의 메뉴!'}
-            </h1>
-
-            <div className="slot-window">
-              <motion.div
-                animate={isSpinning ? { y: [-2000, 0] } : { y: 0 }}
-                transition={
-                  isSpinning
-                    ? { duration: 0.5, repeat: Infinity, ease: 'linear' }
-                    : { type: 'spring', stiffness: 200, damping: 20 }
-                }
+            <div className="result-header">
+              <motion.span 
+                animate={isSpinning ? { rotate: 360 } : { rotate: 0 }}
+                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                className="header-emoji"
               >
-                {isSpinning
-                  ? [...Array(50)].map((_, i) => (
-                      <div key={i} className="slot-item">🍱 맛집 찾는 중 🍱</div>
-                    ))
-                  : <div className="slot-item">{result?.name || 'Ready?'}</div>}
-              </motion.div>
+                {isSpinning ? "🌀" : "✨"}
+              </motion.span>
+              <h1 className="roulette-title centered">
+                {isSpinning ? '메뉴를 고르고 있어요' : '오늘의 추천 메뉴!'}
+              </h1>
+            </div>
+
+            <div className={`slot-machine ${isSpinning ? 'spinning' : ''}`}>
+              <div className="slot-window">
+                <motion.div
+                  animate={isSpinning ? { y: [-2000, 0] } : { y: 0 }}
+                  transition={
+                    isSpinning
+                      ? { duration: 0.5, repeat: Infinity, ease: 'linear' }
+                      : { type: 'spring', stiffness: 200, damping: 20 }
+                  }
+                >
+                  {isSpinning
+                    ? [...Array(50)].map((_, i) => (
+                        <div key={i} className="slot-item">🍱 맛집 찾는 중</div>
+                      ))
+                    : <div className="slot-item result-name">{result?.name || 'Ready?'}</div>}
+                </motion.div>
+              </div>
             </div>
 
             {!isSpinning && result && (
-              <>
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }} 
+                animate={{ opacity: 1, y: 0 }}
+                className="result-info"
+              >
                 <p className="result-comment">{result.comment}</p>
                 
-                <div className="map-buttons" style={{ display: 'flex', gap: '8px', justifyContent: 'center', marginTop: '16px' }}>
-                  <button onClick={() => openMap('naver')} className="map-btn naver">
-                    네이버 지도 📍
-                  </button>
-                  <button onClick={() => openMap('google')} className="map-btn google">
-                    구글 지도 🗺️
-                  </button>
+                <div className="map-action">
+                  <span className="map-label">어디서 먹을까요?</span>
+                  <div className="map-buttons">
+                    <button onClick={() => openMap('naver')} className="map-btn naver">
+                      네이버 지도
+                    </button>
+                    <button onClick={() => openMap('google')} className="map-btn google">
+                      구글 지도
+                    </button>
+                  </div>
                 </div>
-              </>
+              </motion.div>
             )}
 
-            <button
-              onClick={isSpinning ? null : startSpin}
-              className="roulette-button"
-              style={{ marginTop: '20px' }}
-            >
-              {result ? '다시 돌리기' : '룰렛 돌리기'}
-            </button>
+            <div className="action-group">
+              <button
+                onClick={isSpinning ? null : startSpin}
+                className={`roulette-button retry-btn ${isSpinning ? 'disabled' : ''}`}
+              >
+                {result ? '한 번 더 돌리기 🔄' : '룰렛 돌리기'}
+              </button>
 
-            <div 
-              className="go-main" 
-              onClick={() => {
-                setStep(1);           // 1단계(메뉴 입력창)로 이동
-                setYesterdayMenu(''); // (선택) 입력했던 메뉴 지우기
-                setHeavy(null);       // (선택) 선택했던 타입 초기화
-                setResult(null);      // (선택) 결과 초기화
-              }}
-            >
-              다시 고르러 가기
+              <div 
+                className="go-main-link" 
+                onClick={() => {
+                  setStep(1);
+                  setYesterdayMenu('');
+                  setHeavy(null);
+                  setResult(null);
+                }}
+              >
+                처음부터 다시 하기
+              </div>
             </div>
           </motion.div>
         )}

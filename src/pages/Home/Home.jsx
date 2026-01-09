@@ -209,7 +209,7 @@ const Home = () => {
                   <div className="card-body">
                     <header className="card-header">
                       <span className="work-date">{item.date}</span>
-                      <span className="contribution">지분 {item.contribution}</span>
+                      <span className="contribution">기여도 {item.contribution}</span>
                     </header>
                     <h3>{item.title}</h3>
                     <div className="work-info">
