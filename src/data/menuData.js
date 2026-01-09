@@ -1,3 +1,12 @@
+// result comment default
+export const WAITING_COMMENTS = [
+  "배꼽시계가 울리고 있어요! 얼른 돌려봐요 🔔",
+  "오늘의 운명은 어디로? 결과가 기대되네요 ✨",
+  "메뉴 고민은 제가 대신 해드릴게요 🤖",
+  "최고의 맛집 데이터 100개가 대기 중입니다 🍱",
+  "맛있는 점심이 당신을 기다리고 있어요! 😋"
+];
+
 // 100개 메뉴 + 메뉴별 개별 문구 적용
 export const MENU_DATA = [
   { id: 1, name: '샐러드', heavy: false, comment: '가볍고 신선한 하루의 시작! 🥗' },

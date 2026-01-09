@@ -9,7 +9,7 @@ import './home.scss';
 const Home = () => {
   const navigate = useNavigate();
 
-// 1. 사용할 배경 컬러 리스트 (여기서 수정해!)
+  // 1. 사용할 배경 컬러 리스트 (여기서 수정해!)
   const colorList = ['#3182f6', '#7e57c2', '#26a69a', '#ff7043', '#42a5f5'];
 
   // 배경 도형 랜덤 생성
@@ -25,14 +25,6 @@ const Home = () => {
       color: colorList[Math.floor(Math.random() * colorList.length)]
     }));
   }, []);
-
-  // 탭 및 더보기 상태 관리
-  const [activeTab, setActiveTab] = useState('new');
-  const [visibleCount, setVisibleCount] = useState(8);
-
-  // 필터링 로직
-  const filteredList = portfolioList.filter(item => item.category === activeTab);
-  const displayList = filteredList.slice(0, visibleCount);
 
   // 보안 연락처 정보
   const secretPhone = "MDEwLjM3NjYuNTg4MA==";
@@ -52,6 +44,17 @@ const Home = () => {
       setContactInfo(prev => ({ ...prev, email: window.atob(secretMail), isMailShow: true }));
     }
   };
+
+  // 경험 섹션에서 더보기 상태 관리
+  const [visibleExpCount, setVisibleExpCount] = useState(2); // 기본 2개 노출
+
+  // 탭 및 더보기 상태 관리
+  const [activeTab, setActiveTab] = useState('new');
+  const [visibleCount, setVisibleCount] = useState(8);
+
+  // 필터링 로직
+  const filteredList = portfolioList.filter(item => item.category === activeTab);
+  const displayList = filteredList.slice(0, visibleCount);
 
   return (
     <div className="home-wrapper">
@@ -141,7 +144,8 @@ const Home = () => {
           <div className="container">
             <h2 className="section-title">Work Experience</h2>
             <div className="exp-timeline">
-              {experienceList.map((exp) => (
+              {/* slice를 사용해 노출 개수 조절 */}
+              {experienceList.slice(0, visibleExpCount).map((exp) => (
                 <motion.article 
                   key={exp.id}
                   className="exp-item"
@@ -164,6 +168,18 @@ const Home = () => {
                 </motion.article>
               ))}
             </div>
+
+            {/* 더보기 버튼: 전체 개수보다 적게 보이고 있을 때만 노출 */}
+            {visibleExpCount < experienceList.length && (
+              <div className="more-btn-wrap" style={{ marginTop: '40px' }}>
+                <button 
+                  className="more-btn" 
+                  onClick={() => setVisibleExpCount(prev => prev + 3)} // 클릭 시 3개씩 추가 노출
+                >
+                  더보기 (More)
+                </button>
+              </div>
+            )}
           </div>
         </section>
 

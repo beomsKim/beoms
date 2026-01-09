@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { MENU_DATA } from '../../data/menuData';
+import { MENU_DATA, WAITING_COMMENTS } from '../../data/menuData';
 import './lunchRoulette.scss';
 
 const Roulette = () => {
@@ -29,7 +29,49 @@ const Roulette = () => {
           : { name: '추천 메뉴 없음', comment: '다시 골라볼까요?' };
       setResult(finalPick);
       setIsSpinning(false);
-    }, 1800);
+    }, 1000);
+  };
+  
+  // URL 생성 함수
+  const openMap = (platform) => {
+    if (!result) return;
+
+    const menuName = result.name;
+    
+    // 위치 정보를 가져오는 함수
+    const getUrl = (lat, lng) => {
+      // 위도(lat), 경도(lng)가 있으면 검색어에 포함하거나 좌표 기반 URL 생성
+      // 대부분의 지도 앱은 검색어에 '근처'만 붙여도 현재 브라우저 위치를 자동으로 참고
+      const query = encodeURIComponent(`근처 ${menuName} 맛집`);
+      
+      if (platform === 'naver') {
+        // 좌표가 있다면 좌표 기반으로 검색 (더 정확함)
+        return lat && lng 
+          ? `https://map.naver.com/v5/search/${query}?c=${lng},${lat},15,0,0,0,dh`
+          : `https://map.naver.com/v5/search/${query}`;
+      } else {
+        return lat && lng
+          ? `https://www.google.com/maps/search/${query}/@${lat},${lng},15z`
+          : `https://www.google.com/maps/search/${query}`;
+      }
+    };
+
+    // 브라우저 GPS 활용
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          window.open(getUrl(latitude, longitude), '_blank');
+        },
+        () => {
+          // 위치 권한 거부 시 그냥 일반 검색 열기
+          window.open(getUrl(), '_blank');
+        }
+      );
+    } else {
+      // GPS 지원 안 하는 브라우저일 때
+      window.open(getUrl(), '_blank');
+    }
   };
 
   return (
@@ -125,7 +167,18 @@ const Roulette = () => {
             </div>
 
             {!isSpinning && result && (
-              <p className="result-comment">{result.comment}</p>
+              <>
+                <p className="result-comment">{result.comment}</p>
+                
+                <div className="map-buttons" style={{ display: 'flex', gap: '8px', justifyContent: 'center', marginTop: '16px' }}>
+                  <button onClick={() => openMap('naver')} className="map-btn naver">
+                    네이버 지도 📍
+                  </button>
+                  <button onClick={() => openMap('google')} className="map-btn google">
+                    구글 지도 🗺️
+                  </button>
+                </div>
+              </>
             )}
 
             <button
@@ -136,8 +189,16 @@ const Roulette = () => {
               {result ? '다시 돌리기' : '룰렛 돌리기'}
             </button>
 
-            <div className="go-main" onClick={() => navigate('/')}>
-              메인으로 가기
+            <div 
+              className="go-main" 
+              onClick={() => {
+                setStep(1);           // 1단계(메뉴 입력창)로 이동
+                setYesterdayMenu(''); // (선택) 입력했던 메뉴 지우기
+                setHeavy(null);       // (선택) 선택했던 타입 초기화
+                setResult(null);      // (선택) 결과 초기화
+              }}
+            >
+              다시 고르러 가기
             </div>
           </motion.div>
         )}
