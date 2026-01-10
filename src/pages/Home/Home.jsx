@@ -209,7 +209,11 @@ const Home = () => {
                   <div className="card-body">
                     <header className="card-header">
                       <span className="work-date">{item.date}</span>
-                      <span className="contribution">기여도 {item.contribution}</span>
+                      {item.contribution && (
+                        <span className="contribution">
+                          <span>기여도</span> {item.contribution}
+                        </span>
+                      )}
                     </header>
                     <h3>{item.title}</h3>
                     <div className="work-info">

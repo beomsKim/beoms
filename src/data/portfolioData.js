@@ -42,27 +42,30 @@ import soonsungImg from "../assets/images/portfolio/soonsung.jpg";
 import mjobgyImg from "../assets/images/portfolio/mjobgy.jpg";
 import ganasteelImg from "../assets/images/portfolio/ganasteel.jpg";
 import admonImg from "../assets/images/portfolio/admon.jpg";
-
-
-
-
-
-
+import nongshimImg from "../assets/images/portfolio/nongsim.JPG";
+import foodismallImg from "../assets/images/portfolio/foodsmall.JPG";
+import amosImg from "../assets/images/portfolio/amospro.JPG";
+import ayuncheproImg from "../assets/images/portfolio/ayunchepro.JPG";
+import ayuncheImg from "../assets/images/portfolio/ayunche.JPG";
+import intimeImg from "../assets/images/portfolio/pickmaker.jpg"; // 인타임도 같은 이미지 쓰더라구!
+import drImg from "../assets/images/portfolio/drceviang.jpg";
+import hsgImg from "../assets/images/portfolio/hsg-cloud.jpg";
 
 
 export const portfolioList = [
+  // 신규 구축 프로젝트 리스트 1~
   {
     id: 1,
-    category: "new",
-    title: "오늘 뭐 먹지? 점심 룰렛",
+    category: "new", // 신규 구축 프로젝트
+    title: "오늘 뭐 먹지? 점심 룰렛", // 프로젝트 명
     date: "2026.01 ~ 2026.01", // 작업 날짜
     contribution: "100%", // 기여도
-    role: "기획, 디자인, 프론트엔드 개발", // 역할/양
-    description: "결정 장애를 해결해 주는 메뉴 추천 서비스입니다.",
-    tags: ["React", "Framer-motion", "SCSS"],
-    path: "/lunch",
-    isExternal: false,
-    image: lunchRouletteImg
+    role: "기획, 디자인, 프론트엔드 개발", // 맡은 역할
+    description: "결정 장애를 해결해 주는 메뉴 추천 서비스입니다.", // 간단한 설명
+    tags: ["React", "Framer-motion", "SCSS"], // 사용 기술
+    path: "/lunch", // 이동 경로
+    isExternal: false,  // 외부 링크 여부
+    image: lunchRouletteImg // 대표 이미지
   },
   {
     id: 2,
@@ -125,7 +128,7 @@ export const portfolioList = [
     role: "PL",
     description: "샹프리 제품 판매를 위한 쇼핑몰입니다.",
     tags: ["CAFE24", "SCSS"],
-    path: "https://sunpohara.com/",
+    path: "https://shangpree.com/",
     isExternal: true,
     image: shangpreeImg
   },
@@ -234,7 +237,7 @@ export const portfolioList = [
     contribution: "100%",
     role: "프론트엔드 개발",
     description: "아토락 제품 소개를 위한 반응형 사이트입니다.",
-    tags: ["HTML", "CSS", "JS"],
+    tags: ["HTML", "CSS", "jQuery"],
     // path: "http://atorak.co.kr/",
     path: "/",
     isExternal: false,
@@ -289,7 +292,7 @@ export const portfolioList = [
     role: "퍼블리싱",
     description: "고려자동차의 제품 및 회사 소개를 위한 반응형 사이트입니다.",
     tags: ["HTML", "CSS", "JS", "jQuery"],
-    path: "http://www.kaif.or.kr/",
+    path: "http://www.talgut.com/",
     isExternal: true,
     image: talgutImg
   },
@@ -302,7 +305,7 @@ export const portfolioList = [
     role: "퍼블리싱",
     description: "나카무라 아카데미 제품 및 회사 소개를 위한 반응형 사이트입니다.",
     tags: ["HTML", "CSS", "JS", "jQuery"],
-    path: "http://www.nakamurakorea.or.kr/",
+    path: "https://www.nakamurakorea.co.kr/",
     isExternal: true,
     image: nakamuraImg
   },
@@ -337,19 +340,6 @@ export const portfolioList = [
   {
     id: 22,
     category: "new",
-    title: "어반 브룩(URBAN BROOK)",
-    date: "2017.10 ~ 2017.10",
-    contribution: "100%",
-    role: "퍼블리싱",
-    description: "어반 브룩 소개를 위한 반응형 사이트입니다.",
-    tags: ["HTML", "CSS", "JS", "jQuery"],
-    path: "http://pungmuamc.co.kr/",
-    isExternal: true,
-    image: pungmuImg
-  },
-  {
-    id: 23,
-    category: "new",
     title: "풍무역세권개발자산관리",
     date: "2017.09 ~ 2017.09",
     contribution: "100%",
@@ -361,20 +351,21 @@ export const portfolioList = [
     image: pungmuImg
   },
   {
-    id: 24,
+    id: 23,
     category: "new",
     title: "똑똑한검진 리뉴얼",
     date: "2017.09 ~ 2017.09",
     contribution: "60%",
     role: "퍼블리싱",
-    description: "똑똑한검진 소개를 위한 반응형 사이트입니다.",
+    description: "똑똑한검진 소개 및 예약을 위한 반응형 사이트입니다.",
     tags: ["HTML", "CSS", "JS", "jQuery"],
-    path: "https://healthsmart.kr:5004/",
+    // path: "https://healthsmart.kr:5004/",
+    path: "http://mdesign.nayana.kr/?c=info",
     isExternal: true,
     image: smart_checkupImg
   },
   {
-    id: 25,
+    id: 24,
     category: "new",
     title: "퓨어락",
     date: "2017.08 ~ 2017.08",
@@ -387,7 +378,7 @@ export const portfolioList = [
     image: purelandImg
   },
   {
-    id: 26,
+    id: 25,
     category: "new",
     title: "CNF",
     date: "2017.08 ~ 2017.08",
@@ -400,7 +391,7 @@ export const portfolioList = [
     image: cnfImg
   },
   {
-    id: 27,
+    id: 26,
     category: "new",
     title: "뉴샘",
     date: "2017.08 ~ 2017.08",
@@ -414,7 +405,7 @@ export const portfolioList = [
     image: newSeamImg
   },
   {
-    id: 28,
+    id: 27,
     category: "new",
     title: "라온제나스피치",
     date: "2017.08 ~ 2017.08",
@@ -427,7 +418,7 @@ export const portfolioList = [
     image: laingangImg
   },
   {
-    id: 29,
+    id: 28,
     category: "new",
     title: "세경화학",
     date: "2017.07 ~ 2017.07",
@@ -440,7 +431,7 @@ export const portfolioList = [
     image: SekyungImg
   },
   {
-    id: 30,
+    id: 29,
     category: "new",
     title: "라라펠",
     date: "2017.07 ~ 2017.07",
@@ -453,7 +444,7 @@ export const portfolioList = [
     image: lalafelImg
   },
   {
-    id: 31,
+    id: 30,
     category: "new",
     title: "똑똑한산모",
     date: "2017.06 ~ 2017.06",
@@ -467,7 +458,7 @@ export const portfolioList = [
     image: smart_motherImg
   },
   {
-    id: 32,
+    id: 31,
     category: "new",
     title: "검마스터",
     date: "2017.06 ~ 2017.06",
@@ -481,206 +472,364 @@ export const portfolioList = [
     image: gummasterImg
   },
   {
-    id: 33,
+    id: 32,
     category: "new",
-    title: "",
-    date: "2017.06 ~ 2017.06",
+    title: "팩앤팩",
+    date: "2017.05 ~ 2017.05",
     contribution: "100%",
     role: "퍼블리싱",
-    description: "서비스 소개를 위한 사이트입니다.",
-    tags: ["HTML", "CSS", "JS", "jQuery"],
-    path: "",
+    description: "제품 판매를 위한 쇼핑몰입니다.",
+    tags: ["CAFE24"],
+    // path: "http://factnpack.co.kr/",
+    path: "/",
     isExternal: false,
     image: factnpackImg
   },
   {
-    id: 34,
+    id: 33,
     category: "new",
-    title: "",
-    date: "2017.06 ~ 2017.06",
-    contribution: "100%",
+    title: "라닉스",
+    date: "2017.04 ~ 2017.04",
+    contribution: "30%",
     role: "퍼블리싱",
-    description: "서비스 소개를 위한 사이트입니다.",
+    description: "회사 및 제품 소개를 위한 사이트입니다.",
     tags: ["HTML", "CSS", "JS", "jQuery"],
-    path: "",
+    // path: "http://www.ranix.co.kr/ko/",
+    path: "/",
     isExternal: false,
     image: ranixImg
   },
   {
-    id: 35,
+    id: 34,
     category: "new",
-    title: "",
-    date: "2017.06 ~ 2017.06",
+    title: "건국대학교 정보통신대학원",
+    date: "2017.03 ~ 2017.03",
     contribution: "100%",
     role: "퍼블리싱",
-    description: "서비스 소개를 위한 사이트입니다.",
+    description: "모바일노트 서비스입니다.",
     tags: ["HTML", "CSS", "JS", "jQuery"],
-    path: "",
+    // path: "https://werkuit.com:3000/",
+    path: "/",
     isExternal: false,
     image: KonkukImg
   },
   {
-    id: 36,
+    id: 35,
     category: "new",
-    title: "",
-    date: "2017.06 ~ 2017.06",
+    title: "VP코리아",
+    date: "2017.02 ~ 2017.02",
     contribution: "100%",
     role: "퍼블리싱",
     description: "서비스 소개를 위한 사이트입니다.",
     tags: ["HTML", "CSS", "JS", "jQuery"],
-    path: "",
+    // path: "http://opti-cube.co.kr/",
+    path: "/",
     isExternal: false,
     image: vpkoreaImg
   },
   {
-    id: 37,
+    id: 36,
     category: "new",
-    title: "",
-    date: "2017.06 ~ 2017.06",
+    title: "아이엠플러스",
+    date: "2017.02 ~ 2017.02",
     contribution: "100%",
     role: "퍼블리싱",
-    description: "서비스 소개를 위한 사이트입니다.",
-    tags: ["HTML", "CSS", "JS", "jQuery"],
-    path: "",
+    description: "제품 판매를 위한 쇼핑몰입니다.",
+    tags: ["CAFE24"],
+    // path: "http://iamplus.co.kr/",
+    path: "/",
     isExternal: false,
     image: iamPlusImg
   },
   {
-    id: 38,
+    id: 37,
     category: "new",
-    title: "",
-    date: "2017.06 ~ 2017.06",
+    title: "라쉬움 어학원",
+    date: "2017.01 ~ 2017.01",
     contribution: "100%",
     role: "퍼블리싱",
-    description: "서비스 소개를 위한 사이트입니다.",
+    description: "맑은소프트(타사) 솔루션을 활용한 교육 서비스입니다.",
     tags: ["HTML", "CSS", "JS", "jQuery"],
-    path: "",
-    isExternal: false,
+    path: "http://www.lyceumlli.com/main/index.jsp",
+    isExternal: true,
     image: lyceumImg
   },
   {
-    id: 39,
+    id: 38,
     category: "new",
-    title: "",
-    date: "2017.06 ~ 2017.06",
-    contribution: "100%",
+    title: "히든애드",
+    date: "2017.01 ~ 2017.01",
+    contribution: "20%",
     role: "퍼블리싱",
-    description: "서비스 소개를 위한 사이트입니다.",
+    description: "회사 및 서비스 소개를 위한 반응형 사이트입니다.",
     tags: ["HTML", "CSS", "JS", "jQuery"],
-    path: "",
+    // path: "http://www.hiddenad.co.kr/",
+    path: "/",
     isExternal: false,
     image: hiddenadImg
   },
   {
-    id: 40,
+    id: 39,
     category: "new",
-    title: "",
-    date: "2017.06 ~ 2017.06",
+    title: "비즈아이앤에프",
+    date: "2017.01 ~ 2017.01",
     contribution: "100%",
     role: "퍼블리싱",
-    description: "서비스 소개를 위한 사이트입니다.",
+    description: "회사 및 서비스 소개를 위한 반응형 사이트입니다.",
     tags: ["HTML", "CSS", "JS", "jQuery"],
-    path: "",
+    // path: "http://vizinf.com/",
+    path: "/",
     isExternal: false,
     image: vizinfImg
   },
   {
+    id: 40,
+    category: "new",
+    title: "순성",
+    date: "2016.12 ~ 2016.12",
+    contribution: "30%",
+    role: "퍼블리싱",
+    description: "제품 판매를 위한 쇼핑몰입니다.",
+    tags: ["CAFE24"],
+    path: "http://www.soonsungmall.com/",
+    isExternal: true,
+    image: soonsungImg
+  },
+  {
     id: 41,
     category: "new",
-    title: "",
-    date: "2017.06 ~ 2017.06",
-    contribution: "100%",
+    title: "민전산부인과",
+    date: "2016.12 ~ 2016.12",
+    contribution: "40%",
     role: "퍼블리싱",
-    description: "서비스 소개를 위한 사이트입니다.",
+    description: "병원 및 서비스 소개를 위한 사이트입니다.",
     tags: ["HTML", "CSS", "JS", "jQuery"],
-    path: "",
-    isExternal: false,
-    image: soonsungImg
+    path: "http://www.mjobgy.co.kr/",
+    isExternal: true,
+    image: mjobgyImg
   },
   {
     id: 42,
     category: "new",
-    title: "",
-    date: "2017.06 ~ 2017.06",
+    title: "가나스틸",
+    date: "2016.11 ~ 2016.11",
     contribution: "100%",
     role: "퍼블리싱",
-    description: "서비스 소개를 위한 사이트입니다.",
+    description: "회사 및 서비스 소개를 위한 사이트입니다.",
     tags: ["HTML", "CSS", "JS", "jQuery"],
-    path: "",
-    isExternal: false,
-    image: mjobgyImg
+    path: "http://www.ganasteel.com/",
+    isExternal: true,
+    image: ganasteelImg
   },
   {
     id: 43,
     category: "new",
-    title: "",
-    date: "2017.06 ~ 2017.06",
-    contribution: "100%",
+    title: "애드몬",
+    date: "2016.010 ~ 2016.010",
+    contribution: "70%",
     role: "퍼블리싱",
-    description: "서비스 소개를 위한 사이트입니다.",
+    description: "회사 및 서비스 소개를 위한 반응형 사이트입니다.",
     tags: ["HTML", "CSS", "JS", "jQuery"],
-    path: "",
-    isExternal: false,
-    image: ganasteelImg
-  },
-  {
-    id: 44,
-    category: "new",
-    title: "",
-    date: "2017.06 ~ 2017.06",
-    contribution: "100%",
-    role: "퍼블리싱",
-    description: "서비스 소개를 위한 사이트입니다.",
-    tags: ["HTML", "CSS", "JS", "jQuery"],
-    path: "",
-    isExternal: false,
+    path: "http://www.admon.co.kr/",
+    isExternal: true,
     image: admonImg
   },
 
 
-  
-
-
-
-
-
-  {
-    id: 98,
-    category: "maintain",
-    title: "픽메이커",
-    date: "2022.04 ~ 2022.5",
-    contribution: "100%",
-    role: "프론트엔드 개발",
-    description: "인타임 게임즈 회사 소개 및 홍보를 위한 웹사이트입니다.",
-    tags: ["Gulp", "HTML", "CSS", "JS"],
-    path: "/",
-    isExternal: true,
-    image: pickmakerImg
-  },
-  {
-    id: 99,
-    category: "maintain",
-    title: "기존 포트폴리오",
-    date: "2017.06 ~ 2026.01",
-    contribution: "100%",
-    role: "기획, 디자인, 프론트엔드 개발",
-    description: "Php를 기반으로 활용해 제작한 개인 포트폴리오 사이트입니다.",
-    tags: ["HTML", "SCSS", "JS"],
-    path: "http://choolooss89.dothome.co.kr/",
-    isExternal: true,
-    image: myPortfolioImg
-  },
+  // 유지보수 프로젝트 리스트 100~
   {
     id: 100,
     category: "maintain",
-    title: "리더마인 쇼핑몰 유지보수",
+    title: "농심몰",
     date: "2024.06 ~ 2024.10",
-    contribution: "80%",
-    role: "퍼블리싱 팀 리딩 및 신규 페이지 개발",
-    description: "Cafe24 기반 모바일/PC 쇼핑몰 유지보수 및 운영을 담당했습니다.",
-    tags: ["HTML", "SCSS", "JS"],
-    path: "http://choolooss89.dothome.co.kr/",
+    role: "카페24 유지보수 및 이벤트 페이지 개발",
+    description: "카페24 기반의 농심 공식 몰 유지보수와 시즌별 이벤트 페이지 제작을 담당했습니다.",
+    tags: ["Cafe24", "HTML", "SCSS"],
+    path: "https://nongshimmall.com/",
     isExternal: true,
-    image: ""
+    image: nongshimImg
   },
+  {
+    id: 101,
+    category: "maintain",
+    title: "후디스몰",
+    date: "2024.06 ~ 2024.10",
+    role: "카페24 유지보수",
+    description: "후디스 공식 쇼핑몰의 UI 개선 및 기능 유지보수를 진행했습니다.",
+    tags: ["Cafe24", "HTML", "SCSS"],
+    path: "https://foodismall.com/",
+    isExternal: true,
+    image: foodismallImg
+  },
+  {
+    id: 102,
+    category: "maintain",
+    title: "아모스프로페셔널",
+    date: "2024.06 ~ 2024.10",
+    role: "카페24 유지보수 및 이벤트 운영",
+    description: "브랜드 아이덴티티에 맞춘 이벤트 페이지 구현과 사이트 안정화를 담당했습니다.",
+    tags: ["Cafe24", "JS", "CSS"],
+    path: "https://amosprofessional.com/",
+    isExternal: true,
+    image: amosImg
+  },
+  {
+    id: 103,
+    category: "maintain",
+    title: "아윤채프로몰",
+    date: "2024.06 ~ 2024.10",
+    role: "카페24 유지보수 및 이벤트 개발",
+    description: "아윤채 프로페셔널 몰의 운영 및 프로모션 페이지 퍼블리싱을 진행했습니다.",
+    tags: ["Cafe24", "HTML", "JS"],
+    path: "https://ayunchepro.com/",
+    isExternal: true,
+    image: ayuncheproImg
+  },
+  {
+    id: 104,
+    category: "maintain",
+    title: "아윤채몰",
+    date: "2024.06 ~ 2024.10",
+    role: "카페24 유지보수 및 이벤트 개발",
+    description: "아윤채 공식 브랜드몰의 상시 유지보수 및 이벤트 관리를 담당했습니다.",
+    tags: ["Cafe24", "HTML", "JS"],
+    path: "https://ayunche.com/",
+    isExternal: true,
+    image: ayuncheImg
+  },
+  {
+    id: 105,
+    category: "maintain",
+    title: "픽메이커",
+    date: "2021.05 ~ 2023.11",
+    role: "프론트엔드 개발 (Pc/Mobile)",
+    description: "Vue2 기반 실시간 스포츠 베팅 게임 서비스의 유지보수 및 신규 이벤트를 개발했습니다.",
+    tags: ["Vue2", "SCSS", "JS"],
+    path: "/",
+    isExternal: false,
+    image: pickmakerImg
+  },
+  {
+    id: 106,
+    category: "maintain",
+    title: "스포츠 스코어",
+    date: "2023.05 ~ 2023.11",
+    role: "Vue 환경 유지보수",
+    description: "하이브리드 앱 환경에서의 Vue2 기반 유지보수 작업을 수행했습니다.",
+    tags: ["Vue2", "Hybrid App"],
+    path: "/",
+    isExternal: false,
+    image: sportsscoreImg
+  },
+  {
+    id: 107,
+    category: "maintain",
+    title: "인타임 게임즈",
+    date: "2023.05 ~ 2023.11",
+    role: "Gulp 환경 유지보수",
+    description: "원페이지 반응형 웹사이트의 유지보수 및 빌드 환경 관리를 담당했습니다.",
+    tags: ["Gulp", "HTML", "JS"],
+    path: "/",
+    isExternal: false,
+    image: intimeImg
+  },
+  {
+    id: 108,
+    category: "maintain",
+    title: "허브레쥬메",
+    date: "2019.10 ~ 2020.03",
+    role: "반응형 웹 유지보수",
+    description: "Html, CSS, jQuery 기반의 반응형 사이트 기능 개선을 담당했습니다.",
+    tags: ["jQuery", "Responsive"],
+    path: "/",
+    isExternal: false,
+    image: herb_resumeImg
+  },
+  {
+    id: 109,
+    category: "maintain",
+    title: "AphrozoneVn",
+    date: "2019.06 ~ 2020.03",
+    role: "그누보드 반응형 유지보수",
+    description: "그누보드 솔루션 기반의 반응형 웹사이트 유지보수를 진행했습니다.",
+    tags: ["GnuBoard", "jQuery"],
+    // path: "http://aphrozone3.cafe24.com/",
+    path: "/",
+    isExternal: false,
+    image: aphrozoneImg
+  },
+  {
+    id: 110,
+    category: "maintain",
+    title: "아토락",
+    date: "2018.09 ~ 2020.03",
+    role: "원페이지 반응형 유지보수",
+    description: "브랜드 원페이지 사이트의 퍼블리싱 유지보수를 담당했습니다.",
+    tags: ["HTML", "CSS", "jQuery"],
+    // path: "http://atorak.co.kr/",
+    path: "/",
+    isExternal: false,
+    image: atorakImg
+  },
+  {
+    id: 111,
+    category: "maintain",
+    title: "루비셀",
+    date: "2018.07 ~ 2020.03",
+    role: "Pc / Mobile 유지보수",
+    description: "루비셀 공식 웹사이트의 Pc 및 Mobile 버전 유지보수를 담당했습니다.",
+    tags: ["HTML", "CSS", "jQuery"],
+    // path: "http://ruby-cell.co.kr/",
+    path: "/",
+    isExternal: false,
+    image: rubyCellImg
+  },
+  {
+    id: 112,
+    category: "maintain",
+    title: "다산씨엔텍 다국어",
+    date: "2018.05 ~ 2020.03",
+    role: "카페24 반응형 테마 유지보수",
+    description: "다국어 지원 쇼핑몰의 반응형 테마 커스텀 및 유지보수를 수행했습니다.",
+    tags: ["Cafe24", "Multilingual"],
+    path: "http://www.dasancntech.com/",
+    isExternal: true,
+    image: dasanImg
+  },
+  {
+    id: 113,
+    category: "maintain",
+    title: "닥터세비앙의원",
+    date: "2018.03 ~ 2020.03",
+    role: "반응형 그누보드 유지보수",
+    description: "의료 서비스 사이트의 그누보드 기반 유지보수를 진행했습니다.",
+    tags: ["GnuBoard", "jQuery"],
+    path: "http://www.drceviang.com/",
+    isExternal: true,
+    image: drImg
+  },
+  {
+    id: 114,
+    category: "maintain",
+    title: "현성그룹",
+    date: "2018.03 ~ 2020.03",
+    role: "카페24 반응형 테마 유지보수",
+    description: "그룹사 홍보 사이트의 유지보수 및 관리를 담당했습니다.",
+    tags: ["Cafe24", "HTML", "CSS"],
+    path: "http://www.hsg-cloud.com/",
+    isExternal: true,
+    image: hsgImg
+  },
+  {
+    id: 115,
+    category: "maintain",
+    title: "원자력산업회의 리뉴얼",
+    date: "2016.10 ~ 2017.11",
+    role: "반응형 웹 유지보수",
+    description: "협회 사이트의 반응형 UI 개편 및 유지보수를 진행했습니다.",
+    tags: ["HTML", "CSS", "jQuery"],
+    path: "http://www.kaif.or.kr/",
+    isExternal: true,
+    image: kaifImg
+  }
 ];

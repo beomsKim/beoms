@@ -12,13 +12,14 @@
 
 .home-wrapper {
   position: relative;
-  overflow: hidden;
   z-index: 1;
 
   // 컨텐츠 레이어
   .content-layer {
+    overflow: hidden;
     position: relative;
-    z-index: 1; // 배경보다 위로 올림
+    z-index: 1;
+    max-width: $max-width;
   }
 
   .bg-shape {
@@ -31,7 +32,7 @@
 
   // 공통 컨테이너
   .container {
-    max-width: 1200px;
+    // max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 
