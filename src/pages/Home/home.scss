@@ -11,15 +11,17 @@
 }
 
 .home-wrapper {
+  overflow: hidden;
   position: relative;
   z-index: 1;
+  width: 100%;
 
   // 컨텐츠 레이어
   .content-layer {
-    overflow: hidden;
     position: relative;
     z-index: 1;
     max-width: $max-width;
+    margin: 0 auto;
   }
 
   .bg-shape {
