@@ -438,6 +438,49 @@
       }
     }
 
+    /* 서비스 종료 카드 스타일 */
+    .portfolio-card.closed {
+      filter: grayscale(0.8); /* 흑백 느낌 */
+      opacity: 0.8;
+
+      &:hover {
+        @media (min-width: 1024px) {
+          .card-image img {
+            transform: scale(1);
+          }
+        }
+      }
+    }
+    /* 이미지 위 오버레이 */
+    .card-image {
+      position: relative;
+    }
+
+    .closed-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    /* 제목 옆 배지 */
+    .closed-badge {
+      font-size: 0.7rem;
+      background: #666;
+      color: #fff;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-left: 8px;
+      vertical-align: middle;
+      text-transform: uppercase;
+    }
+
     .more-btn-wrap {
       display: flex;
       justify-content: center;

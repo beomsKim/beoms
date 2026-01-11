@@ -55,7 +55,6 @@
     }
 
     .start-btn {
-      background: linear-gradient(135deg, $primary, darken($primary, 10%));
       box-shadow: 0 10px 20px rgba($primary, 0.2);
     }
   }
@@ -215,7 +214,6 @@
       opacity: 0.5;
       &.ready {
         opacity: 1;
-        background: linear-gradient(135deg, $primary, darken($primary, 10%));
         box-shadow: 0 10px 20px rgba($primary, 0.2);
       }
     }

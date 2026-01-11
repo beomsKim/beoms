@@ -64,7 +64,8 @@ export const portfolioList = [
     description: "결정 장애를 해결해 주는 메뉴 추천 서비스입니다.", // 간단한 설명
     tags: ["React", "Framer-motion", "SCSS"], // 사용 기술
     path: "/lunch", // 이동 경로
-    isExternal: false,  // 외부 링크 여부
+    isExternal: false,  // 외부 링크 여부 false 내부 / true 외부
+    isClosed: false, // 서비스 중단 여부 false 운영중 / true 중단
     image: lunchRouletteImg // 대표 이미지
   },
   {
@@ -78,6 +79,7 @@ export const portfolioList = [
     tags: ["HTML", "CSS", "JS"],
     path: "http://choolooss89.dothome.co.kr/",
     isExternal: true,
+    isClosed: false,
     image: myPortfolioImg
   },
   {
@@ -91,6 +93,7 @@ export const portfolioList = [
     tags: ["CAFE24"],
     path: "https://s15883112.cafe24.com/",
     isExternal: true,
+    isClosed: false,
     image: s1Img
   },
   {
@@ -98,12 +101,13 @@ export const portfolioList = [
     category: "new",
     title: "진로토닉몰",
     date: "2024.06 ~ 2024.10",
-    // contribution: "100%",
+    contribution: "",
     role: "PL",
     description: "진로의 제품 판매를 위한 쇼핑몰입니다.",
     tags: ["ShopBy", "React", "SCSS"],
     path: "https://www.jinrotonic.com/",
     isExternal: true,
+    isClosed: false,
     image: jinrotonicImg
   },
   {
@@ -111,12 +115,13 @@ export const portfolioList = [
     category: "new",
     title: "데이제스트-선포하라 공식몰",
     date: "2024.06 ~ 2024.10",
-    // contribution: "100%",
+    contribution: "",
     role: "PL",
     description: "제품 판매를 위한 쇼핑몰입니다.",
     tags: ["CAFE24", "SCSS"],
     path: "https://sunpohara.com/",
     isExternal: true,
+    isClosed: false,
     image: daygestSunpoharaImg
   },
   {
@@ -124,12 +129,13 @@ export const portfolioList = [
     category: "new",
     title: "샹프리 공식몰",
     date: "2024.06 ~ 2024.10",
-    // contribution: "100%",
+    contribution: "",
     role: "PL",
     description: "샹프리 제품 판매를 위한 쇼핑몰입니다.",
     tags: ["CAFE24", "SCSS"],
     path: "https://shangpree.com/",
     isExternal: true,
+    isClosed: false,
     image: shangpreeImg
   },
   {
@@ -141,9 +147,9 @@ export const portfolioList = [
     role: "프론트엔드 개발",
     description: "실시간 스포츠 경기 점수 확인이 가능한 하이브리드 앱입니다.",
     tags: ["Vue", "SCSS"],
-    // path: "/https://intimegames.com/",
-    path: "/",
+    path: "/https://intimegames.com/",
     isExternal: false,
+    isClosed: true,
     image: sportsscoreImg
   },
   {
@@ -155,9 +161,9 @@ export const portfolioList = [
     role: "프론트엔드 개발",
     description: "인타임 게임즈 회사 소개 및 홍보를 위한 반응형 웹사이트입니다.",
     tags: ["Gulp", "HTML", "CSS", "JS"],
-    // path: "/https://intimegames.com/",
-    path: "/",
+    path: "/https://intimegames.com/",
     isExternal: false,
+    isClosed: true,
     image: pickmakerImg
   },
   {
@@ -169,9 +175,9 @@ export const portfolioList = [
     role: "프론트엔드 개발",
     description: "제단법인 한국IFCJ 소개 및 홍보를 위한 반응형 웹사이트입니다.",
     tags: ["Bootstrap"],
-    // path: "http://www.ifcj.kr/",
-    path: "/",
+    path: "http://www.ifcj.kr/",
     isExternal: false,
+    isClosed: false,
     image: ifcjImg
   },
   {
@@ -185,6 +191,7 @@ export const portfolioList = [
     tags: ["GodoMall"],
     path: "https://www.benjaminmoore.co.kr/",
     isExternal: true,
+    isClosed: false,
     image: benjaminmooreImg
   },
   {
@@ -196,9 +203,9 @@ export const portfolioList = [
     role: "프론트엔드 개발",
     description: "독립마켓 제품 판매를 위한 쇼핑몰입니다.",
     tags: ["MakeShop"],
-    // path: "http://dokripmarket.net/",
-    path: "/",
+    path: "http://dokripmarket.net/",
     isExternal: false,
+    isClosed: true,
     image: happyfarmImg
   },
   {
@@ -210,9 +217,9 @@ export const portfolioList = [
     role: "프론트엔드 개발",
     description: "허브레쥬메 제품 소개를 위한 Pc/Mobile 사이트입니다.",
     tags: ["HTML", "CSS", "JS"],
-    // path: "http://aphrozone2.cafe24.com/",
-    path: "/",
+    path: "http://aphrozone2.cafe24.com/",
     isExternal: false,
+    isClosed: true,
     image: herb_resumeImg
   },
   {
@@ -224,9 +231,9 @@ export const portfolioList = [
     role: "프론트엔드 개발",
     description: "아프로존 베트남 제품 및 회사 소개를 위한 반응형 사이트입니다.",
     tags: ["GnuBoard"],
-    // path: "http://aphrozone3.cafe24.com/",
-    path: "/",
+    path: "http://aphrozone3.cafe24.com/",
     isExternal: false,
+    isClosed: true,
     image: aphrozoneImg
   },
   {
@@ -238,9 +245,9 @@ export const portfolioList = [
     role: "프론트엔드 개발",
     description: "아토락 제품 소개를 위한 반응형 사이트입니다.",
     tags: ["HTML", "CSS", "jQuery"],
-    // path: "http://atorak.co.kr/",
-    path: "/",
+    path: "http://atorak.co.kr/",
     isExternal: false,
+    isClosed: true,
     image: atorakImg
   },
   {
@@ -252,9 +259,9 @@ export const portfolioList = [
     role: "프론트엔드 개발",
     description: "루비셀 제품 소개를 위한 Pc/Mobile 사이트입니다.",
     tags: ["HTML", "CSS", "JS"],
-    // path: "http://ruby-cell.co.kr/",
-    path: "/",
+    path: "http://ruby-cell.co.kr/",
     isExternal: false,
+    isClosed: true,
     image: rubyCellImg
   },
   {
@@ -268,6 +275,7 @@ export const portfolioList = [
     tags: ["CAFE24"],
     path: "http://www.dasancntech.com/",
     isExternal: true,
+    isClosed: false,
     image: dasanImg
   },
   {
@@ -281,6 +289,7 @@ export const portfolioList = [
     tags: ["HTML", "CSS", "JS", "jQuery"],
     path: "http://www.kaif.or.kr/",
     isExternal: true,
+    isClosed: false,
     image: kaifImg
   },
   {
@@ -294,6 +303,7 @@ export const portfolioList = [
     tags: ["HTML", "CSS", "JS", "jQuery"],
     path: "http://www.talgut.com/",
     isExternal: true,
+    isClosed: false,
     image: talgutImg
   },
   {
@@ -307,6 +317,7 @@ export const portfolioList = [
     tags: ["HTML", "CSS", "JS", "jQuery"],
     path: "https://www.nakamurakorea.co.kr/",
     isExternal: true,
+    isClosed: false,
     image: nakamuraImg
   },
   {
@@ -318,9 +329,9 @@ export const portfolioList = [
     role: "퍼블리싱",
     description: "타이허 식당 소개를 위한 반응형 사이트입니다.",
     tags: ["HTML", "CSS", "JS", "jQuery"],
-    // path: "http://taihe.or.kr/",
-    path: "/",
+    path: "http://taihe.or.kr/",
     isExternal: false,
+    isClosed: true,
     image: taiheImg
   },
   {
@@ -332,9 +343,9 @@ export const portfolioList = [
     role: "퍼블리싱",
     description: "어반 브룩 소개를 위한 반응형 사이트입니다.",
     tags: ["HTML", "CSS", "JS", "jQuery"],
-    // path: "http://urbanbrook.co.kr/",
-    path: "/",
+    path: "http://urbanbrook.co.kr/",
     isExternal: false,
+    isClosed: true,
     image: urbanbrookImg
   },
   {
@@ -348,6 +359,7 @@ export const portfolioList = [
     tags: ["HTML", "CSS", "JS", "jQuery"],
     path: "http://pungmuamc.co.kr/",
     isExternal: true,
+    isClosed: false,
     image: pungmuImg
   },
   {
@@ -362,6 +374,7 @@ export const portfolioList = [
     // path: "https://healthsmart.kr:5004/",
     path: "http://mdesign.nayana.kr/?c=info",
     isExternal: true,
+    isClosed: false,
     image: smart_checkupImg
   },
   {
@@ -375,6 +388,7 @@ export const portfolioList = [
     tags: ["HTML", "CSS", "JS", "jQuery"],
     path: "http://www.pureland.co.kr/ko/",
     isExternal: true,
+    isClosed: false,
     image: purelandImg
   },
   {
@@ -388,6 +402,7 @@ export const portfolioList = [
     tags: ["HTML", "CSS", "JS", "jQuery"],
     path: "http://www.cnfcos.com/",
     isExternal: true,
+    isClosed: false,
     image: cnfImg
   },
   {
@@ -399,9 +414,9 @@ export const portfolioList = [
     role: "퍼블리싱",
     description: "맑은소프트(타사) 솔루션을 활용한 교육 서비스입니다.",
     tags: ["HTML", "CSS", "JS", "jQuery"],
-    // path: "http://newsaem.malgnlms.com/main/index.jsp",
-    path: "/",
+    path: "http://newsaem.malgnlms.com/main/index.jsp",
     isExternal: false,
+    isClosed: true,
     image: newSeamImg
   },
   {
@@ -415,6 +430,7 @@ export const portfolioList = [
     tags: ["HTML", "CSS", "JS", "jQuery"],
     path: "http://www.laingang.co.kr/main/index.jsp",
     isExternal: true,
+    isClosed: false,
     image: laingangImg
   },
   {
@@ -428,6 +444,7 @@ export const portfolioList = [
     tags: ["CAFE24"],
     path: "http://www.xn--289a68il0j79a73ges7a.com/",
     isExternal: true,
+    isClosed: false,
     image: SekyungImg
   },
   {
@@ -441,6 +458,7 @@ export const portfolioList = [
     tags: ["CAFE24"],
     path: "http://lalafel.com/",
     isExternal: true,
+    isClosed: false,
     image: lalafelImg
   },
   {
@@ -452,9 +470,9 @@ export const portfolioList = [
     role: "퍼블리싱",
     description: "똑똑한산모 서비스 소개를 위한 사이트입니다.",
     tags: ["HTML", "CSS", "JS", "jQuery"],
-    // path: "http://smartmother.co.kr/",
-    path: "/",
+    path: "http://smartmother.co.kr/",
     isExternal: false,
+    isClosed: true,
     image: smart_motherImg
   },
   {
@@ -466,9 +484,9 @@ export const portfolioList = [
     role: "퍼블리싱",
     description: "맑은소프트(타사) 솔루션을 활용한 교육 서비스입니다.",
     tags: ["HTML", "CSS", "JS", "jQuery"],
-    // path: "http://www.gmaster.kr/main/index.jsp",
-    path: "/",
+    path: "http://www.gmaster.kr/main/index.jsp",
     isExternal: false,
+    isClosed: true,
     image: gummasterImg
   },
   {
@@ -480,9 +498,9 @@ export const portfolioList = [
     role: "퍼블리싱",
     description: "제품 판매를 위한 쇼핑몰입니다.",
     tags: ["CAFE24"],
-    // path: "http://factnpack.co.kr/",
-    path: "/",
+    path: "http://factnpack.co.kr/",
     isExternal: false,
+    isClosed: true,
     image: factnpackImg
   },
   {
@@ -494,9 +512,9 @@ export const portfolioList = [
     role: "퍼블리싱",
     description: "회사 및 제품 소개를 위한 사이트입니다.",
     tags: ["HTML", "CSS", "JS", "jQuery"],
-    // path: "http://www.ranix.co.kr/ko/",
-    path: "/",
+    path: "http://www.ranix.co.kr/ko/",
     isExternal: false,
+    isClosed: true,
     image: ranixImg
   },
   {
@@ -508,9 +526,9 @@ export const portfolioList = [
     role: "퍼블리싱",
     description: "모바일노트 서비스입니다.",
     tags: ["HTML", "CSS", "JS", "jQuery"],
-    // path: "https://werkuit.com:3000/",
-    path: "/",
+    path: "https://werkuit.com:3000/",
     isExternal: false,
+    isClosed: true,
     image: KonkukImg
   },
   {
@@ -522,9 +540,9 @@ export const portfolioList = [
     role: "퍼블리싱",
     description: "서비스 소개를 위한 사이트입니다.",
     tags: ["HTML", "CSS", "JS", "jQuery"],
-    // path: "http://opti-cube.co.kr/",
-    path: "/",
+    path: "http://opti-cube.co.kr/",
     isExternal: false,
+    isClosed: true,
     image: vpkoreaImg
   },
   {
@@ -536,9 +554,9 @@ export const portfolioList = [
     role: "퍼블리싱",
     description: "제품 판매를 위한 쇼핑몰입니다.",
     tags: ["CAFE24"],
-    // path: "http://iamplus.co.kr/",
-    path: "/",
+    path: "http://iamplus.co.kr/",
     isExternal: false,
+    isClosed: true,
     image: iamPlusImg
   },
   {
@@ -552,6 +570,7 @@ export const portfolioList = [
     tags: ["HTML", "CSS", "JS", "jQuery"],
     path: "http://www.lyceumlli.com/main/index.jsp",
     isExternal: true,
+    isClosed: false,
     image: lyceumImg
   },
   {
@@ -563,9 +582,9 @@ export const portfolioList = [
     role: "퍼블리싱",
     description: "회사 및 서비스 소개를 위한 반응형 사이트입니다.",
     tags: ["HTML", "CSS", "JS", "jQuery"],
-    // path: "http://www.hiddenad.co.kr/",
-    path: "/",
+    path: "http://www.hiddenad.co.kr/",
     isExternal: false,
+    isClosed: true,
     image: hiddenadImg
   },
   {
@@ -577,9 +596,9 @@ export const portfolioList = [
     role: "퍼블리싱",
     description: "회사 및 서비스 소개를 위한 반응형 사이트입니다.",
     tags: ["HTML", "CSS", "JS", "jQuery"],
-    // path: "http://vizinf.com/",
-    path: "/",
+    path: "http://vizinf.com/",
     isExternal: false,
+    isClosed: true,
     image: vizinfImg
   },
   {
@@ -593,6 +612,7 @@ export const portfolioList = [
     tags: ["CAFE24"],
     path: "http://www.soonsungmall.com/",
     isExternal: true,
+    isClosed: false,
     image: soonsungImg
   },
   {
@@ -606,6 +626,7 @@ export const portfolioList = [
     tags: ["HTML", "CSS", "JS", "jQuery"],
     path: "http://www.mjobgy.co.kr/",
     isExternal: true,
+    isClosed: false,
     image: mjobgyImg
   },
   {
@@ -619,6 +640,7 @@ export const portfolioList = [
     tags: ["HTML", "CSS", "JS", "jQuery"],
     path: "http://www.ganasteel.com/",
     isExternal: true,
+    isClosed: false,
     image: ganasteelImg
   },
   {
@@ -632,6 +654,7 @@ export const portfolioList = [
     tags: ["HTML", "CSS", "JS", "jQuery"],
     path: "http://www.admon.co.kr/",
     isExternal: true,
+    isClosed: false,
     image: admonImg
   },
 
@@ -647,6 +670,7 @@ export const portfolioList = [
     tags: ["Cafe24", "HTML", "SCSS"],
     path: "https://nongshimmall.com/",
     isExternal: true,
+    isClosed: false,
     image: nongshimImg
   },
   {
@@ -659,6 +683,7 @@ export const portfolioList = [
     tags: ["Cafe24", "HTML", "SCSS"],
     path: "https://foodismall.com/",
     isExternal: true,
+    isClosed: false,
     image: foodismallImg
   },
   {
@@ -671,6 +696,7 @@ export const portfolioList = [
     tags: ["Cafe24", "JS", "CSS"],
     path: "https://amosprofessional.com/",
     isExternal: true,
+    isClosed: false,
     image: amosImg
   },
   {
@@ -683,6 +709,7 @@ export const portfolioList = [
     tags: ["Cafe24", "HTML", "JS"],
     path: "https://ayunchepro.com/",
     isExternal: true,
+    isClosed: false,
     image: ayuncheproImg
   },
   {
@@ -695,6 +722,7 @@ export const portfolioList = [
     tags: ["Cafe24", "HTML", "JS"],
     path: "https://ayunche.com/",
     isExternal: true,
+    isClosed: false,
     image: ayuncheImg
   },
   {
@@ -707,6 +735,7 @@ export const portfolioList = [
     tags: ["Vue2", "SCSS", "JS"],
     path: "/",
     isExternal: false,
+    isClosed: true,
     image: pickmakerImg
   },
   {
@@ -719,6 +748,7 @@ export const portfolioList = [
     tags: ["Vue2", "Hybrid App"],
     path: "/",
     isExternal: false,
+    isClosed: true,
     image: sportsscoreImg
   },
   {
@@ -731,6 +761,7 @@ export const portfolioList = [
     tags: ["Gulp", "HTML", "JS"],
     path: "/",
     isExternal: false,
+    isClosed: true,
     image: intimeImg
   },
   {
@@ -743,6 +774,7 @@ export const portfolioList = [
     tags: ["jQuery", "Responsive"],
     path: "/",
     isExternal: false,
+    isClosed: false,
     image: herb_resumeImg
   },
   {
@@ -753,9 +785,9 @@ export const portfolioList = [
     role: "그누보드 반응형 유지보수",
     description: "그누보드 솔루션 기반의 반응형 웹사이트 유지보수를 진행했습니다.",
     tags: ["GnuBoard", "jQuery"],
-    // path: "http://aphrozone3.cafe24.com/",
-    path: "/",
+    path: "http://aphrozone3.cafe24.com/",
     isExternal: false,
+    isClosed: true,
     image: aphrozoneImg
   },
   {
@@ -766,9 +798,9 @@ export const portfolioList = [
     role: "원페이지 반응형 유지보수",
     description: "브랜드 원페이지 사이트의 퍼블리싱 유지보수를 담당했습니다.",
     tags: ["HTML", "CSS", "jQuery"],
-    // path: "http://atorak.co.kr/",
-    path: "/",
+    path: "http://atorak.co.kr/",
     isExternal: false,
+    isClosed: true,
     image: atorakImg
   },
   {
@@ -779,9 +811,9 @@ export const portfolioList = [
     role: "Pc / Mobile 유지보수",
     description: "루비셀 공식 웹사이트의 Pc 및 Mobile 버전 유지보수를 담당했습니다.",
     tags: ["HTML", "CSS", "jQuery"],
-    // path: "http://ruby-cell.co.kr/",
-    path: "/",
+    path: "http://ruby-cell.co.kr/",
     isExternal: false,
+    isClosed: true,
     image: rubyCellImg
   },
   {
@@ -794,6 +826,7 @@ export const portfolioList = [
     tags: ["Cafe24", "Multilingual"],
     path: "http://www.dasancntech.com/",
     isExternal: true,
+    isClosed: false,
     image: dasanImg
   },
   {
@@ -806,6 +839,7 @@ export const portfolioList = [
     tags: ["GnuBoard", "jQuery"],
     path: "http://www.drceviang.com/",
     isExternal: true,
+    isClosed: false,
     image: drImg
   },
   {
@@ -818,6 +852,7 @@ export const portfolioList = [
     tags: ["Cafe24", "HTML", "CSS"],
     path: "http://www.hsg-cloud.com/",
     isExternal: true,
+    isClosed: false,
     image: hsgImg
   },
   {
@@ -830,6 +865,7 @@ export const portfolioList = [
     tags: ["HTML", "CSS", "jQuery"],
     path: "http://www.kaif.or.kr/",
     isExternal: true,
+    isClosed: false,
     image: kaifImg
   }
 ];
