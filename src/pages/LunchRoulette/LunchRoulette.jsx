@@ -246,8 +246,16 @@ const Roulette = () => {
           >
             <div className="result-header">
               <motion.span 
-                animate={isSpinning ? { rotate: 360 } : { rotate: 0 }}
-                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                animate={isSpinning ? { 
+                  rotate: [0, 360]
+                } : { 
+                  rotate: 0 
+                }}
+                transition={{ 
+                  duration: 2, 
+                  repeat: isSpinning ? Infinity : 0,
+                  ease: "linear" 
+                }}
                 className="header-emoji"
               >
                 {isSpinning ? "🌀" : "✨"}

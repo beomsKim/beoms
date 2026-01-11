@@ -1,0 +1,60 @@
+/* 1. 모든 요소의 박스 사이즈를 border-box로 통일 (패딩, 테두리가 너비에 포함됨) */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. 기본 여백 제거 */
+body, h1, h2, h3, h4, p, figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+/* 3. 리스트 스타일 제거 */
+ul, ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 4. 가로/세로 높이 100% 보장 (아까 겪었던 너비 이슈 방지) */
+html, body {
+  height: 100%;
+}
+
+/* 5. body 설정: 폰트 매끄럽게 처리 및 가로 스크롤 방지 */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  word-break: keep-all; // 한글 줄바꿈을 단어 단위로
+}
+
+/* 6. 이미지/비디오 등 미디어 요소 설정 */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. 입력 요소들의 폰트 상속 (기본적으로 상속 안 됨) */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. 버튼 기본 스타일 초기화 */
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+/* 9. 링크 스타일 초기화 */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 10. 리액트 root 컨테이너 설정 */
+#root {
+  min-height: 100%;
+}
