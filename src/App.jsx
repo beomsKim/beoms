@@ -1,9 +1,13 @@
 import React from 'react';
-const basename = import.meta.env.MODE === 'development' ? '/' : '/beoms';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './layout/Layout';
 import Home from './pages/Home/Home';
 import LunchRoulette from './pages/LunchRoulette/LunchRoulette';
+import ReactGA from "react-ga4";
+
+const basename = import.meta.env.MODE === 'development' ? '/' : '/beoms';
+const GA_ID = "GTM-NWPKC948"; // 발급받은 ID 넣기
+ReactGA.initialize(GA_ID);
 
 export default function App() {
   return (

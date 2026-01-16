@@ -1,19 +1,81 @@
 // src/pages/Roulette/Roulette.jsx
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check } from 'lucide-react';
+import { Check, Share2, Download } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { MENU_DATA, WAITING_COMMENTS } from '../../data/menuData';
+import html2canvas from 'html2canvas';
+import { MENU_DATA } from '../../data/menuData';
 import './lunchRoulette.scss';
 
 const Roulette = () => {
   const navigate = useNavigate();
+  const cardRef = useRef(null); // 캡처할 영역을 지정하기 위한 Ref
   const [step, setStep] = useState(0);
   const [yesterdayMenu, setYesterdayMenu] = useState('');
   const [heavy, setHeavy] = useState(null);
   const [result, setResult] = useState(null);
   const [isSpinning, setIsSpinning] = useState(false);
+  const [searchParams] = useSearchParams();
 
+  // URL 파라미터로 공유된 메뉴가 있는지 확인
+  useEffect(() => {
+    const menuParam = searchParams.get('menu');
+    if (menuParam) {
+      // MENU_DATA에서 해당 메뉴 찾기
+      const sharedMenu = MENU_DATA.find(m => m.name === menuParam);
+      if (sharedMenu) {
+        setResult(sharedMenu);
+        setStep(3); // 바로 결과 화면으로
+      }
+    }
+  }, [searchParams]);
+
+  // --- [공유 기능 함수들] ---
+  // 1. 이미지로 저장하기
+  const downloadAsImage = async () => {
+    if (!cardRef.current) return;
+    
+    try {
+      // 캡처 시점에 로딩 표시를 해주면 좋아
+      const canvas = await html2canvas(cardRef.current, {
+        scale: 3,             // 화질을 3배로 높임 (가장 효과적!)
+        useCORS: true,        // 외부 이미지/폰트 허용
+        backgroundColor: "#f2f4f6",
+        windowWidth: cardRef.current.scrollWidth,
+        windowHeight: cardRef.current.scrollHeight,
+      });
+      
+      const image = canvas.toDataURL('image/png', 1.0); // 품질 1.0(최고)
+      const link = document.createElement('a');
+      link.href = image;
+      link.download = `점심추천_${result.name}.png`;
+      link.click();
+    } catch (err) {
+      alert('이미지 저장 중 오류가 발생했어요.');
+    }
+  };
+
+  // 2. 결과 URL 공유하기 (Web Share API)
+  const shareResult = async () => {
+    // 현재 URL 뒤에 메뉴 ID나 이름을 파라미터로 붙임
+    const shareUrl = `${window.location.origin}${window.location.pathname}?menu=${encodeURIComponent(result.name)}`;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: '오늘의 점심 메뉴!',
+          text: `나의 점심 추천 메뉴는 [${result.name}]야! 너도 골라봐!`,
+          url: shareUrl,
+        });
+      } catch (err) { console.log(err); }
+    } else {
+      await navigator.clipboard.writeText(shareUrl);
+      alert('공유 링크가 클립보드에 복사되었어요!');
+    }
+  };
+
+  // --- [룰렛 기능 함수들] ---
   const startSpin = () => {
     setIsSpinning(true);
     setResult(null);
@@ -240,6 +302,7 @@ const Roulette = () => {
         {step === 3 && (
           <motion.div
             key="s3"
+            ref={cardRef} // 여기를 캡처 영역으로 지정
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             className="roulette-card result-card"
@@ -292,6 +355,17 @@ const Roulette = () => {
               >
                 <p className="result-comment">{result.comment}</p>
                 
+                {/* 공유 버튼 */}
+                <div className="share-action-group">
+                   <button onClick={downloadAsImage} className="share-btn image">
+                     <Download size={16} /> 이미지 저장
+                   </button>
+                   <button onClick={shareResult} className="share-btn link">
+                     <Share2 size={16} /> 결과 공유
+                   </button>
+                </div>
+
+                {/* 검색 버튼 */}
                 <div className="map-action">
                   <span className="map-label">어디서 먹을까요?</span>
                   <div className="map-buttons">
