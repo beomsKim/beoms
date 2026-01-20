@@ -95,8 +95,7 @@ const Home = () => {
               <span className="badge">Web Publisher & Front-end</span>
               <h1 className="title">
                 6년 이상 실무로<br/>
-                서비스 구축과
-                유지보수를 책임져온<br/>
+                서비스 구축과 유지보수를 책임져온<br/>
                 <span>개발자</span>입니다.
                 {/* 안녕하세요, <br/>
                 사용자가 머무는 모든 순간을 <br/>
@@ -136,7 +135,7 @@ const Home = () => {
               </div>
 
               <div className="skill-stack">
-                <p><strong>반응형 / VUE 서비스 유지보수 및 기능 개발 / 쇼핑몰 구축 및 운영</strong></p>
+                <p><strong>VUE 서비스 유지보수 및 기능 개발 / 반응형 웹 퍼블리싱 / 쇼핑몰 구축 및 운영</strong></p>
                 <p><strong>Stack</strong> Vue2.0, HTML/CSS, SCSS, JavaScript 등</p>
                 <p><strong>Tool</strong> Git, Jira, Bitbucket, Notion, VS Code, Figma, Zeplin 등</p>
                 <p><strong>Platform</strong> Cafe24, GnuBoard, GodoMall, MakeShop</p>
