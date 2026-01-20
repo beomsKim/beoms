@@ -35,25 +35,27 @@ const Roulette = () => {
   // 1. 이미지로 저장하기
   const downloadAsImage = async () => {
     if (!cardRef.current) return;
-    
-    try {
-      // 캡처 시점에 로딩 표시를 해주면 좋아
-      const canvas = await html2canvas(cardRef.current, {
-        scale: 3,             // 화질을 3배로 높임 (가장 효과적!)
-        useCORS: true,        // 외부 이미지/폰트 허용
-        backgroundColor: "#f2f4f6",
-        windowWidth: cardRef.current.scrollWidth,
-        windowHeight: cardRef.current.scrollHeight,
-      });
-      
-      const image = canvas.toDataURL('image/png', 1.0); // 품질 1.0(최고)
-      const link = document.createElement('a');
-      link.href = image;
-      link.download = `점심추천_${result.name}.png`;
-      link.click();
-    } catch (err) {
-      alert('이미지 저장 중 오류가 발생했어요.');
-    }
+
+    const canvas = await html2canvas(cardRef.current, {
+      scale: 3,
+      onclone: (clonedDoc) => {
+        // 캡처용 복제본에서 텍스트가 들어있는 요소들을 선택
+        const textElements = clonedDoc.querySelectorAll('.slot-item, .result-name');
+        textElements.forEach(el => {
+          el.style.display = 'flex';
+          el.style.alignItems = 'center';
+          el.style.justifyContent = 'center';
+          // 폰트가 아래로 쏠린다면 미세하게 보정 (예: 2px 위로)
+          el.style.paddingBottom = '2px'; 
+        });
+      }
+    });
+
+    const image = canvas.toDataURL('image/png', 1.0);
+    const link = document.createElement('a');
+    link.href = image;
+    link.download = `점심추천_${result.name}.png`;
+    link.click();
   };
 
   // 2. 결과 URL 공유하기 (Web Share API)

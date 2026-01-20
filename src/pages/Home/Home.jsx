@@ -9,19 +9,20 @@ import './home.scss';
 const Home = () => {
   const navigate = useNavigate();
 
-  // 1. 사용할 배경 컬러 리스트 (여기서 수정해!)
+  // 배경 컬러 리스트
   const colorList = ['#3182f6', '#7e57c2', '#26a69a', '#ff7043', '#42a5f5'];
 
   // 배경 도형 랜덤 생성
   const bgShapes = useMemo(() => {
-    return Array.from({ length: 12 }).map((_, i) => ({ // 10개에서 12개로 조금 늘려봤어
+    return Array.from({ length: 12 }).map((_, i) => ({
       id: i,
       size: Math.floor(Math.random() * 200) + 150,
       top: Math.floor(Math.random() * 100) + "%",
       left: Math.floor(Math.random() * 100) + "%",
       delay: -(Math.random() * 15) + "s",
       duration: Math.floor(Math.random() * 15) + 15 + "s",
-      // 2. 리스트에서 랜덤하게 컬러 선택
+      
+      // 리스트에서 랜덤하게 컬러 선택
       color: colorList[Math.floor(Math.random() * colorList.length)]
     }));
   }, []);
@@ -93,9 +94,13 @@ const Home = () => {
             >
               <span className="badge">Web Publisher & Front-end</span>
               <h1 className="title">
-                안녕하세요, <br/>
+                6년 이상 실무로<br/>
+                서비스 구축과
+                유지보수를 책임져온<br/>
+                <span>개발자</span>입니다.
+                {/* 안녕하세요, <br/>
                 사용자가 머무는 모든 순간을 <br/>
-                고민하고 만드는 <span>개발자</span>입니다.
+                고민하고 만드는 <span>개발자</span>입니다. */}
               </h1>
               
               <div className="info-grid">
@@ -131,6 +136,7 @@ const Home = () => {
               </div>
 
               <div className="skill-stack">
+                <p><strong>반응형 / VUE 서비스 유지보수 및 기능 개발 / 쇼핑몰 구축 및 운영</strong></p>
                 <p><strong>Stack</strong> Vue2.0, HTML/CSS, SCSS, JavaScript 등</p>
                 <p><strong>Tool</strong> Git, Jira, Bitbucket, Notion, VS Code, Figma, Zeplin 등</p>
                 <p><strong>Platform</strong> Cafe24, GnuBoard, GodoMall, MakeShop</p>
