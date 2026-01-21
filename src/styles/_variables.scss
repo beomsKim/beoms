@@ -23,15 +23,15 @@ $text-sub: #666666;
 $transition: all 0.3s ease;
 
 // 믹스인 (자주 쓰는 스타일 묶음)
-@mixin flex-center {
+@mixin flex-custom($align: center, $justify: center) {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-items: $align;
+  justify-content: $justify;
 }
 
 @mixin card-style {
+  padding: 40px 24px;
   background-color: $white;
   border-radius: 32px;
   box-shadow: $shadow;
-  padding: 40px 24px;
 }

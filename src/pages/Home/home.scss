@@ -65,7 +65,7 @@
     }
 
     .stack-icons {
-      display: flex;
+      @include flex-custom($align: center, $justify: flex-start);
       gap: 20px;
       margin-bottom: 40px;
       font-size: 28px;
@@ -130,7 +130,7 @@
       border-bottom: 1px solid #f2f4f6;
 
       .info-item {
-        font-size: 15px;
+        // font-size: 15px;
 
         @media (min-width: 768px) {
           font-size: 16px;
@@ -170,7 +170,7 @@
     .skill-stack {
       p {
         margin-bottom: 12px;
-        font-size: 14px;
+        // font-size: 14px;
         color: #4e5968;
 
         @media (min-width: 768px) {
@@ -200,7 +200,7 @@
 
     .exp-timeline {
       .exp-item {
-        display: flex;
+        @include flex-custom($align: flex-start, $justify: flex-start);
         flex-direction: column;
         gap: 16px;
         padding: 32px 0;
@@ -218,7 +218,7 @@
 
         .exp-left {
           .period {
-            font-size: 14px;
+            // font-size: 14px;
             font-weight: 700;
             color: $primary;
           }
@@ -229,7 +229,7 @@
             color: #191f28;
           }
           .position {
-            font-size: 14px;
+            // font-size: 14px;
             color: #8b95a1;
           }
         }
@@ -245,12 +245,12 @@
               position: relative;
               margin-bottom: 8px;
               padding-left: 15px;
-              font-size: 14px;
+              // font-size: 14px;
               line-height: 1.6;
               color: #4e5968;
 
               @media (min-width: 768px) {
-                font-size: 15px;
+                // font-size: 15px;
               }
 
               &::before {
@@ -263,7 +263,7 @@
           }
           .env {
             margin-top: 16px;
-            font-size: 13px;
+            font-size: 14px;
             color: #8b95a1;
             
             span {
@@ -275,8 +275,7 @@
       }
     }
     .more-btn-wrap {
-      display: flex;
-      justify-content: center;
+      @include flex-custom;
       padding-top: 20px;
 
       button {
@@ -299,8 +298,7 @@
     border-top: 1px solid rgba($silver, .2);
 
     .tab-menu {
-      display: flex;
-      justify-content: center;
+      @include flex-custom;
       gap: 8px;
       overflow-x: auto;
       margin-bottom: 32px;
@@ -380,34 +378,35 @@
         padding: 20px;
 
         .card-header {
-          display: flex;
-          justify-content: space-between;
+          @include flex-custom($align: center, $justify: space-between);
           margin-bottom: 10px;
 
           .work-date {
-            font-size: 11px;
+            font-size: 12px;
             color: #8b95a1;
           }
           .contribution {
             padding: 2px 6px;
             background: rgba($primary, 0.1);
             border-radius: 4px;
-            font-size: 10px;
-            font-weight: 800;
+            font-size: 12px;
+            font-weight: 700;
             color: $primary;
           }
         }
         h3 {
+          @include flex-custom($align: center, $justify: flex-start);
           margin-bottom: 8px;
           font-size: 18px;
-          font-weight: 700;
+          line-height: 1;
           color: #191f28;
         }
         .work-info {
           margin-bottom: 16px;
 
           .role {
-            font-size: 12px;
+            margin-bottom: 4px;
+            font-size: 14px;
             color: #4e5968;
 
             strong {
@@ -415,25 +414,25 @@
             }
           }
           .desc {
-            display: -webkit-box;
             overflow: hidden;
-            font-size: 13px;
-            line-height: 1.5;
+            display: -webkit-box;
+            line-height: 1.3;
             color: #8b95a1;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
           }
         }
         .tags {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 4px;
-          padding-top: 12px;
-          border-top: 1px solid #f9fafb;
-
-          span {
-            font-size: 11px;
-            font-weight: 600;
+          
+          ul {
+            @include flex-custom($align: center, $justify: flex-start);
+            flex-wrap: wrap;
+            gap: 4px;
+            border-top: 1px solid #f9fafb;
+          }
+          li {
+            font-size: 14px;
+            font-weight: 500;
             color: $primary;
           }
         }
@@ -459,33 +458,32 @@
     }
 
     .closed-overlay {
+      @include flex-custom;
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: rgba(0, 0, 0, 0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-size: 18px;
       color: #fff;
-      font-weight: bold;
-      font-size: 1.1rem;
+      font-weight: 700;
     }
 
     /* 제목 옆 배지 */
     .closed-badge {
-      font-size: 0.7rem;
-      background: #666;
-      color: #fff;
-      padding: 2px 6px;
-      border-radius: 4px;
       margin-left: 8px;
-      vertical-align: middle;
+      padding: 2px 6px;
+      background: #666;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 400;
+      color: #fff;
       text-transform: uppercase;
     }
 
     .more-btn-wrap {
-      display: flex;
-      justify-content: center;
+      @include flex-custom;
       margin-top: 40px;
 
       .more-btn {

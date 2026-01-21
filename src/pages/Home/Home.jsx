@@ -74,7 +74,7 @@ const Home = () => {
               backgroundColor: shape.color, // 랜덤 컬러 적용
               animationDelay: shape.delay,
               animationDuration: shape.duration,
-              opacity: 0.3 // 투명도를 여기서 조절하면 편해!
+              opacity: 0.3 // 투명도 조절
             }}
           />
         ))}
@@ -206,7 +206,7 @@ const Home = () => {
                   className={`portfolio-card ${item.isClosed ? 'closed' : ''}`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  // 2. 서비스 종료 시 hover 애니메이션을 약하게 하거나 제외 (선택 사항)
+                  // 2. 서비스 종료 시 hover 애니메이션을 약하게 하거나 제외
                   whileHover={item.isClosed ? { y: 0 } : { y: -12 }}
                   // 3. 서비스 종료 시 클릭 이벤트 막기
                   onClick={() => {
@@ -218,7 +218,7 @@ const Home = () => {
                   <div className="card-image">
                     {item.image ? <img src={item.image} alt={item.title} /> : <div className="placeholder">COMING SOON</div>}
                     
-                    {/* 4. 이미지 위에 서비스 종료 오버레이 추가 (시각적 효과) */}
+                    {/* 4. 이미지 위에 서비스 종료 오버레이 추가 */}
                     {item.isClosed && (
                       <div className="closed-overlay">
                         <span>서비스 종료</span>
@@ -227,26 +227,32 @@ const Home = () => {
                   </div>
 
                   <div className="card-body">
-                    <header className="card-header">
-                      <span className="work-date">{item.date}</span>
+                    <div className="card-header">
+                      <time className="work-date">{item.date}</time>
                       {item.contribution && (
                         <span className="contribution">
                           <span>기여도</span> {item.contribution}
                         </span>
                       )}
-                    </header>
+                    </div>
+
                     <h3>
                       {item.title}
-                      {/* 5. 제목 옆에 작은 배지 달아주기 */}
                       {item.isClosed && <span className="closed-badge">Closed</span>}
                     </h3>
+
                     <div className="work-info">
                       <p className="role"><strong>Role:</strong> {item.role}</p>
                       <p className="desc">{item.description}</p>
                     </div>
-                    <footer className="tags">
-                      {item.tags.map(tag => <span key={tag}>#{tag}</span>)}
-                    </footer>
+
+                    <div className="tags">
+                      <ul>
+                        {item.tags.map(tag => (
+                          <li key={tag}>#{tag}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </motion.article>
               ))}
