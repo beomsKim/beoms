@@ -151,6 +151,9 @@ export const portfolioList = [
     isExternal: false,
     isClosed: true,
     closedMessage: ``,
+    closedMessage: `기존 픽메이커 서비스의 연령 제한·스토어 심사 이슈를 해결하기 위해
+스포츠 일정·실시간 스코어만 제공하는 하이브리드 앱을 분리 개발.
+기존 픽메이커 소스를 재활용해 프론트엔드 전반을 단독 개발.`,
     image: sportsscoreImg
   },
   {
@@ -165,6 +168,10 @@ export const portfolioList = [
     path: "/https://intimegames.com/",
     isExternal: false,
     isClosed: true,
+    closedMessage: ``,
+    closedMessage: `픽메이커 서비스를 운영하는 인타임 게임즈 자사 홈페이지를
+Gulp 기반 환경에서 원페이지로 제작.
+HTML·CSS·JS(jQuery)를 활용한 마크업 및 인터랙션 구현을 담당.`,
     image: pickmakerImg
   },
   {
@@ -207,6 +214,8 @@ export const portfolioList = [
     path: "http://dokripmarket.net/",
     isExternal: false,
     isClosed: true,
+    closedMessage: `메이크샵 기반 쇼핑몰 독립마켓의 디자인 커스텀 작업 진행.
+제공된 디자인을 바탕으로 HTML·CSS·jQuery 마크업 및 스킨 수정 담당.`,
     image: happyfarmImg
   },
   {
@@ -221,6 +230,9 @@ export const portfolioList = [
     path: "http://aphrozone2.cafe24.com/",
     isExternal: false,
     isClosed: true,
+    closedMessage: `PHP 기반으로 브랜드 제품 소개 사이트 제작.
+제공된 디자인을 바탕으로 HTML·CSS·jQuery 퍼블리싱 및 인터랙션 구현.
+호스팅·도메인 설정 포함 전반 단독 진행.`,
     image: herb_resumeImg
   },
   {
@@ -235,6 +247,9 @@ export const portfolioList = [
     path: "http://aphrozone3.cafe24.com/",
     isExternal: false,
     isClosed: true,
+    closedMessage: `그누보드 기반으로 베트남 시장에 제공할 브랜드 홈페이지 제작.
+기존 외주 제작 사이트를 기준으로 디자인을 재현했으며,
+HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     image: aphrozoneImg
   },
   {
@@ -249,6 +264,9 @@ export const portfolioList = [
     path: "http://atorak.co.kr/",
     isExternal: false,
     isClosed: true,
+    closedMessage: `PHP 기반으로 브랜드 제품 소개 사이트 제작.
+제공된 디자인을 바탕으로 HTML·CSS·jQuery 퍼블리싱 및 인터랙션 구현.
+호스팅·도메인 설정 포함 전반 단독 진행.`,
     image: atorakImg
   },
   {
@@ -263,6 +281,9 @@ export const portfolioList = [
     path: "http://ruby-cell.co.kr/",
     isExternal: false,
     isClosed: true,
+    closedMessage: `PHP 기반으로 브랜드 제품 소개 사이트 제작.
+제공된 디자인을 바탕으로 HTML·CSS·jQuery 퍼블리싱 및 인터랙션 구현.
+호스팅·도메인 설정 포함 전반 단독 진행.`,
     image: rubyCellImg
   },
   {
@@ -333,6 +354,7 @@ export const portfolioList = [
     path: "http://taihe.or.kr/",
     isExternal: false,
     isClosed: true,
+    closedMessage: ``,
     image: taiheImg
   },
   {
@@ -347,6 +369,7 @@ export const portfolioList = [
     path: "http://urbanbrook.co.kr/",
     isExternal: false,
     isClosed: true,
+    closedMessage: ``,
     image: urbanbrookImg
   },
   {
@@ -418,6 +441,7 @@ export const portfolioList = [
     path: "http://newsaem.malgnlms.com/main/index.jsp",
     isExternal: false,
     isClosed: true,
+    closedMessage: ``,
     image: newSeamImg
   },
   {
@@ -474,6 +498,7 @@ export const portfolioList = [
     path: "http://smartmother.co.kr/",
     isExternal: false,
     isClosed: true,
+    closedMessage: ``,
     image: smart_motherImg
   },
   {
@@ -488,6 +513,7 @@ export const portfolioList = [
     path: "http://www.gmaster.kr/main/index.jsp",
     isExternal: false,
     isClosed: true,
+    closedMessage: ``,
     image: gummasterImg
   },
   {
@@ -502,6 +528,7 @@ export const portfolioList = [
     path: "http://factnpack.co.kr/",
     isExternal: false,
     isClosed: true,
+    closedMessage: ``,
     image: factnpackImg
   },
   {
@@ -516,6 +543,7 @@ export const portfolioList = [
     path: "http://www.ranix.co.kr/ko/",
     isExternal: false,
     isClosed: true,
+    closedMessage: ``,
     image: ranixImg
   },
   {
@@ -530,6 +558,7 @@ export const portfolioList = [
     path: "https://werkuit.com:3000/",
     isExternal: false,
     isClosed: true,
+    closedMessage: ``,
     image: KonkukImg
   },
   {
@@ -544,6 +573,7 @@ export const portfolioList = [
     path: "http://opti-cube.co.kr/",
     isExternal: false,
     isClosed: true,
+    closedMessage: ``,
     image: vpkoreaImg
   },
   {
@@ -558,6 +588,7 @@ export const portfolioList = [
     path: "http://iamplus.co.kr/",
     isExternal: false,
     isClosed: true,
+    closedMessage: ``,
     image: iamPlusImg
   },
   {
@@ -586,6 +617,7 @@ export const portfolioList = [
     path: "http://www.hiddenad.co.kr/",
     isExternal: false,
     isClosed: true,
+    closedMessage: ``,
     image: hiddenadImg
   },
   {
@@ -600,6 +632,7 @@ export const portfolioList = [
     path: "http://vizinf.com/",
     isExternal: false,
     isClosed: true,
+    closedMessage: ``,
     image: vizinfImg
   },
   {
@@ -737,6 +770,7 @@ export const portfolioList = [
     path: "/",
     isExternal: false,
     isClosed: true,
+    closedMessage: ``,
     image: pickmakerImg
   },
   {
@@ -750,6 +784,7 @@ export const portfolioList = [
     path: "/",
     isExternal: false,
     isClosed: true,
+    closedMessage: ``,
     image: sportsscoreImg
   },
   {
@@ -763,6 +798,7 @@ export const portfolioList = [
     path: "/",
     isExternal: false,
     isClosed: true,
+    closedMessage: ``,
     image: intimeImg
   },
   {
@@ -789,6 +825,7 @@ export const portfolioList = [
     path: "http://aphrozone3.cafe24.com/",
     isExternal: false,
     isClosed: true,
+    closedMessage: ``,
     image: aphrozoneImg
   },
   {
@@ -802,6 +839,7 @@ export const portfolioList = [
     path: "http://atorak.co.kr/",
     isExternal: false,
     isClosed: true,
+    closedMessage: ``,
     image: atorakImg
   },
   {
@@ -815,6 +853,7 @@ export const portfolioList = [
     path: "http://ruby-cell.co.kr/",
     isExternal: false,
     isClosed: true,
+    closedMessage: ``,
     image: rubyCellImg
   },
   {
