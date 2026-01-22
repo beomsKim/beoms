@@ -18,7 +18,7 @@ export const experienceList = [
     period: "2021.05.17 ~ 2023.11.30",
     company: "인타임게임즈",
     team: "프론트팀엔드팀",
-    position: "프론트엔드 / 사원",
+    position: "프론트엔드 / 대리",
     tasks: [
       "웹 서비스 프론트엔드 개발 유지보수 (Vue2, Axios, Vuex, SCSS, Git)",
       "웹 사이트 퍼블리싱 및 유지보수 (Gulp)"

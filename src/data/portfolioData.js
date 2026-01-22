@@ -150,6 +150,7 @@ export const portfolioList = [
     path: "/https://intimegames.com/",
     isExternal: false,
     isClosed: true,
+    closedMessage: ``,
     image: sportsscoreImg
   },
   {

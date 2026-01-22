@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { SiVuedotjs, SiJavascript, SiHtml5, SiCss3, SiFigma, SiGithub } from 'react-icons/si';
 import { experienceList } from '../../data/experienceData';
 import { portfolioList } from '../../data/portfolioData';
+import { AnimatePresence } from 'framer-motion';
+import ProjectPopup from '../../components/PopUp/ProjectPopup';
 import './home.scss';
 
 const Home = () => {
@@ -56,6 +58,20 @@ const Home = () => {
   // 필터링 로직
   const filteredList = portfolioList.filter(item => item.category === activeTab);
   const displayList = filteredList.slice(0, visibleCount);
+
+  // 팝업 상태 관리
+  const [selectedProject, setSelectedProject] = useState(null); // 선택된 프로젝트 데이터
+  const [isPopupOpen, setIsPopupOpen] = useState(false); // 팝업 열림 상태
+  
+  // 카드 클릭 핸들러
+  const handleCardClick = (item) => {
+    if (item.isClosed) {
+      setSelectedProject(item); // 아이템 데이터 담고
+      setIsPopupOpen(true);    // 팝업 열기
+    } else {
+      item.isExternal ? window.open(item.path) : navigate(item.path);
+    }
+  };
 
   return (
     <div className="home-wrapper">
@@ -209,11 +225,12 @@ const Home = () => {
                   // 2. 서비스 종료 시 hover 애니메이션을 약하게 하거나 제외
                   whileHover={item.isClosed ? { y: 0 } : { y: -12 }}
                   // 3. 서비스 종료 시 클릭 이벤트 막기
-                  onClick={() => {
-                    if (item.isClosed) return; // 종료됐으면 아무 일도 안 일어남
-                    item.isExternal ? window.open(item.path) : navigate(item.path);
-                  }}
-                  style={{ cursor: item.isClosed ? 'default' : 'pointer' }} // 커서 모양 변경
+                  // onClick={() => {
+                  //   if (item.isClosed) return; // 종료됐으면 아무 일도 안 일어남
+                  //   item.isExternal ? window.open(item.path) : navigate(item.path);
+                  // }}
+                  onClick={() => handleCardClick(item)}
+                  style={{ cursor: 'pointer' }}
                 >
                   <div className="card-image">
                     {item.image ? <img src={item.image} alt={item.title} /> : <div className="placeholder">COMING SOON</div>}
@@ -228,7 +245,7 @@ const Home = () => {
 
                   <div className="card-body">
                     <div className="card-header">
-                      <time className="work-date">{item.date}</time>
+                      <p className="work-date">{item.date}</p>
                       {item.contribution && (
                         <span className="contribution">
                           <span>기여도</span> {item.contribution}
@@ -256,6 +273,13 @@ const Home = () => {
                   </div>
                 </motion.article>
               ))}
+              
+              {/* 팝업 컴포넌트 */}
+              <ProjectPopup 
+                isOpen={isPopupOpen} 
+                item={selectedProject} 
+                onClose={() => setIsPopupOpen(false)} 
+              />
             </div>
 
             {visibleCount < filteredList.length && (
