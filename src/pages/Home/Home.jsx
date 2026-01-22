@@ -64,15 +64,18 @@ const Home = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false); // 팝업 열림 상태
   
   // 카드 클릭 핸들러
+  // const handleCardClick = (item) => {
+  //   if (item.isClosed) {
+  //     setSelectedProject(item); // 아이템 데이터 담고
+  //     setIsPopupOpen(true);    // 팝업 열기
+  //   } else {
+  //     item.isExternal ? window.open(item.path) : navigate(item.path);
+  //   }
+  // };
   const handleCardClick = (item) => {
-    if (item.isClosed) {
-      setSelectedProject(item); // 아이템 데이터 담고
-      setIsPopupOpen(true);    // 팝업 열기
-    } else {
-      item.isExternal ? window.open(item.path) : navigate(item.path);
-    }
+    setSelectedProject(item); // 아이템 데이터 담기
+    setIsPopupOpen(true);     // 팝업 열기
   };
-
   return (
     <div className="home-wrapper">
 
@@ -218,24 +221,17 @@ const Home = () => {
               {displayList.map((item) => (
                 <motion.article 
                   key={item.id}
-                  // 1. 서비스 종료된 카드는 스타일을 다르게 줄 수 있도록 클래스 추가
                   className={`portfolio-card ${item.isClosed ? 'closed' : ''}`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  // 2. 서비스 종료 시 hover 애니메이션을 약하게 하거나 제외
-                  whileHover={item.isClosed ? { y: 0 } : { y: -12 }}
-                  // 3. 서비스 종료 시 클릭 이벤트 막기
-                  // onClick={() => {
-                  //   if (item.isClosed) return; // 종료됐으면 아무 일도 안 일어남
-                  //   item.isExternal ? window.open(item.path) : navigate(item.path);
-                  // }}
+                  whileHover={{ y: -12 }}
                   onClick={() => handleCardClick(item)}
                   style={{ cursor: 'pointer' }}
                 >
                   <div className="card-image">
                     {item.image ? <img src={item.image} alt={item.title} /> : <div className="placeholder">COMING SOON</div>}
                     
-                    {/* 4. 이미지 위에 서비스 종료 오버레이 추가 */}
+                    {/* 이미지 위에 서비스 종료 오버레이 추가 */}
                     {item.isClosed && (
                       <div className="closed-overlay">
                         <span>서비스 종료</span>

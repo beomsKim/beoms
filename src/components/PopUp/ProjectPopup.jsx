@@ -3,6 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import './ProjectPopup.scss';
 
 const ProjectPopup = ({ isOpen, item, onClose }) => {
+  // 링크 이동 함수
+  const goToService = () => {
+    if (!item.path) return;
+    item.isExternal ? window.open(item.path) : window.location.href = item.path;
+  };
   return (
     <AnimatePresence>
       {isOpen && item && (
@@ -17,13 +22,30 @@ const ProjectPopup = ({ isOpen, item, onClose }) => {
             <button className="close-btn" onClick={onClose}>×</button>
             <div className="popup-header">
               <h3>{item.title}</h3>
-              <span className="badge">Closed Service</span>
+              {item.isClosed && <span className="badge">Closed</span>}
             </div>
             <div className="popup-body">
-              {/* 데이터에 내용이 있으면 보여주고 없으면 기본 문구 */}
-              <p>{item.closedMessage || "현재 서비스가 종료되어 상세 페이지 이동이 제한됩니다."}</p>
+              <p><strong>Period</strong> {item.date}</p>
+              {item.contribution && (
+                <p><strong>Work</strong> {item.contribution}</p>
+              )}
+              <p><strong>Role</strong> {item.role}</p>
+              
+              <div className="message-box">
+                {(item.description || "상세 내용을 확인해보세요.")}
+                {/* isClosed 여부에 따라 다른 메시지 노출 */}
+                {item.isClosed && (item.closedMessage || "현재 서비스가 종료되었습니다.")}
+              </div>
             </div>
-            <button className="confirm-btn" onClick={onClose}>확인</button>
+            <div className="popup-footer" style={{ display: 'flex', gap: '10px' }}>
+              {/* 운영 중인 서비스일 때만 '서비스 이동' 버튼 노출 */}
+              {!item.isClosed && (
+                <button className="confirm-btn" onClick={goToService}>
+                  서비스 바로가기
+                </button>
+              )}
+              <button className="cancel-btn" onClick={onClose}>닫기</button>              
+            </div>
           </motion.div>
         </div>
       )}

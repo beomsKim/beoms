@@ -1,6 +1,5 @@
 @use "../../styles/variables" as *;
 
-// 애니메이션은 바깥으로 빼는 게 국룰!
 @keyframes float {
   0% {
     transform: translate(0, 0);
@@ -34,7 +33,6 @@
 
   // 공통 컨테이너
   .container {
-    // max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 
@@ -130,8 +128,7 @@
       border-bottom: 1px solid #f2f4f6;
 
       .info-item {
-        // font-size: 15px;
-
+        
         @media (min-width: 768px) {
           font-size: 16px;
         }
@@ -170,7 +167,6 @@
     .skill-stack {
       p {
         margin-bottom: 12px;
-        // font-size: 14px;
         color: #4e5968;
 
         @media (min-width: 768px) {
@@ -195,7 +191,6 @@
   // 2. Experience 영역
   .experience-section {
     padding: 60px 0;
-    // background-color: #fff;
     border-top: 1px solid rgba($silver, .2);
 
     .exp-timeline {
@@ -218,7 +213,6 @@
 
         .exp-left {
           .period {
-            // font-size: 14px;
             font-weight: 700;
             color: $primary;
           }
@@ -229,7 +223,6 @@
             color: #191f28;
           }
           .position {
-            // font-size: 14px;
             color: #8b95a1;
           }
         }
@@ -245,13 +238,8 @@
               position: relative;
               margin-bottom: 8px;
               padding-left: 15px;
-              // font-size: 14px;
               line-height: 1.6;
               color: #4e5968;
-
-              @media (min-width: 768px) {
-                // font-size: 15px;
-              }
 
               &::before {
                 content: "•";
@@ -348,7 +336,6 @@
       transition: all 0.3s;
       cursor: pointer;
 
-      // 이미지 확대 효과를 여기로 합쳤어!
       .card-image {
         overflow: hidden; 
         height: 180px;
@@ -442,15 +429,7 @@
     /* 서비스 종료 카드 스타일 */
     .portfolio-card.closed {
       filter: grayscale(0.8); /* 흑백 느낌 */
-      opacity: 0.8;
-
-      &:hover {
-        @media (min-width: 1024px) {
-          .card-image img {
-            transform: scale(1);
-          }
-        }
-      }
+      opacity: .1;
     }
     /* 이미지 위 오버레이 */
     .card-image {
@@ -464,7 +443,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.2);
       font-size: 18px;
       color: #fff;
       font-weight: 700;

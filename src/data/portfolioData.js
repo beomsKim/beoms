@@ -66,6 +66,7 @@ export const portfolioList = [
     path: "/lunch", // 이동 경로
     isExternal: false,  // 외부 링크 여부 false 내부 / true 외부
     isClosed: false, // 서비스 중단 여부 false 운영중 / true 중단
+    closedMessage: ``,
     image: lunchRouletteImg // 대표 이미지
   },
   {
@@ -80,6 +81,7 @@ export const portfolioList = [
     path: "http://choolooss89.dothome.co.kr/",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: myPortfolioImg
   },
   {
@@ -94,6 +96,7 @@ export const portfolioList = [
     path: "https://s15883112.cafe24.com/",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: s1Img
   },
   {
@@ -108,6 +111,7 @@ export const portfolioList = [
     path: "https://www.jinrotonic.com/",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: jinrotonicImg
   },
   {
@@ -122,6 +126,7 @@ export const portfolioList = [
     path: "https://sunpohara.com/",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: daygestSunpoharaImg
   },
   {
@@ -136,6 +141,7 @@ export const portfolioList = [
     path: "https://shangpree.com/",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: shangpreeImg
   },
   {
@@ -150,7 +156,6 @@ export const portfolioList = [
     path: "/https://intimegames.com/",
     isExternal: false,
     isClosed: true,
-    closedMessage: ``,
     closedMessage: `기존 픽메이커 서비스의 연령 제한·스토어 심사 이슈를 해결하기 위해
 스포츠 일정·실시간 스코어만 제공하는 하이브리드 앱을 분리 개발.
 기존 픽메이커 소스를 재활용해 프론트엔드 전반을 단독 개발.`,
@@ -186,6 +191,7 @@ HTML·CSS·JS(jQuery)를 활용한 마크업 및 인터랙션 구현을 담당.`
     path: "http://www.ifcj.kr/",
     isExternal: false,
     isClosed: false,
+    closedMessage: ``,
     image: ifcjImg
   },
   {
@@ -200,6 +206,7 @@ HTML·CSS·JS(jQuery)를 활용한 마크업 및 인터랙션 구현을 담당.`
     path: "https://www.benjaminmoore.co.kr/",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: benjaminmooreImg
   },
   {
@@ -298,6 +305,7 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "http://www.dasancntech.com/",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: dasanImg
   },
   {
@@ -312,6 +320,7 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "http://www.kaif.or.kr/",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: kaifImg
   },
   {
@@ -326,6 +335,7 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "http://www.talgut.com/",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: talgutImg
   },
   {
@@ -340,6 +350,7 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "https://www.nakamurakorea.co.kr/",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: nakamuraImg
   },
   {
@@ -384,6 +395,7 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "http://pungmuamc.co.kr/",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: pungmuImg
   },
   {
@@ -399,6 +411,7 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "http://mdesign.nayana.kr/?c=info",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: smart_checkupImg
   },
   {
@@ -413,6 +426,7 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "http://www.pureland.co.kr/ko/",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: purelandImg
   },
   {
@@ -427,6 +441,7 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "http://www.cnfcos.com/",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: cnfImg
   },
   {
@@ -456,6 +471,7 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "http://www.laingang.co.kr/main/index.jsp",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: laingangImg
   },
   {
@@ -470,6 +486,7 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "http://www.xn--289a68il0j79a73ges7a.com/",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: SekyungImg
   },
   {
@@ -484,6 +501,7 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "http://lalafel.com/",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: lalafelImg
   },
   {
@@ -603,6 +621,7 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "http://www.lyceumlli.com/main/index.jsp",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: lyceumImg
   },
   {
@@ -647,6 +666,7 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "http://www.soonsungmall.com/",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: soonsungImg
   },
   {
@@ -661,6 +681,7 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "http://www.mjobgy.co.kr/",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: mjobgyImg
   },
   {
@@ -675,6 +696,7 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "http://www.ganasteel.com/",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: ganasteelImg
   },
   {
@@ -689,6 +711,7 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "http://www.admon.co.kr/",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: admonImg
   },
 
@@ -705,6 +728,7 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "https://nongshimmall.com/",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: nongshimImg
   },
   {
@@ -718,6 +742,7 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "https://foodismall.com/",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: foodismallImg
   },
   {
@@ -731,6 +756,7 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "https://amosprofessional.com/",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: amosImg
   },
   {
@@ -744,6 +770,7 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "https://ayunchepro.com/",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: ayuncheproImg
   },
   {
@@ -757,6 +784,7 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "https://ayunche.com/",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: ayuncheImg
   },
   {
@@ -812,6 +840,7 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "/",
     isExternal: false,
     isClosed: false,
+    closedMessage: ``,
     image: herb_resumeImg
   },
   {
@@ -867,6 +896,7 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "http://www.dasancntech.com/",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: dasanImg
   },
   {
@@ -880,6 +910,7 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "http://www.drceviang.com/",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: drImg
   },
   {
@@ -893,6 +924,7 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "http://www.hsg-cloud.com/",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: hsgImg
   },
   {
@@ -906,6 +938,7 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "http://www.kaif.or.kr/",
     isExternal: true,
     isClosed: false,
+    closedMessage: ``,
     image: kaifImg
   }
 ];
