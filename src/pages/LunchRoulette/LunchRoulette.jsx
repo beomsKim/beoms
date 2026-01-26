@@ -4,6 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, Share2, Download } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { trackClick } from "../../utils/googleAnalytics";
 import html2canvas from 'html2canvas';
 import { MENU_DATA } from '../../data/menuData';
 import './lunchRoulette.scss';
@@ -189,7 +190,10 @@ const Roulette = () => {
             </motion.div>
 
             <motion.button 
-              onClick={() => setStep(1)} 
+              onClick={() => {
+                trackClick("Roulette_step1");
+                setStep(1);
+              }} 
               className="roulette-button start-btn"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -231,7 +235,10 @@ const Roulette = () => {
             </div>
 
             <button 
-              onClick={() => setStep(2)} 
+              onClick={() => {
+                trackClick("Roulette_step2");
+                setStep(2);
+              }} 
               className="roulette-button next-btn"
             >
               다음 단계로
@@ -258,7 +265,10 @@ const Roulette = () => {
             <div className="choice-container">
               <motion.div 
                 className={`choice-card ${heavy === true ? 'active' : ''}`} 
-                onClick={() => setHeavy(true)}
+                onClick={() => {
+                  trackClick("Roulette_heavy");
+                  setHeavy(true);
+                }}
                 whileTap={{ scale: 0.97 }}
               >
                 <div className="choice-icon">🍖</div>
@@ -273,7 +283,10 @@ const Roulette = () => {
 
               <motion.div 
                 className={`choice-card ${heavy === false ? 'active' : ''}`} 
-                onClick={() => setHeavy(false)}
+                onClick={() => {
+                  trackClick("Roulette_light");
+                  setHeavy(false);
+                }}
                 whileTap={{ scale: 0.97 }}
               >
                 <div className="choice-icon">🥗</div>
@@ -290,6 +303,7 @@ const Roulette = () => {
             <button
               disabled={heavy === null}
               onClick={() => {
+                trackClick("Roulette_step3");
                 setStep(3);
                 // startSpin(); // 다음으로 넘어가면서 바로 룰렛 시작!
               }}
@@ -359,22 +373,46 @@ const Roulette = () => {
                 
                 {/* 공유 버튼 */}
                 <div className="share-action-group">
-                   <button onClick={downloadAsImage} className="share-btn image">
-                     <Download size={16} /> 이미지 저장
-                   </button>
-                   <button onClick={shareResult} className="share-btn link">
-                     <Share2 size={16} /> 결과 공유
-                   </button>
+                  <button
+                    onClick={() => {
+                      trackClick("Roulette_image_down");
+                      downloadAsImage();
+                    }}
+                    className="share-btn image"
+                  >
+                    <Download size={16} /> 이미지 저장
+                  </button>
+                  <button
+                    onClick={() => {
+                      trackClick("Roulette_result_share");
+                      shareResult();
+                    }}
+                    className="share-btn link"
+                  >
+                    <Share2 size={16} /> 결과 공유
+                  </button>
                 </div>
 
                 {/* 검색 버튼 */}
                 <div className="map-action">
                   <span className="map-label">어디서 먹을까요?</span>
                   <div className="map-buttons">
-                    <button onClick={() => openMap('naver')} className="map-btn naver">
+                    <button
+                      onClick={() => {
+                        trackClick("Roulette_map_naver");
+                        openMap('naver');
+                      }}
+                      className="map-btn naver"
+                    >
                       네이버 지도
                     </button>
-                    <button onClick={() => openMap('google')} className="map-btn google">
+                    <button
+                      onClick={() => {
+                        trackClick("Roulette_map_google");
+                        openMap('google');
+                      }}
+                      className="map-btn google"
+                    >
                       구글 지도
                     </button>
                   </div>
@@ -384,7 +422,12 @@ const Roulette = () => {
 
             <div className="action-group">
               <button
-                onClick={isSpinning ? null : startSpin}
+                onClick={() => {
+                  trackClick("Roulette_start");
+                  if (!isSpinning) {
+                    startSpin();
+                  }
+                }}
                 className={`roulette-button retry-btn ${isSpinning ? 'disabled' : ''}`}
               >
                 {result ? '한 번 더 돌리기 🔄' : '룰렛 돌리기'}
@@ -393,6 +436,7 @@ const Roulette = () => {
               <div 
                 className="go-main-link" 
                 onClick={() => {
+                  trackClick("Roulette_reStart");
                   setStep(1);
                   setYesterdayMenu('');
                   setHeavy(null);

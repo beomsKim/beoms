@@ -5,6 +5,7 @@ import { SiVuedotjs, SiJavascript, SiHtml5, SiCss3, SiFigma, SiGithub } from 're
 import { experienceList } from '../../data/experienceData';
 import { portfolioList } from '../../data/portfolioData';
 import { AnimatePresence } from 'framer-motion';
+import { trackClick } from "../../utils/googleAnalytics";
 import ProjectPopup from '../../components/PopUp/ProjectPopup';
 import './home.scss';
 
@@ -128,13 +129,25 @@ const Home = () => {
                 </div>
                 <div className="info-item">
                   <strong>Contact</strong>
-                  <span className={`reveal-text ${contactInfo.isPhoneShow ? 'active' : ''}`} onClick={() => handleReveal('phone')}>
+                  <span
+                    className={`reveal-text ${contactInfo.isPhoneShow ? 'active' : ''}`}
+                    onClick={() => {
+                      trackClick("info_phone");
+                      handleReveal('phone');
+                    }}
+                  >
                     {contactInfo.phone}
                   </span>
                 </div>
                 <div className="info-item">
                   <strong>E-Mail</strong>
-                  <span className={`reveal-text ${contactInfo.isMailShow ? 'active' : ''}`} onClick={() => handleReveal('email')}>
+                  <span
+                    className={`reveal-text ${contactInfo.isMailShow ? 'active' : ''}`}
+                    onClick={() => {
+                      trackClick("info_email");
+                      handleReveal('email');
+                    }}
+                  >
                     {contactInfo.email}
                   </span>
                 </div>
@@ -197,8 +210,11 @@ const Home = () => {
             {visibleExpCount < experienceList.length && (
               <div className="more-btn-wrap" style={{ marginTop: '40px' }}>
                 <button 
-                  className="more-btn" 
-                  onClick={() => setVisibleExpCount(prev => prev + 3)} // 클릭 시 3개씩 추가 노출
+                  className="more-btn"
+                  onClick={() => {
+                    trackClick("workexp_more");
+                    setVisibleExpCount(prev => prev + 3); // 클릭 시 3개씩 추가 노출
+                  }}
                 >
                   더보기 (More)
                 </button>
@@ -213,8 +229,26 @@ const Home = () => {
             <h2 className="section-title">My Projects</h2>
 
             <nav className="tab-menu">
-              <button className={activeTab === 'new' ? 'active' : ''} onClick={() => { setActiveTab('new'); setVisibleCount(8); }}>신규 프로젝트</button>
-              <button className={activeTab === 'maintain' ? 'active' : ''} onClick={() => { setActiveTab('maintain'); setVisibleCount(8); }}>유지보수</button>
+              <button
+                className={activeTab === 'new' ? 'active' : ''} 
+                onClick={() => {
+                  trackClick("portfolio_tab_new");
+                  setActiveTab('new');
+                  setVisibleCount(8);
+                }}
+              >
+                신규 프로젝트
+              </button>
+              <button
+                className={activeTab === 'maintain' ? 'active' : ''} 
+                onClick={() => {
+                  trackClick("portfolio_tab_maintain");
+                  setActiveTab('maintain');
+                  setVisibleCount(8);
+                }}
+              >
+                유지보수
+              </button>
             </nav>
 
             <div className="portfolio-grid">
@@ -225,7 +259,10 @@ const Home = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   whileHover={{ y: -12 }}
-                  onClick={() => handleCardClick(item)}
+                  onClick={() => {
+                    trackClick("portfolio_card" + `_${item.category}`);
+                    handleCardClick(item);
+                  }}
                   style={{ cursor: 'pointer' }}
                 >
                   <div className="card-image">
@@ -280,7 +317,13 @@ const Home = () => {
 
             {visibleCount < filteredList.length && (
               <div className="more-btn-wrap">
-                <button className="more-btn" onClick={() => setVisibleCount(prev => prev + 8)}>
+                <button
+                  className="more-btn"
+                  onClick={() => {
+                    trackClick("portfolio_more");
+                    setVisibleCount(prev => prev + 8);
+                  }}
+                >
                   더보기 (More)
                 </button>
               </div>
