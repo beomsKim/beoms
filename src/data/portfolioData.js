@@ -66,7 +66,14 @@ export const portfolioList = [
     path: "/lunch", // 이동 경로
     isExternal: false,  // 외부 링크 여부 false 내부 / true 외부
     isClosed: false, // 서비스 중단 여부 false 운영중 / true 중단
-    closedMessage: ``,
+    closedMessage: `
+점심 메뉴 선택을 돕는 룰렛형 웹 토이 프로젝트.
+기획·디자인·프론트엔드 개발 전 과정을 직접 진행했으며,
+React 기반으로 UI 구성 및 룰렛 인터랙션 구현.
+
+React를 활용해 점심 메뉴 선택을 돕는 룰렛형 웹 토이 프로젝트 제작.
+기획·디자인·프론트엔드 개발 전 과정 단독 진행.
+    `,
     image: lunchRouletteImg // 대표 이미지
   },
   {
@@ -81,7 +88,14 @@ export const portfolioList = [
     path: "http://choolooss89.dothome.co.kr/",
     isExternal: true,
     isClosed: false,
-    closedMessage: ``,
+    closedMessage: `
+PHP 기반으로 개인 포트폴리오 사이트 제작.
+HTML·CSS·jQuery를 활용해 전체 마크업 및 인터랙션 구현.
+기획부터 퍼블리싱, 기능 구현까지 전 과정 단독 진행.
+
+PHP 기반 개인 포트폴리오 사이트 제작.
+HTML·CSS·jQuery를 활용한 마크업 및 UI 구현 전담.
+    `,
     image: myPortfolioImg
   },
   {
@@ -96,7 +110,17 @@ export const portfolioList = [
     path: "https://s15883112.cafe24.com/",
     isExternal: true,
     isClosed: false,
-    closedMessage: ``,
+    closedMessage: `
+카페24 베이직 스킨을 기반으로 모바일 쇼핑몰 커스텀 작업 진행.
+HTML·CSS·JavaScript를 활용한 UI 구현을 담당했으며,
+백엔드 개발자와 협업해 API 통신 후 데이터 가공 및 화면 반영까지 수행.
+프로젝트 전반을 PL 겸 작업자로 참여했으며,
+기존 에스원 서비스의 로그인·유저 정보 연동을 위해 내부 개발팀과 협업.
+
+카페24 베이직 스킨 기반 모바일 쇼핑몰 커스텀 작업.
+프론트엔드 구현 및 API 연동을 통한 데이터 가공·반영 담당.
+PL 겸 작업자로 참여해 내부 개발팀과 협업 진행.
+    `,
     image: s1Img
   },
   {
@@ -111,7 +135,16 @@ export const portfolioList = [
     path: "https://www.jinrotonic.com/",
     isExternal: true,
     isClosed: false,
-    closedMessage: ``,
+    closedMessage: `
+진로 토닉워터 공식 쇼핑몰 구축 프로젝트에 PL로 참여.
+ShopBy 기반 환경에서 제공된 API를 활용해,
+React·SCSS·GSAP 기반 프론트엔드 개발이 진행되도록
+프로젝트 일정·작업자 관리 및 피드백을 담당.
+작업 지연 이슈 발생 시 개발에 직접 참여해 마무리까지 지원.
+
+진로 토닉워터 공식 쇼핑몰 구축 프로젝트 PL 참여.
+React 기반 프론트엔드 개발 일정·작업자 관리 및 협업 담당.
+    `,
     image: jinrotonicImg
   },
   {
@@ -126,7 +159,14 @@ export const portfolioList = [
     path: "https://sunpohara.com/",
     isExternal: true,
     isClosed: false,
-    closedMessage: ``,
+    closedMessage: `
+카페24 베이직 스킨 기반 공식 쇼핑몰 구축 프로젝트에 PL로 참여.
+프로젝트 일정 및 작업자 스케줄 관리, 작업 결과에 대한 피드백을 담당했으며,
+SCSS 기반 퍼블리싱 환경에서 일부 마크업 수정 및 개발 서포트 수행.
+
+카페24 베이직 스킨 기반 쇼핑몰 구축 프로젝트 PL 참여.
+일정·작업자 관리 및 피드백 중심으로 진행, 일부 퍼블리싱 서포트.
+    `,
     image: daygestSunpoharaImg
   },
   {
@@ -141,7 +181,14 @@ export const portfolioList = [
     path: "https://shangpree.com/",
     isExternal: true,
     isClosed: false,
-    closedMessage: ``,
+    closedMessage: `
+카페24 베이직 스킨 기반 공식 쇼핑몰 구축 프로젝트에 PL로 참여.
+프로젝트 일정 및 작업자 스케줄 관리, 작업 결과에 대한 피드백을 담당했으며,
+SCSS 기반 퍼블리싱 환경에서 일부 마크업 수정 및 개발 서포트 수행.
+
+카페24 기반 쇼핑몰 구축 프로젝트 PL 참여.
+일정·작업자 관리 및 피드백 중심, 일부 퍼블리싱 서포트.
+    `,
     image: shangpreeImg
   },
   {
@@ -156,9 +203,18 @@ export const portfolioList = [
     path: "/https://intimegames.com/",
     isExternal: false,
     isClosed: true,
-    closedMessage: `기존 픽메이커 서비스의 연령 제한·스토어 심사 이슈를 해결하기 위해
-스포츠 일정·실시간 스코어만 제공하는 하이브리드 앱을 분리 개발.
-기존 픽메이커 소스를 재활용해 프론트엔드 전반을 단독 개발.`,
+    closedMessage: `
+Vue.js 기반 실시간 스포츠 스코어 서비스 제작.
+연령 제한 및 스토어 심사 이슈가 있는 기존 픽메이커 서비스의 확장을 위해,
+경기 일정·실시간 스코어만 제공하는 별도 서비스를 기획·개발.
+기존 픽메이커 소스를 활용해 프론트엔드 전반을 단독 개발했으며,
+디자인 적용 후 하이브리드 앱으로 배포 및 운영까지 전담.
+
+Vue.js 기반 실시간 스포츠 스코어 하이브리드 앱 제작.
+기존 픽메이커 소스를 활용해 프론트엔드 단독 개발 및 운영 담당.
+
+스토어 심사 리스크를 서비스 분리로 해결한 실무형 확장 프로젝트
+    `,
     image: sportsscoreImg
   },
   {
@@ -174,9 +230,16 @@ export const portfolioList = [
     isExternal: false,
     isClosed: true,
     closedMessage: ``,
-    closedMessage: `픽메이커 서비스를 운영하는 인타임 게임즈 자사 홈페이지를
-Gulp 기반 환경에서 원페이지로 제작.
-HTML·CSS·JS(jQuery)를 활용한 마크업 및 인터랙션 구현을 담당.`,
+    closedMessage: `
+Gulp 기반 퍼블리싱 환경에서 진행된 회사 소개 홈페이지 제작 프로젝트.
+디자이너 시안을 기반으로 HTML, CSS, JavaScript(jQuery)를 활용해
+반응형 원페이지 사이트 마크업 및 인터랙션 구현을 전담했으며,
+jQuery 플러그인을 활용한 스크롤·모션 인터랙션을 적용.
+기본 Gulp 세팅은 선임이 구성한 환경을 사용해 작업 진행.
+
+Gulp 기반 회사 소개 웹사이트 퍼블리싱 전담.
+반응형 원페이지 마크업 및 인터랙션 구현.
+    `,
     image: pickmakerImg
   },
   {
@@ -191,7 +254,15 @@ HTML·CSS·JS(jQuery)를 활용한 마크업 및 인터랙션 구현을 담당.`
     path: "http://www.ifcj.kr/",
     isExternal: false,
     isClosed: false,
-    closedMessage: ``,
+    closedMessage: `
+Bootstrap 커스텀 기반 반응형 원페이지 웹사이트 구축 프로젝트.
+디자이너 시안을 제공받아 프리랜서로 참여했으며,
+HTML, CSS, JavaScript(jQuery)를 활용해 전체 마크업 및 인터랙션 구현을 담당.
+기부·후원형 서비스 특성을 고려한 레이아웃 구성과 반응형 대응 작업 수행.
+
+Bootstrap 커스텀 기반 반응형 원페이지 사이트 퍼블리싱 전담.
+HTML·CSS·jQuery 활용.
+    `,
     image: ifcjImg
   },
   {
@@ -206,7 +277,15 @@ HTML·CSS·JS(jQuery)를 활용한 마크업 및 인터랙션 구현을 담당.`
     path: "https://www.benjaminmoore.co.kr/",
     isExternal: true,
     isClosed: false,
-    closedMessage: ``,
+    closedMessage: `
+고도몰5 기본 스킨 기반 쇼핑몰 커스텀 프로젝트.
+사내 디자이너 시안을 기반으로 전체 UI 디자인 커스텀 및 퍼블리싱을 단독 수행.
+백엔드 개발자와 협업해 컬러칩 기능을 API 연동 방식으로 구현했으며,
+데이터 가공 및 화면 반영까지 프론트엔드 영역 전반을 담당.
+
+고도몰5 기반 쇼핑몰 커스텀 퍼블리싱 전담.
+컬러칩 기능 API 연동 협업 경험.
+    `,
     image: benjaminmooreImg
   },
   {
@@ -221,8 +300,14 @@ HTML·CSS·JS(jQuery)를 활용한 마크업 및 인터랙션 구현을 담당.`
     path: "http://dokripmarket.net/",
     isExternal: false,
     isClosed: true,
-    closedMessage: `메이크샵 기반 쇼핑몰 독립마켓의 디자인 커스텀 작업 진행.
-제공된 디자인을 바탕으로 HTML·CSS·jQuery 마크업 및 스킨 수정 담당.`,
+    closedMessage: `
+MakeShop 기본 스킨 기반 쇼핑몰 커스텀 프로젝트.
+전 직장 동료 소개로 프리랜서 참여했으며, 제공된 디자인을 바탕으로
+HTML, CSS, JavaScript(jQuery)를 활용한 퍼블리싱 및 스킨 커스텀을 단독 수행.
+
+MakeShop 기반 쇼핑몰 스킨 커스텀 프리랜서 참여.
+디자인 반영 중심 퍼블리싱 작업 수행.
+    `,
     image: happyfarmImg
   },
   {
@@ -237,9 +322,20 @@ HTML·CSS·JS(jQuery)를 활용한 마크업 및 인터랙션 구현을 담당.`
     path: "http://aphrozone2.cafe24.com/",
     isExternal: false,
     isClosed: true,
-    closedMessage: `PHP 기반으로 브랜드 제품 소개 사이트 제작.
-제공된 디자인을 바탕으로 HTML·CSS·jQuery 퍼블리싱 및 인터랙션 구현.
-호스팅·도메인 설정 포함 전반 단독 진행.`,
+    closedMessage: `
+허브레쥬메 · 루비셀 · 아토락 (브랜드 사이트 제작)
+동일 회사 재직 당시 브랜드별 제품 소개 홈페이지 제작 프로젝트.
+허브레쥬메(건강식품), 루비셀(고급 화장품 라인), 아토락(저자극 화장품 라인)
+총 3개 브랜드 사이트를 각각 제작했으며, 디자인은 디자이너로부터 제공받아
+PHP 기반 환경에서 HTML, CSS, jQuery를 활용해 퍼블리싱 및 프론트엔드 작업을 단독 수행.
+
+허브레쥬메: PC / Mobile 분리 구축
+루비셀: PC / Mobile 분리 구축
+아토락: 반응형 웹으로 구축
+
+브랜드별 제품 소개 사이트 다수 제작.
+PHP 기반 퍼블리싱 단독 수행, PC·모바일 분리 및 반응형 구축 경험.
+    `,
     image: herb_resumeImg
   },
   {
@@ -254,9 +350,15 @@ HTML·CSS·JS(jQuery)를 활용한 마크업 및 인터랙션 구현을 담당.`
     path: "http://aphrozone3.cafe24.com/",
     isExternal: false,
     isClosed: true,
-    closedMessage: `그누보드 기반으로 베트남 시장에 제공할 브랜드 홈페이지 제작.
-기존 외주 제작 사이트를 기준으로 디자인을 재현했으며,
-HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
+    closedMessage: `
+기존 타 업체를 통해 제작되어 운영 중이던 Aphrozone 홈페이지를
+베트남 제공을 목적으로 신규 구축한 다국어 프로젝트.
+기존 사이트를 기준으로 디자인과 구조를 분석해 그누보드 기반으로 커스텀 제작했으며,
+HTML, CSS, jQuery를 활용해 기존 서비스와 동일한 형태로 재현.
+
+기존 서비스 기반 다국어 사이트 구축.
+그누보드 커스텀 및 퍼블리싱 단독 수행.
+    `,
     image: aphrozoneImg
   },
   {
@@ -271,9 +373,20 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "http://atorak.co.kr/",
     isExternal: false,
     isClosed: true,
-    closedMessage: `PHP 기반으로 브랜드 제품 소개 사이트 제작.
-제공된 디자인을 바탕으로 HTML·CSS·jQuery 퍼블리싱 및 인터랙션 구현.
-호스팅·도메인 설정 포함 전반 단독 진행.`,
+    closedMessage: `
+허브레쥬메 · 루비셀 · 아토락 (브랜드 사이트 제작)
+동일 회사 재직 당시 브랜드별 제품 소개 홈페이지 제작 프로젝트.
+허브레쥬메(건강식품), 루비셀(고급 화장품 라인), 아토락(저자극 화장품 라인)
+총 3개 브랜드 사이트를 각각 제작했으며, 디자인은 디자이너로부터 제공받아
+PHP 기반 환경에서 HTML, CSS, jQuery를 활용해 퍼블리싱 및 프론트엔드 작업을 단독 수행.
+
+허브레쥬메: PC / Mobile 분리 구축
+루비셀: PC / Mobile 분리 구축
+아토락: 반응형 웹으로 구축
+
+브랜드별 제품 소개 사이트 다수 제작.
+PHP 기반 퍼블리싱 단독 수행, PC·모바일 분리 및 반응형 구축 경험.
+    `,
     image: atorakImg
   },
   {
@@ -288,9 +401,20 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "http://ruby-cell.co.kr/",
     isExternal: false,
     isClosed: true,
-    closedMessage: `PHP 기반으로 브랜드 제품 소개 사이트 제작.
-제공된 디자인을 바탕으로 HTML·CSS·jQuery 퍼블리싱 및 인터랙션 구현.
-호스팅·도메인 설정 포함 전반 단독 진행.`,
+    closedMessage: `
+허브레쥬메 · 루비셀 · 아토락 (브랜드 사이트 제작)
+동일 회사 재직 당시 브랜드별 제품 소개 홈페이지 제작 프로젝트.
+허브레쥬메(건강식품), 루비셀(고급 화장품 라인), 아토락(저자극 화장품 라인)
+총 3개 브랜드 사이트를 각각 제작했으며, 디자인은 디자이너로부터 제공받아
+PHP 기반 환경에서 HTML, CSS, jQuery를 활용해 퍼블리싱 및 프론트엔드 작업을 단독 수행.
+
+허브레쥬메: PC / Mobile 분리 구축
+루비셀: PC / Mobile 분리 구축
+아토락: 반응형 웹으로 구축
+
+브랜드별 제품 소개 사이트 다수 제작.
+PHP 기반 퍼블리싱 단독 수행, PC·모바일 분리 및 반응형 구축 경험.
+    `,
     image: rubyCellImg
   },
   {
@@ -305,7 +429,14 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "http://www.dasancntech.com/",
     isExternal: true,
     isClosed: false,
-    closedMessage: ``,
+    closedMessage: `
+카페24 빌더 호스팅 환경에서 운영 중이던 기업 홈페이지 개편 프로젝트.
+기존 유료 스킨을 사용 중인 상태에서 입사 후 디자인 전반을 수정했으며,
+다국어 페이지 번역 및 콘텐츠 적용을 직접 수행해 글로벌 대응 구조로 정비.
+
+카페24 빌더 기반 기업 홈페이지 개편.
+디자인 수정 및 다국어 콘텐츠 적용 단독 수행.
+    `,
     image: dasanImg
   },
   {
@@ -320,7 +451,14 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "http://www.kaif.or.kr/",
     isExternal: true,
     isClosed: false,
-    closedMessage: ``,
+    closedMessage: `
+기존 홈페이지 전면 개편이 아닌,
+노후된 디자인 개선과 사용자 편의성 향상을 목표로 한 부분 리뉴얼 프로젝트.
+기존 서비스 구조를 유지한 상태에서 UI 개선 중심의 디자인 리뉴얼을 진행.
+
+기존 홈페이지 부분 디자인 리뉴얼.
+UI 개선 중심의 디자인 개편 수행.
+    `,
     image: kaifImg
   },
   {
@@ -335,7 +473,17 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "http://www.talgut.com/",
     isExternal: true,
     isClosed: false,
-    closedMessage: ``,
+    closedMessage: `
+PHP 기반 웹 프로젝트로,
+프로젝트 초기 단계에서 디자인에 맞춰 메인 및 서브 레이아웃의 기본 마크업 구조를 HTML, CSS로 구축.
+이후 개발자가 PHP 연동 작업을 진행하면,
+완료된 결과물을 다시 전달받아 서브 페이지 마크업 보완 및 기본 인터랙션을 적용하는 방식으로 프로젝트를 마무리.
+
+반응형 웹 프로젝트로 전반적인 퍼블리싱 흐름을 주도적으로 담당.
+
+PHP 기반 반응형 웹 퍼블리싱 참여.
+초기 레이아웃 마크업 → PHP 연동 후 서브 페이지 및 인터랙션 마무리.
+    `,
     image: talgutImg
   },
   {
@@ -350,7 +498,17 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "https://www.nakamurakorea.co.kr/",
     isExternal: true,
     isClosed: false,
-    closedMessage: ``,
+    closedMessage: `
+기존 서비스를 유지한 상태에서
+노후화된 디자인 개선과 UI 사용성 향상을 목표로 한 디자인 리뉴얼 프로젝트.
+전체 리뉴얼이 아닌 부분 리뉴얼 형태로 진행되었으며,
+팀원과 페이지 단위로 역할을 나눠 디자인 수정 작업을 수행.
+
+기존 구조를 해치지 않으면서 시각적 완성도와 사용성을 개선하는 데 집중.
+
+기존 서비스 디자인 리뉴얼 참여.
+페이지 분담 작업을 통한 UI·디자인 개선.
+    `,
     image: nakamuraImg
   },
   {
@@ -365,7 +523,16 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "http://taihe.or.kr/",
     isExternal: false,
     isClosed: true,
-    closedMessage: ``,
+    closedMessage: `
+중국음식점 소개 및 예약 시스템을 포함한 반응형 원페이지 사이트 구축 프로젝트.
+PHP 기반으로 개발되었으며,
+HTML / CSS / jQuery를 활용해 전반적인 마크업과 인터랙션을 구현.
+
+매장 소개 흐름과 예약 동선을 고려한 원페이지 구조로 작업.
+
+중식당 소개·예약 기능 포함 반응형 원페이지 사이트 구축.
+PHP 기반 퍼블리싱 및 인터랙션 구현.
+    `,
     image: taiheImg
   },
   {
@@ -380,7 +547,16 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "http://urbanbrook.co.kr/",
     isExternal: false,
     isClosed: true,
-    closedMessage: ``,
+    closedMessage: `
+PHP 기반 반응형 웹 프로젝트.
+프로젝트 초기에 HTML / CSS로 메인·서브 레이아웃 기본 구조 마크업을 담당했으며,
+이후 개발자가 PHP를 적용한 뒤 전달받아 서브페이지 마크업 보완 및 기본 인터랙션 구현까지 진행.
+
+퍼블리셔–개발자 분업 구조에서 초기 구조 설계부터 마무리 퍼블리싱까지 담당한 프로젝트.
+
+PHP 기반 반응형 웹 퍼블리싱.
+레이아웃 구조 마크업 → 개발 연동 후 서브페이지 및 인터랙션 마무리.
+    `,
     image: urbanbrookImg
   },
   {
@@ -395,7 +571,16 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "http://pungmuamc.co.kr/",
     isExternal: true,
     isClosed: false,
-    closedMessage: ``,
+    closedMessage: `
+PHP 기반 반응형 웹 프로젝트.
+프로젝트 초기에 HTML / CSS로 메인·서브 레이아웃 기본 구조 마크업을 담당했으며,
+개발자가 PHP 적용 후 전달한 결과물을 받아 서브페이지 마크업 보완 및 기본 인터랙션 구현까지 진행.
+
+퍼블리셔–개발자 협업 구조에서 초기 구조 설계부터 후반 퍼블리싱 마무리까지 담당한 프로젝트.
+
+PHP 기반 반응형 웹 퍼블리싱.
+레이아웃 구조 마크업 → 개발 연동 후 서브페이지 및 인터랙션 마무리.
+    `,
     image: pungmuImg
   },
   {
@@ -411,7 +596,17 @@ HTML·CSS·jQuery를 활용한 마크업 및 UI 구현을 담당.`,
     path: "http://mdesign.nayana.kr/?c=info",
     isExternal: true,
     isClosed: false,
-    closedMessage: ``,
+    closedMessage: `
+PHP 기반 서비스의 부분 리뉴얼 프로젝트.
+전체 개편이 아닌 병원 검색 페이지 기능 추가 및 디자인 리뉴얼을 진행했으며,
+지도 API를 활용해 병원 위치 표시 및 병원 정보 제공 기능을 구현.
+
+기존 서비스 구조를 유지한 상태에서
+UI 개선 + 기능 확장 중심으로 퍼블리싱 및 프론트 작업을 수행한 프로젝트.
+
+PHP 기반 서비스 부분 리뉴얼.
+병원 검색 페이지 UI 개선 및 지도 API 기반 병원 정보 기능 추가.
+    `,
     image: smart_checkupImg
   },
   {

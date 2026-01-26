@@ -6,7 +6,7 @@ import LunchRoulette from './pages/LunchRoulette/LunchRoulette';
 import ReactGA from "react-ga4";
 
 const basename = import.meta.env.MODE === 'development' ? '/' : '/beoms';
-const GA_ID = "GTM-NWPKC948"; // 발급받은 ID 넣기
+const GA_ID = "G-TGG0N8Y6M7"; // 발급받은 ID 넣기
 ReactGA.initialize(GA_ID);
 
 export default function App() {

@@ -7,7 +7,6 @@ export const trackClick = (label) => {
     action: "Click",
     label: label,
   });
-  console.log(`GA Click Tracked: ${label}`);
 };
 
 export const trackAction = (category, action, label) => {
