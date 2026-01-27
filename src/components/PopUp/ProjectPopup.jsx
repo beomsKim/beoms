@@ -49,7 +49,7 @@ const ProjectPopup = ({ isOpen, item, onClose }) => {
               <div className="message-box">
                 {(item.description || "상세 내용을 확인해보세요.")}
                 {/* isClosed 여부에 따라 다른 메시지 노출 */}
-                {(item.closedMessage || "현재 서비스가 종료되었습니다.")}
+                {(item.closedMessage || "")}
               </div>
             </div>
             <div className="popup-footer" style={{ display: 'flex', gap: '10px' }}>
