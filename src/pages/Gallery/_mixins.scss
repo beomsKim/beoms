@@ -1,0 +1,34 @@
+// src/pages/Gallery/_mixins.scss
+@use "./variables" as *;
+
+@mixin flex-center($gap: 0) {
+    display: flex;
+    gap: $gap;
+    align-items: center;
+}
+
+@mixin button($bg, $color: #fff) {
+    cursor: pointer;
+    padding: 6px 10px;
+    background: $bg;
+    border: none;
+    border-radius: $radius-sm;
+    color: $color;
+    transition: $transition;
+
+    &:hover {
+        opacity: 0.85;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+}
+
+@mixin card {
+    background: $color-bg;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    transition: $transition;
+}

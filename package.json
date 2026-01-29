@@ -12,6 +12,8 @@
     "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
+    "browser-image-compression": "^2.0.2",
+    "firebase": "^12.8.0",
     "framer-motion": "^12.23.26",
     "html2canvas": "^1.4.1",
     "lucide-react": "^0.562.0",

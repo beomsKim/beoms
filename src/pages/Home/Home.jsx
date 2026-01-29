@@ -73,6 +73,7 @@ const Home = () => {
   //     item.isExternal ? window.open(item.path) : navigate(item.path);
   //   }
   // };
+
   const handleCardClick = (item) => {
     setSelectedProject(item); // 아이템 데이터 담기
     setIsPopupOpen(true);     // 팝업 열기
@@ -80,7 +81,7 @@ const Home = () => {
   return (
     <div className="home-wrapper">
 
-      {/* [수정] 배경 전용 레이어: 컨텐츠 뒤에 깔림 */}
+      {/* 배경 전용 레이어: 컨텐츠 뒤에 깔림 */}
       <div className="bg-container" aria-hidden="true">
         {bgShapes.map(shape => (
           <div 
@@ -100,7 +101,7 @@ const Home = () => {
         ))}
       </div>
 
-      {/* [수정] 컨텐츠 레이어: 배경보다 위(z-index)에 위치 */}
+      {/* 컨텐츠 레이어: 배경보다 위(z-index)에 위치 */}
       <div className="content-layer">
         {/* 1. About 섹션 */}
         <section className="about-section">

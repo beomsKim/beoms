@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './layout/Layout';
 import Home from './pages/Home/Home';
 import LunchRoulette from './pages/LunchRoulette/LunchRoulette';
+import Gallery from './pages/Gallery/Gallery';
 import ReactGA from "react-ga4";
 
 const basename = import.meta.env.MODE === 'development' ? '/' : '/beoms';
@@ -17,6 +18,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
 
           <Route path="/lunch" element={<LunchRoulette />} />
+          <Route path="/gallery" element={<Gallery/>} />
         </Route>
       </Routes>
     </BrowserRouter>

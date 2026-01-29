@@ -1,4 +1,4 @@
-@use "../../styles/variables" as *; // 경로 확인해줘!
+@use "../../styles/variables" as *;
 
 .popup-overlay {
     @include flex-custom;
