@@ -38,7 +38,7 @@ function Gallery() {
           <GalleryItem
             key={p.id}
             post={p}
-            isAdmin={isAdmin}
+            // isAdmin={isAdmin}
             onDelete={remove}
           />
         ))}

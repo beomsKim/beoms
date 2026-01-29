@@ -72,17 +72,23 @@ export const fetchPosts = async (lastDoc) => {
         limit(12)
     );
 
-    if (lastDoc) q = query(q, startAfter(lastDoc));
+    if (lastDoc) {
+        q = query(q, startAfter(lastDoc));
+    }
 
     const snapshot = await getDocs(q);
 
-    return {
-        posts: snapshot.docs.map((d) => ({ id: d.id, ...d.data() })),
-        lastDoc: snapshot.docs[snapshot.docs.length - 1],
-    };
+    const posts = snapshot.docs.map((doc) => ({
+        id: doc.id, // ✅ 무조건 Firestore id
+        ...doc.data(),
+    }));
+
+    const newLastDoc = snapshot.docs[snapshot.docs.length - 1];
+
+    return { posts, lastDoc: newLastDoc };
 };
 
-    export const deletePost = async (post) => {
+export const deletePost = async (post) => {
     await deleteObject(ref(storage, post.originPath));
     await deleteDoc(doc(db, "posts", post.id));
 };

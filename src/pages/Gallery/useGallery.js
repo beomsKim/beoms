@@ -15,11 +15,7 @@ if (!hasMore) return;
 const { posts: newPosts, lastDoc: newLastDoc } =
     await fetchPosts(lastDoc);
 
-setPosts((prev) => {
-    const map = new Map(prev.map((p) => [p.id, p]));
-    newPosts.forEach((p) => map.set(p.id, p));
-    return [...map.values()];
-});
+setPosts((prev) => [...prev, ...newPosts]);
 
 setLastDoc(newLastDoc);
 
@@ -31,19 +27,23 @@ useEffect(() => {
 }, []);
 
 const upload = async (file) => {
-    setLoading(true);
-    await uploadImage(file, setProgress);
-    setPosts([]);
-    setLastDoc(null);
-    setHasMore(true);
-    await loadPosts();
-    setLoading(false);
+  setLoading(true);
+
+  const newPost = await uploadImage(file, setProgress);
+
+  setPosts((prev) => [newPost, ...prev]);
+
+  setLoading(false);
 };
 
-const remove = async (post, isAdmin) => {
-    if (!isAdmin) return alert("관리자만 삭제 가능");
-    await deletePost(post);
-    setPosts((prev) => prev.filter((p) => p.id !== post.id));
+// const remove = async (post, isAdmin) => {
+//     if (!isAdmin) return alert("관리자만 삭제 가능");
+//     await deletePost(post);
+//     setPosts((prev) => prev.filter((p) => p.id !== post.id));
+// };
+const remove = async (post) => {
+  await deletePost(post);
+  setPosts((prev) => prev.filter((p) => p.id !== post.id));
 };
 
 return {

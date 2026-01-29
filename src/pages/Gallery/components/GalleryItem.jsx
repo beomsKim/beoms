@@ -3,9 +3,10 @@ export default function GalleryItem({ post, onDelete, isAdmin }) {
     return (
         <div className="item">
             <img src={post.thumbUrl} loading="lazy" />
-            {isAdmin && (
+            {/* {isAdmin && (
                 <button onClick={() => onDelete(post)}>삭제</button>
-            )}
+            )} */}
+            <button onClick={() => onDelete(post)}>삭제</button>
         </div>
     );
 }
