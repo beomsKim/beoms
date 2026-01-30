@@ -10,7 +10,6 @@ export default function Gallery() {
   const [album, setAlbum] = useState("all");
   const [newAlbum, setNewAlbum] = useState("기본");
   const [modal, setModal] = useState(null);
-  // const { posts, loading, upload, remove } = useGallery();
   const {
     posts,
     hasMore,
