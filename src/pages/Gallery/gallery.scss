@@ -126,6 +126,42 @@
     }
 }
 
+// modal image
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+
+    img {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 12px;
+    }
+}
+// .skeleton {
+//     height: 160px;
+//     background: linear-gradient(
+//         90deg,
+//         #f2f4f6,
+//         #e5e8eb,
+//         #f2f4f6
+//     );
+//     background-size: 200% 100%;
+//     border-radius: 14px;
+//     animation: skeleton 1.2s infinite;
+// }
+// @keyframes skeleton {
+//     0% {
+//         background-position: 200% 0;
+//     }
+//     100% {
+//         background-position: -200% 0;
+//     }
+// }
+
 /* skeleton */
 .skeleton-grid {
     display: grid;

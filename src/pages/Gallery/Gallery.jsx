@@ -10,7 +10,7 @@ export default function Gallery() {
   const [album, setAlbum] = useState("all");
   const [newAlbum, setNewAlbum] = useState("기본");
   const [modal, setModal] = useState(null);
-
+  // const { posts, loading, upload, remove } = useGallery();
   const {
     posts,
     hasMore,
@@ -116,7 +116,7 @@ export default function Gallery() {
 
       <div ref={observerRef} style={{ height: 1 }} />
 
-      {modal && <ImageModal src={modal} onClose={() => setModal(null)} />}
+      {modal && <ImageModal url={modal} onClose={() => setModal(null)} />}
 
       {/* 로딩 */}
       {loading && (
