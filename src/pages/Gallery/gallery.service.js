@@ -2,7 +2,7 @@
 import { storage, db } from "../../firebase";
 import {
     ref,
-    uploadBytesResumable,
+    uploadBytes,
     getDownloadURL,
     deleteObject,
 } from "firebase/storage";
@@ -17,78 +17,81 @@ import {
     deleteDoc,
     doc,
     serverTimestamp,
+    where,
 } from "firebase/firestore";
 
-const createPath = (file, type = "origin") => {
-    const date = new Date();
-    const y = date.getFullYear();
-    const m = String(date.getMonth() + 1).padStart(2, "0");
-    const uuid = crypto.randomUUID();
+const PAGE_SIZE = 12;
+
+// 경로 생성
+const createPath = (album, file, prefix = "") => {
     const ext = file.name.split(".").pop();
-
-    return `gallery/${type}/${y}/${m}/${uuid}.${ext}`;
+    const name = crypto.randomUUID();
+    return `gallery/${album}/${prefix}${name}.${ext}`;
 };
 
-export const uploadImage = async (file, onProgress) => {
-    const originPath = createPath(file, "origin");
-    const thumbPath = createPath(file, "thumb");
+// 업로드 (썸네일 + 원본)
+export const uploadImage = async (file, album) => {
+    const path = createPath(album, file);
+    const thumbPath = createPath(album, file, "thumb_");
 
-    const originRef = ref(storage, originPath);
+    const originRef = ref(storage, path);
+    const thumbRef = ref(storage, thumbPath);
 
-    const uploadTask = uploadBytesResumable(originRef, file);
+    await uploadBytes(originRef, file);
+    await uploadBytes(thumbRef, file); // 썸네일은 나중에 압축 가능
 
-    return new Promise((resolve, reject) => {
-        uploadTask.on(
-            "state_changed",
-            (snap) => {
-                const percent = Math.round(
-                    (snap.bytesTransferred / snap.totalBytes) * 100
-                );
-                onProgress(percent);
-            },
-            reject,
-            async () => {
-                const originUrl = await getDownloadURL(originRef);
-                const thumbUrl = originUrl;
-                const docRef = await addDoc(collection(db, "posts"), {
-                    originUrl,
-                    thumbUrl,
-                    originPath,
-                    thumbPath,
-                    createdAt: serverTimestamp(),
-                });
+    const url = await getDownloadURL(originRef);
+    const thumbUrl = await getDownloadURL(thumbRef);
 
-                resolve({ id: docRef.id, originUrl, thumbUrl });
-            }
-        );
+    const docRef = await addDoc(collection(db, "posts"), {
+        url,
+        thumbUrl,
+        path,
+        thumbPath,
+        album,
+        createdAt: serverTimestamp(),
     });
+
+    return { id: docRef.id };
 };
 
-// 무한스크롤용 fetch
-export const fetchPosts = async (lastDoc) => {
+// 목록 가져오기 (무한스크롤 + 앨범 필터)
+export const fetchPosts = async (lastDoc, album) => {
     let q = query(
         collection(db, "posts"),
         orderBy("createdAt", "desc"),
-        limit(12)
+        limit(PAGE_SIZE)
     );
+
+    if (album && album !== "all") {
+        q = query(
+            collection(db, "posts"),
+            where("album", "==", album),
+            orderBy("createdAt", "desc"),
+            limit(PAGE_SIZE)
+        );
+    }
 
     if (lastDoc) {
         q = query(q, startAfter(lastDoc));
     }
 
-    const snapshot = await getDocs(q);
+    const snap = await getDocs(q);
 
-    const posts = snapshot.docs.map((doc) => ({
-        id: doc.id, // ✅ 무조건 Firestore id
-        ...doc.data(),
+    const posts = snap.docs.map((d) => ({
+        id: d.id,
+        ...d.data(),
     }));
 
-    const newLastDoc = snapshot.docs[snapshot.docs.length - 1];
-
-    return { posts, lastDoc: newLastDoc };
+    return {
+        posts,
+        lastDoc: snap.docs[snap.docs.length - 1] || null,
+    };
 };
 
+// 삭제
 export const deletePost = async (post) => {
-    await deleteObject(ref(storage, post.originPath));
+    await deleteObject(ref(storage, post.path));
+    await deleteObject(ref(storage, post.thumbPath));
     await deleteDoc(doc(db, "posts", post.id));
 };

@@ -1,30 +1,19 @@
-// src/pages/Gallery/components/UploadBox.jsx
-import { useRef } from "react";
-
 export default function UploadBox({ onUpload }) {
-    const inputRef = useRef();
-
-    const handleDrop = (e) => {
-        e.preventDefault();
-        const file = e.dataTransfer.files[0];
-        if (file) onUpload(file);
+    const handleFiles = (e) => {
+        const files = Array.from(e.target.files);
+        onUpload(files);
     };
 
     return (
-        <div
-            className="upload-box"
-            onDragOver={(e) => e.preventDefault()}
-            onDrop={handleDrop}
-            onClick={() => inputRef.current.click()}
-        >
-            📂 이미지 드래그 or 클릭
+        <label className="upload-box">
+            이미지 업로드
             <input
-                ref={inputRef}
                 type="file"
-                hidden
                 accept="image/*"
-                onChange={(e) => onUpload(e.target.files[0])}
+                multiple // ✅ 다중 업로드
+                hidden
+                onChange={handleFiles}
             />
-        </div>
+        </label>
     );
 }

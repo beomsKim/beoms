@@ -1,54 +1,133 @@
 // src/pages/Gallery/Gallery.jsx
-import React, { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useGallery } from "./useGallery";
-import EmptyState from "./components/EmptyState";
-import UploadBox from "./components/UploadBox";
 import GalleryItem from "./components/GalleryItem";
-import ProgressBar from "./components/ProgressBar";
-import Skeleton from "./components/Skeleton";
-import "./gallery.scss";
+import ImageModal from "./components/ImageModal";
 
-const isAdmin = true; // 유저정보 - 나중에 auth로 교체
+import './gallery.scss';
 
-function Gallery() {
+export default function Gallery() {
+  const [album, setAlbum] = useState("all");
+  const [newAlbum, setNewAlbum] = useState("기본");
+  const [modal, setModal] = useState(null);
+
   const {
     posts,
-    progress,
-    loading,
     hasMore,
     loadPosts,
     upload,
     remove,
-  } = useGallery();
+    loading,
+    progress,
+  } = useGallery(album);
 
-  const handleScroll = (e) => {
-    const { scrollTop, scrollHeight, clientHeight } = e.target;
-    if (scrollTop + clientHeight >= scrollHeight - 100) {
-      loadPosts();
-    }
+  const observerRef = useRef(null);
+
+  // 무한 스크롤
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) loadPosts();
+      },
+      { threshold: 1 }
+    );
+
+    if (observerRef.current) observer.observe(observerRef.current);
+    return () => observer.disconnect();
+  }, [loadPosts]);
+
+  // 앨범 목록 (빈값 제거)
+  const albums = [
+    "all",
+    ...new Set(posts.map((p) => p.album).filter(Boolean)),
+  ];
+
+  // 드래그앤드롭
+  const handleDrop = (e) => {
+    e.preventDefault();
+    const files = Array.from(e.dataTransfer.files);
+    upload(files, newAlbum);
   };
 
   return (
-    <div className="gallery" onScroll={handleScroll}>
-      <UploadBox onUpload={upload} />
-      {loading && <ProgressBar progress={progress} />}
+    <div className="gallery" onDragOver={(e) => e.preventDefault()} onDrop={handleDrop}>
+      {/* 헤더 */}
+      <header className="gallery-header">
+        <div className="title-wrap">
+          <h1 className="title">My Gallery</h1>
+          {album !== "all" && <p className="subtitle">{album}</p>}
+        </div>
+      </header>
 
-      <div className={posts.length > 0 ? "grid" : "nogrid"}>
-        {posts.map((p) => (
+      {/* 업로드 영역 */}
+      <section className="upload-box">
+        <div className="upload-left">
+          <input
+            className="input"
+            placeholder="사진첩 이름"
+            value={newAlbum}
+            onChange={(e) => setNewAlbum(e.target.value)}
+          />
+
+          <select className="select" value={album} onChange={(e) => setAlbum(e.target.value)}>
+            {albums.map((a) => (
+              <option key={a} value={a}>
+                {a}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <label className="upload-btn">
+          <input
+            type="file"
+            multiple
+            accept="image/*"
+            onChange={(e) => upload(Array.from(e.target.files), newAlbum)}
+            hidden
+          />
+          + 이미지 업로드
+        </label>
+      </section>
+
+      {/* drag 안내 */}
+      <div className="drag-hint">여기에 이미지를 드롭하세요</div>
+
+      {/* skeleton */}
+      {!posts.length && !loading && (
+        <div className="skeleton-grid">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <div key={i} className="skeleton"></div>
+          ))}
+        </div>
+      )}
+
+      {/* grid */}
+      <div className="grid">
+        {posts.map((post) => (
           <GalleryItem
-            key={p.id}
-            post={p}
-            // isAdmin={isAdmin}
-            onDelete={remove}
+            key={`${post.id}-${post.url}`}
+            post={post}
+            onClick={() => setModal(post.url)}
+            onDelete={() => remove(post)}
           />
         ))}
-        {posts.length === 0 && !loading && (
-          <EmptyState onUpload={() => document.querySelector("input[type=file]").click()} />
-        )}
-        {loading && [...Array(6)].map((_, i) => <Skeleton key={i} />)}
       </div>
+
+      <div ref={observerRef} style={{ height: 1 }} />
+
+      {modal && <ImageModal src={modal} onClose={() => setModal(null)} />}
+
+      {/* 로딩 */}
+      {loading && (
+        <div className="overlay">
+          <div className="spinner"></div>
+          <div className="progress">
+            <div style={{ width: `${progress}%` }} />
+            <span>{progress}%</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
-
-export default Gallery;

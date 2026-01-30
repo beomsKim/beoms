@@ -1,12 +1,8 @@
-// src/pages/Gallery/components/GalleryItem.jsx
-export default function GalleryItem({ post, onDelete, isAdmin }) {
+export default function GalleryItem({ post, onClick, onDelete }) {
     return (
         <div className="item">
-            <img src={post.thumbUrl} loading="lazy" />
-            {/* {isAdmin && (
-                <button onClick={() => onDelete(post)}>삭제</button>
-            )} */}
-            <button onClick={() => onDelete(post)}>삭제</button>
+            <img src={post.thumbUrl} loading="lazy" onClick={onClick} />
+            <button className="delete" onClick={onDelete}>✕</button>
         </div>
     );
 }

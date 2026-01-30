@@ -12,10 +12,15 @@ const firebaseConfig = {
     appId: "1:685147458596:web:0c7d329482cb3eccb59cb1"
 };
 
+// const app = initializeApp(firebaseConfig);
+// // export const storage = getStorage(app); // 이미지 저장소
+// export const storage = getStorage(
+//     app,
+//     "gs://port-gallery-104d7.firebasestorage.app"
+// );
+// export const db = getFirestore(app);      // 데이터 장부
+
 const app = initializeApp(firebaseConfig);
-// export const storage = getStorage(app); // 이미지 저장소
-export const storage = getStorage(
-    app,
-    "gs://port-gallery-104d7.firebasestorage.app"
-);
-export const db = getFirestore(app);      // 데이터 장부
+
+export const db = getFirestore(app);
+export const storage = getStorage(app);

@@ -2,57 +2,72 @@
 import { useEffect, useState } from "react";
 import { uploadImage, fetchPosts, deletePost } from "./gallery.service";
 
-export const useGallery = () => {
-const [posts, setPosts] = useState([]);
-const [lastDoc, setLastDoc] = useState(null);
-const [progress, setProgress] = useState(0);
-const [loading, setLoading] = useState(false);
-const [hasMore, setHasMore] = useState(true);
+export const useGallery = (album) => {
+  const [posts, setPosts] = useState([]);
+  const [lastDoc, setLastDoc] = useState(null);
+  const [hasMore, setHasMore] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [progress, setProgress] = useState(0);
 
-const loadPosts = async () => {
-if (!hasMore) return;
+  const loadPosts = async (reset = false) => {
+    if (!hasMore && !reset) return;
 
-const { posts: newPosts, lastDoc: newLastDoc } =
-    await fetchPosts(lastDoc);
+    const { posts: newPosts, lastDoc: newLastDoc } =
+      await fetchPosts(reset ? null : lastDoc, album);
 
-setPosts((prev) => [...prev, ...newPosts]);
+    setPosts((prev) =>
+      reset ? newPosts : mergeUniquePosts(prev, newPosts)
+    );
 
-setLastDoc(newLastDoc);
+    setLastDoc(newLastDoc);
+    if (!newPosts.length) setHasMore(false);
+  };
 
-if (!newPosts.length) setHasMore(false);
-};
 
-useEffect(() => {
-    loadPosts();
-}, []);
+  const mergeUniquePosts = (prev, next) => {
+    const map = new Map();
+    [...prev, ...next].forEach((p) => {
+      map.set(p.id, p);
+    });
+    return Array.from(map.values());
+  };
 
-const upload = async (file) => {
-  setLoading(true);
+  useEffect(() => {
+    setPosts([]);
+    setLastDoc(null);
+    setHasMore(true);
+    loadPosts(true);
+  }, [album]);
 
-  const newPost = await uploadImage(file, setProgress);
+  const upload = async (files, album) => {
+    setLoading(true);
+    setProgress(0);
 
-  setPosts((prev) => [newPost, ...prev]);
+    let count = 0;
+    for (const file of files) {
+      await uploadImage(file, album);
+      count++;
+      setProgress(Math.round((count / files.length) * 100));
+    }
 
-  setLoading(false);
-};
+    await loadPosts(true);
+    setLoading(false);
+  };
 
-// const remove = async (post, isAdmin) => {
-//     if (!isAdmin) return alert("관리자만 삭제 가능");
-//     await deletePost(post);
-//     setPosts((prev) => prev.filter((p) => p.id !== post.id));
-// };
-const remove = async (post) => {
-  await deletePost(post);
-  setPosts((prev) => prev.filter((p) => p.id !== post.id));
-};
+  const remove = async (post) => {
+    setLoading(true);
+    await deletePost(post);
+    setPosts((prev) => prev.filter((p) => p.id !== post.id));
+    setLoading(false);
+  };
 
-return {
+  return {
     posts,
-    progress,
-    loading,
     hasMore,
     loadPosts,
     upload,
     remove,
-};
+    loading,
+    progress,
+  };
 };

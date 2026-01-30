@@ -1,4 +1,3 @@
-// src/pages/Gallery/components/Skeleton.jsx
 export default function Skeleton() {
-    return <div className="skeleton" />;
+    return <div className="skeleton"></div>;
 }
