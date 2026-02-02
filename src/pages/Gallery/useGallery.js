@@ -1,6 +1,6 @@
 // src/pages/Gallery/useGallery.js
-import { useEffect, useState } from "react";
-import { uploadImage, fetchPosts, deletePost } from "./gallery.service";
+import { useEffect, useState, useRef, useCallback } from "react";
+import { uploadImage, fetchPosts, deletePost, fetchAlbums } from "./gallery.service";
 
 export const useGallery = (album) => {
   const [posts, setPosts] = useState([]);
@@ -8,36 +8,50 @@ export const useGallery = (album) => {
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [sort, setSort] = useState("createdAt"); // 정렬 상태
+  const [albums, setAlbums] = useState(["all"]);
 
-  const loadPosts = async (reset = false) => {
-    if (!hasMore && !reset) return;
-
-    const { posts: newPosts, lastDoc: newLastDoc } =
-      await fetchPosts(reset ? null : lastDoc, album);
-
-    setPosts((prev) =>
-      reset ? newPosts : mergeUniquePosts(prev, newPosts)
-    );
-
-    setLastDoc(newLastDoc);
-    if (!newPosts.length) setHasMore(false);
-  };
-
+  const isFetching = useRef(false); // 중복 호출 방지
 
   const mergeUniquePosts = (prev, next) => {
     const map = new Map();
-    [...prev, ...next].forEach((p) => {
-      map.set(p.id, p);
-    });
+    [...prev, ...next].forEach((p) => map.set(p.id, p));
     return Array.from(map.values());
   };
 
+  const loadPosts = useCallback(async (reset = false) => {
+    if (isFetching.current) return;
+    if (!hasMore && !reset) return;
+
+    isFetching.current = true;
+
+    try {
+      const { posts: newPosts, lastDoc: newLastDoc } =
+        await fetchPosts(reset ? null : lastDoc, album, sort);
+
+      setPosts((prev) => (reset ? newPosts : mergeUniquePosts(prev, newPosts)));
+      setLastDoc(newLastDoc);
+      setHasMore(!!newPosts.length);
+    } finally {
+      isFetching.current = false;
+    }
+  }, [album, sort, lastDoc, hasMore]);
+
+  // album or sort 변경 시 리셋
   useEffect(() => {
     setPosts([]);
     setLastDoc(null);
     setHasMore(true);
     loadPosts(true);
-  }, [album]);
+  }, [album, sort]);
+
+  useEffect(() => {
+    const loadAlbums = async () => {
+      const list = await fetchAlbums();
+      setAlbums(["all", ...new Set(list)]);
+    };
+    loadAlbums();
+  }, []);
 
   const upload = async (files, album) => {
     setLoading(true);
@@ -51,6 +65,11 @@ export const useGallery = (album) => {
     }
 
     await loadPosts(true);
+
+    // 앨범 목록 다시 불러오기
+    const list = await fetchAlbums();
+    setAlbums(["all", ...new Set(list)]);
+
     setLoading(false);
   };
 
@@ -63,11 +82,14 @@ export const useGallery = (album) => {
 
   return {
     posts,
+    albums,
     hasMore,
     loadPosts,
     upload,
     remove,
     loading,
     progress,
+    sort,
+    setSort,
   };
 };

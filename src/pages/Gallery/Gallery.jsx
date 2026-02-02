@@ -8,12 +8,14 @@ import './gallery.scss';
 
 export default function Gallery() {
   const [album, setAlbum] = useState("all");
-  const [newAlbum, setNewAlbum] = useState("기본");
+  const [newAlbum, setNewAlbum] = useState("all");
   const [modal, setModal] = useState(null);
   const {
     posts,
-    hasMore,
+    albums,
     loadPosts,
+    sort,
+    setSort,
     upload,
     remove,
     loading,
@@ -34,12 +36,6 @@ export default function Gallery() {
     if (observerRef.current) observer.observe(observerRef.current);
     return () => observer.disconnect();
   }, [loadPosts]);
-
-  // 앨범 목록 (빈값 제거)
-  const albums = [
-    "all",
-    ...new Set(posts.map((p) => p.album).filter(Boolean)),
-  ];
 
   // 드래그앤드롭
   const handleDrop = (e) => {
@@ -68,13 +64,27 @@ export default function Gallery() {
             onChange={(e) => setNewAlbum(e.target.value)}
           />
 
-          <select className="select" value={album} onChange={(e) => setAlbum(e.target.value)}>
+          <select
+            className="select"
+            value={album}
+            onChange={(e) => setAlbum(e.target.value)}
+          >
             {albums.map((a) => (
-              <option key={a} value={a}>
+              <option key={`album-${a}`} value={a}>
                 {a}
               </option>
             ))}
           </select>
+          
+          {/* <select
+            className="select"
+            value={sort}
+            onChange={(e) => setSort(e.target.value)}
+          >
+            <option value="createdAt">최신순</option>
+            <option value="order">사용자 정렬</option>
+          </select> */}
+
         </div>
 
         <label className="upload-btn">

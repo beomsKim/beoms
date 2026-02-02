@@ -18,6 +18,7 @@ import {
     doc,
     serverTimestamp,
     where,
+    setDoc,
 } from "firebase/firestore";
 
 const PAGE_SIZE = 12;
@@ -29,16 +30,47 @@ const createPath = (album, file, prefix = "") => {
     return `gallery/${album}/${prefix}${name}.${ext}`;
 };
 
-// 업로드 (썸네일 + 원본)
-export const uploadImage = async (file, album) => {
+// 썸네일 생성
+const createThumbnail = (file) => {
+    return new Promise((resolve) => {
+        const img = new Image();
+        const reader = new FileReader();
+
+        reader.onload = (e) => (img.src = e.target.result);
+
+        img.onload = () => {
+            const canvas = document.createElement("canvas");
+            const ctx = canvas.getContext("2d");
+
+            const width = 400;
+            const scale = width / img.width;
+
+            canvas.width = width;
+            canvas.height = img.height * scale;
+
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+            canvas.toBlob(resolve, "image/jpeg", 0.7);
+        };
+
+        reader.readAsDataURL(file);
+    });
+};
+
+// 업로드
+export const uploadImage = async (file, album, order = 0) => {
     const path = createPath(album, file);
     const thumbPath = createPath(album, file, "thumb_");
 
     const originRef = ref(storage, path);
     const thumbRef = ref(storage, thumbPath);
 
+    // 원본 업로드
     await uploadBytes(originRef, file);
-    await uploadBytes(thumbRef, file); // 썸네일은 나중에 압축 가능
+
+    // 썸네일 업로드
+    const thumbBlob = await createThumbnail(file);
+    await uploadBytes(thumbRef, thumbBlob);
 
     const url = await getDownloadURL(originRef);
     const thumbUrl = await getDownloadURL(thumbRef);
@@ -49,44 +81,55 @@ export const uploadImage = async (file, album) => {
         path,
         thumbPath,
         album,
+        order: Number(order),
         createdAt: serverTimestamp(),
     });
+    
+    if (album && album !== "all") {
+        await setDoc(doc(db, "albums", album), {
+            name: album,
+            updatedAt: serverTimestamp(),
+        });
+    };
 
     return { id: docRef.id };
 };
 
-// 목록 가져오기 (무한스크롤 + 앨범 필터)
+// 목록 가져오기
 export const fetchPosts = async (lastDoc, album) => {
-    let q = query(
-        collection(db, "posts"),
-        orderBy("createdAt", "desc"),
-        limit(PAGE_SIZE)
-    );
+    let q;
 
+    // album 필터 있을 때
     if (album && album !== "all") {
         q = query(
             collection(db, "posts"),
             where("album", "==", album),
             orderBy("createdAt", "desc"),
+            ...(lastDoc ? [startAfter(lastDoc)] : []),
+            limit(PAGE_SIZE)
+        );
+    }
+    // album 필터 없을 때
+    else {
+        q = query(
+            collection(db, "posts"),
+            orderBy("createdAt", "desc"),
+            ...(lastDoc ? [startAfter(lastDoc)] : []),
             limit(PAGE_SIZE)
         );
     }
 
-    if (lastDoc) {
-        q = query(q, startAfter(lastDoc));
-    }
-
     const snap = await getDocs(q);
 
-    const posts = snap.docs.map((d) => ({
-        id: d.id,
-        ...d.data(),
-    }));
-
     return {
-        posts,
+        posts: snap.docs.map((d) => ({ id: d.id, ...d.data() })),
         lastDoc: snap.docs[snap.docs.length - 1] || null,
     };
+};
+
+export const fetchAlbums = async () => {
+    const snap = await getDocs(collection(db, "albums"));
+    return snap.docs.map((d) => d.id).filter((name) => name && name !== "all");
 };
 
 // 삭제
