@@ -1,27 +1,26 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import ReactGA from "react-ga4";
+import useScrollTop from "./hooks/useScrollTop";
 import Layout from './layout/Layout';
 import Home from './pages/Home/Home';
 import LunchRoulette from './pages/LunchRoulette/LunchRoulette';
 import Gallery from './pages/Gallery/Gallery';
-import ReactGA from "react-ga4";
 
-// const basename = import.meta.env.MODE === 'development' ? '/' : '/beoms';
-const GA_ID = "G-N7Z4W8YEET"; // 발급받은 ID 넣기
+const GA_ID = "G-N7Z4W8YEET";
 ReactGA.initialize(GA_ID);
 
 export default function App() {
-  return (
-    // <BrowserRouter basename={basename}>
-    <BrowserRouter>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
 
-          <Route path="/lunch" element={<LunchRoulette />} />
-          <Route path="/gallery" element={<Gallery/>} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+  useScrollTop(); // ✅ 이제 Router 안
+
+  return (
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/lunch" element={<LunchRoulette />} />
+        <Route path="/gallery" element={<Gallery />} />
+      </Route>
+    </Routes>
   );
 }

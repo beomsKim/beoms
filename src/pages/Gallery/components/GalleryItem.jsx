@@ -1,3 +1,4 @@
+// src/pages/Gallery/components/GalleryItem.jsx
 export default function GalleryItem({ post, onClick, onDelete }) {
     return (
         <div className="item">

@@ -1,3 +1,4 @@
+// src/pages/Gallery/components/ImageModal.jsx
 export default function ImageModal({ url, onClose }) {
     return (
         <div className="modal" onClick={onClose}>

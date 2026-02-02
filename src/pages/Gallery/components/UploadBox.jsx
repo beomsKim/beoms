@@ -1,3 +1,4 @@
+// src/pages/Gallery/components/UploadBox.jsx
 export default function UploadBox({ onUpload }) {
     const handleFiles = (e) => {
         const files = Array.from(e.target.files);
