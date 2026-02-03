@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import { useGallery } from "./useGallery";
 import GalleryItem from "./components/GalleryItem";
 import ImageModal from "./components/ImageModal";
+import Skeleton from "./components/Skeleton";
 
 import './gallery.scss';
 
@@ -100,15 +101,18 @@ export default function Gallery() {
       </section>
 
       {/* drag 안내 */}
-      <div className="drag-hint">여기에 이미지를 드롭하세요</div>
 
       {/* skeleton */}
       {!posts.length && !loading && (
-        <div className="skeleton-grid">
-          {Array.from({ length: 8 }).map((_, i) => (
-            <div key={i} className="skeleton"></div>
-          ))}
+        <div className="box">
+      <div className="drag-hint">여기에 이미지를 드롭하세요</div>
+        <Skeleton />
         </div>
+        // <div className="skeleton-grid">
+        //   {Array.from({ length: 10 }).map((_, i) => (
+        //     <div key={i} className="skeleton"></div>
+        //   ))}
+        // </div>
       )}
 
       {/* grid */}
