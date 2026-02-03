@@ -31,26 +31,26 @@ const createPath = (album, file, prefix = "") => {
 };
 
 // 썸네일 생성
-const createThumbnail = (file) => {
+const createThumbnail = (file, maxWidth = 400) => {
     return new Promise((resolve) => {
         const img = new Image();
         const reader = new FileReader();
 
-        reader.onload = (e) => (img.src = e.target.result);
+        reader.onload = (e) => {
+            img.src = e.target.result;
+        };
 
         img.onload = () => {
             const canvas = document.createElement("canvas");
-            const ctx = canvas.getContext("2d");
+            const scale = maxWidth / img.width;
 
-            const width = 400;
-            const scale = width / img.width;
-
-            canvas.width = width;
+            canvas.width = maxWidth;
             canvas.height = img.height * scale;
 
+            const ctx = canvas.getContext("2d");
             ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-            canvas.toBlob(resolve, "image/jpeg", 0.7);
+            canvas.toBlob((blob) => resolve(blob), "image/webp", 0.7); // ⭐ webp + 압축
         };
 
         reader.readAsDataURL(file);
