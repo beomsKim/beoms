@@ -18,7 +18,8 @@ export default function Gallery() {
     sort,
     setSort,
     upload,
-    remove,
+    removeAlbum,
+    removeImage,
     loading,
     progress,
   } = useGallery(album);
@@ -51,7 +52,6 @@ export default function Gallery() {
       <header className="gallery-header">
         <div className="title-wrap">
           <h1 className="title">My Gallery</h1>
-          {album !== "all" && <p className="subtitle">{album}</p>}
         </div>
       </header>
 
@@ -65,29 +65,30 @@ export default function Gallery() {
             onChange={(e) => setNewAlbum(e.target.value)}
           />
 
-          <select
-            className="select"
-            value={album}
-            onChange={(e) => setAlbum(e.target.value)}
-          >
-            {albums.map((a) => (
-              <option key={`album-${a}`} value={a}>
-                {a}
-              </option>
-            ))}
-          </select>
-          
-          {/* <select
-            className="select"
-            value={sort}
-            onChange={(e) => setSort(e.target.value)}
-          >
-            <option value="createdAt">최신순</option>
-            <option value="order">사용자 정렬</option>
-          </select> */}
-
+          <div className="album-box">
+            <select
+              className="select"
+              value={album}
+              onChange={(e) => setAlbum(e.target.value)}
+            >
+              {albums.map((a) => (
+                <option key={`album-${a}`} value={a}>
+                  {a}
+                </option>
+              ))}
+            </select>
+            {/* <select
+              className="select"
+              value={sort}
+              onChange={(e) => setSort(e.target.value)}
+            >
+              <option value="createdAt">최신순</option>
+              <option value="order">사용자 정렬</option>
+            </select> */}
+            <button className="delete-btn" onClick={() => removeAlbum(album)}>앨범 삭제</button>
+          </div>
         </div>
-
+          
         <label className="upload-btn">
           <input
             type="file"
@@ -100,13 +101,15 @@ export default function Gallery() {
         </label>
       </section>
 
-      {/* drag 안내 */}
+      {/* 앨범 타이틀 */}
+      <h2 className="album-title">{album}</h2>
 
       {/* skeleton */}
       {!posts.length && !loading && (
-        <div className="box">
-      <div className="drag-hint">여기에 이미지를 드롭하세요</div>
-        <Skeleton />
+        <div className="skeleton-box">
+          {/* drag 안내 */}
+          <div className="drag-hint">여기에 이미지를 드롭하세요</div>
+          <Skeleton />
         </div>
         // <div className="skeleton-grid">
         //   {Array.from({ length: 10 }).map((_, i) => (
@@ -122,7 +125,7 @@ export default function Gallery() {
             key={`${post.id}-${post.url}`}
             post={post}
             onClick={() => setModal(post.url)}
-            onDelete={() => remove(post)}
+            onDelete={() => removeImage(post)}
           />
         ))}
       </div>

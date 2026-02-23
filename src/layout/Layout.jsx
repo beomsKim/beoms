@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/react"
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import './layout.scss';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const Layout = () => {
   return (
@@ -16,6 +17,7 @@ const Layout = () => {
       <Footer />
 
       <Analytics />
+      <SpeedInsights />
     </div>
   );
 };

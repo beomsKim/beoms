@@ -12,8 +12,8 @@ ReactGA.initialize(GA_ID);
 
 export default function App() {
 
-  useScrollTop(); // ✅ 이제 Router 안
-
+  useScrollTop();
+  
   return (
     <Routes>
       <Route element={<Layout />}>

@@ -1,6 +1,6 @@
 // src/pages/Gallery/useGallery.js
 import { useEffect, useState, useRef, useCallback } from "react";
-import { uploadImage, fetchPosts, deletePost, fetchAlbums } from "./gallery.service";
+import { uploadImage, fetchPosts, deleteAlbum, deletePost, fetchAlbums } from "./gallery.service";
 
 export const useGallery = (album) => {
   const [posts, setPosts] = useState([]);
@@ -73,10 +73,19 @@ export const useGallery = (album) => {
     setLoading(false);
   };
 
-  const remove = async (post) => {
+  const removeImage = async (post) => {
     setLoading(true);
     await deletePost(post);
     setPosts((prev) => prev.filter((p) => p.id !== post.id));
+    setLoading(false);
+  };
+  
+  const removeAlbum = async (albumName) => {
+    if (!window.confirm(`"${albumName}" 앨범 삭제?`)) return;
+
+    setLoading(true);
+    await deleteAlbum(albumName);
+    await loadPosts(true);
     setLoading(false);
   };
 
@@ -86,7 +95,8 @@ export const useGallery = (album) => {
     hasMore,
     loadPosts,
     upload,
-    remove,
+    removeAlbum,
+    removeImage,
     loading,
     progress,
     sort,

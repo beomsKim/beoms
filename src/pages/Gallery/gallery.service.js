@@ -19,6 +19,7 @@ import {
     serverTimestamp,
     where,
     setDoc,
+    writeBatch,
 } from "firebase/firestore";
 
 const PAGE_SIZE = 12;
@@ -132,9 +133,28 @@ export const fetchAlbums = async () => {
     return snap.docs.map((d) => d.id).filter((name) => name && name !== "all");
 };
 
-// 삭제
+// 앨범 삭제
+export const deleteAlbum = async (albumName) => {
+    const q = query(
+        collection(db, "posts"),
+        where("album", "==", albumName)
+    );
+
+    const snapshot = await getDocs(q);
+
+    const batch = writeBatch(db);
+
+    snapshot.forEach((doc) => {
+        batch.delete(doc.ref);
+    });
+
+    await batch.commit();
+};
+
+// 이미지 삭제
 export const deletePost = async (post) => {
-    await deleteObject(ref(storage, post.path));
-    await deleteObject(ref(storage, post.thumbPath));
-    await deleteDoc(doc(db, "posts", post.id));
+    console.log(post);
+    // await deleteObject(ref(storage, post.path));
+    // await deleteObject(ref(storage, post.thumbPath));
+    // await deleteDoc(doc(db, "posts", post.id));
 };

@@ -53,6 +53,27 @@ import hsgImg from "../assets/images/portfolio/hsg-cloud.jpg";
 
 
 export const portfolioList = [
+  {
+    id: 0,
+    category: "new",
+    title: "기존 포트폴리오",
+    date: "2017.06 ~ 2026.01",
+    contribution: "100%",
+    role: "기획, 디자인, 프론트엔드 개발",
+    description: "Php를 기반으로 활용해 제작한 개인 포트폴리오 사이트입니다.",
+    tags: ["HTML", "CSS", "JS"],
+    path: "http://choolooss89.dothome.co.kr/",
+    isExternal: true,
+    isClosed: false,
+    closedMessage: `
+PHP 기반으로 개인 포트폴리오 사이트 제작.
+HTML·CSS·jQuery를 활용해 전체 마크업 및 인터랙션 구현.
+기획부터 퍼블리싱, 기능 구현까지 전 과정 단독 진행.
+
+PHP 기반 개인 포트폴리오 사이트 제작.
+HTML·CSS·jQuery를 활용한 마크업 및 UI 구현 전담.`,
+    image: myPortfolioImg
+  },
   // 신규 구축 프로젝트 리스트 1~
   {
     id: 1,

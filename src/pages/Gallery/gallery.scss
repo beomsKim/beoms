@@ -2,24 +2,20 @@
 .gallery {
     min-height: calc(100vh - 191px);
     height: 100%;
-    padding: 20px;
+    padding: 50px 20px;
     background: #f9fafb;
 }
 
 /* 헤더 */
 .gallery-header {
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 .title {
     font-size: 28px;
     letter-spacing: -0.5px;
     font-weight: 700;
     color: #111827;
-}
-.subtitle {
-    margin-top: 4px;
-    font-size: 16px;
-    color: #6b7280;
+    text-align: center;
 }
 
 /* 업로드 박스 */
@@ -27,15 +23,16 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 16px;
+    margin-bottom: 50px;
     padding: 16px 18px;
     background: #fff;
     border-radius: 16px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
     transition: 0.2s;
-}
-.upload-box:hover {
-    transform: translateY(-2px);
+    
+    &:hover {
+        transform: translateY(-2px);
+    }
 }
 
 /* 왼쪽 input 영역 */
@@ -43,10 +40,23 @@
     display: flex;
     gap: 10px;
     width: calc(100% - 125px);
+
+    input {
+        width: 50%;
+    }
+    .album-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 50%;
+
+        select {
+            width: calc(100% - 96px);
+        }
+    }
 }
 .input,
 .select {
-    width: 50%;
     height: 38px;
     padding: 0 16px;
     background: #fff;
@@ -62,6 +72,22 @@
     border-color: #3182f6;
     box-shadow: 0 0 0 3px rgba(49, 130, 246, 0.12);
 }
+.delete-btn {
+    height: 38px;
+    padding: 0 16px;
+    background: linear-gradient(135deg, #3182f6, #6aa9ff);
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 38px;
+    font-weight: 600;
+    color: #fff;
+    transition: 0.2s;
+    
+    &:hover {
+        transform: scale(1.03);
+        box-shadow: 0 6px 18px rgba(49, 130, 246, 0.35);
+    }
+}
 
 /* 업로드 버튼 */
 .upload-btn {
@@ -73,6 +99,7 @@
     background: linear-gradient(135deg, #3182f6, #6aa9ff);
     border-radius: 12px;
     font-size: 14px;
+    line-height: 38px;
     font-weight: 600;
     color: #fff;
     transition: 0.2s;
@@ -81,6 +108,14 @@
         transform: scale(1.03);
         box-shadow: 0 6px 18px rgba(49, 130, 246, 0.35);
     }
+}
+
+// 앨범 타이틀
+.album-title {
+    margin-bottom: 40px;
+    font-size: 18px;
+    color: #666;
+    text-align: center;
 }
 
 /* drag hint */
@@ -94,7 +129,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: 14px;
-    margin-top: 20px;
 }
 .item {
     overflow: hidden;
