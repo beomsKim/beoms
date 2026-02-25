@@ -50,29 +50,44 @@ import ayuncheImg from "../assets/images/portfolio/ayunche.JPG";
 import intimeImg from "../assets/images/portfolio/pickmaker.jpg"; // 인타임도 같은 이미지 쓰더라구!
 import drImg from "../assets/images/portfolio/drceviang.jpg";
 import hsgImg from "../assets/images/portfolio/hsg-cloud.jpg";
+import nigbImg from "../assets/images/portfolio/next-image-gallery-board.png";
 
 
 export const portfolioList = [
   {
     id: 0,
     category: "new",
-    title: "기존 포트폴리오",
-    date: "2017.06 ~ 2026.01",
+    title: "이미지 갤러리",
+    date: "2026.02 ~ 2026.02",
     contribution: "100%",
     role: "기획, 디자인, 프론트엔드 개발",
-    description: "Php를 기반으로 활용해 제작한 개인 포트폴리오 사이트입니다.",
-    tags: ["HTML", "CSS", "JS"],
-    path: "http://choolooss89.dothome.co.kr/",
+    description: "Next.js + Firebase 기반 이미지 갤러리 커뮤니티",
+    tags: [
+      "Next.js 15", "TypeScript", "Tailwind CSS", "Firebase", "Claude AI 활용"
+    ],
+    path: "https://next-image-gallery-board.vercel.app/",
     isExternal: true,
     isClosed: false,
     closedMessage: `
-PHP 기반으로 개인 포트폴리오 사이트 제작.
-HTML·CSS·jQuery를 활용해 전체 마크업 및 인터랙션 구현.
-기획부터 퍼블리싱, 기능 구현까지 전 과정 단독 진행.
+## 사용 기술
+- Frontend: Next.js 15, TypeScript, Tailwind CSS
+- Backend: Firebase (Auth, Firestore, Storage, Functions)
+- 개발 도구: Claude AI를 활용한 페어 프로그래밍
 
-PHP 기반 개인 포트폴리오 사이트 제작.
-HTML·CSS·jQuery를 활용한 마크업 및 UI 구현 전담.`,
-    image: myPortfolioImg
+## 주요 기능
+- 사용자 인증 (이메일/Google OAuth)
+- 이미지 업로드 및 갤러리
+- 댓글/답글 시스템
+- 실시간 알림
+- 관리자 페이지
+- 신고 시스템
+
+## 개발 과정에서 배운 점
+- AI 도구를 활용한 효율적인 개발 프로세스
+- Firebase Cloud Functions를 통한 서버리스 아키텍처
+- 복잡한 상태 관리 및 실시간 데이터 동기화
+- 컴포넌트 분리를 통한 유지보수성 향상`,
+    image: nigbImg
   },
   // 신규 구축 프로젝트 리스트 1~
   {
