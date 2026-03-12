@@ -69,12 +69,12 @@ export const portfolioList = [
     isExternal: true,
     isClosed: false,
     closedMessage: `
-## 사용 기술
+사용 기술
 - Frontend: Next.js 15, TypeScript, Tailwind CSS
 - Backend: Firebase (Auth, Firestore, Storage, Functions)
 - 개발 도구: Claude AI를 활용한 페어 프로그래밍
 
-## 주요 기능
+주요 기능
 - 사용자 인증 (이메일/Google OAuth)
 - 이미지 업로드 및 갤러리
 - 댓글/답글 시스템
@@ -82,7 +82,7 @@ export const portfolioList = [
 - 관리자 페이지
 - 신고 시스템
 
-## 개발 과정에서 배운 점
+개발 과정에서 배운 점
 - AI 도구를 활용한 효율적인 개발 프로세스
 - Firebase Cloud Functions를 통한 서버리스 아키텍처
 - 복잡한 상태 관리 및 실시간 데이터 동기화
