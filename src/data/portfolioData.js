@@ -51,9 +51,47 @@ import intimeImg from "../assets/images/portfolio/pickmaker.jpg"; // 인타임�
 import drImg from "../assets/images/portfolio/drceviang.jpg";
 import hsgImg from "../assets/images/portfolio/hsg-cloud.jpg";
 import nigbImg from "../assets/images/portfolio/next-image-gallery-board.png";
-
+import sfImg from "../assets/images/portfolio/sector_flow.png";
 
 export const portfolioList = [
+  {
+    id: 116,
+    category: "new",
+    title: "SectorFlow",
+    date: "2026.03 ~ 2026.03",
+    contribution: "100%",
+    role: "기획, 디자인, 프론트엔드 개발",
+    description: "한국 주식 섹터별 자금 흐름 분석 대시보드",
+    tags: ["React", "FastAPI", "Python", "FinanceDataReader", "Vercel", "Claude AI 활용"],
+    path: "https://sector-flow-three.vercel.app/",
+    isExternal: true,
+    isClosed: false,
+    closedMessage: `
+React + FastAPI 기반 한국 주식 섹터 자금 흐름 분석 대시보드
+AI(Claude)와 기획부터 배포까지 페어 프로그래밍 방식으로 풀스택 개발
+
+사용 기술
+- Frontend: React, TailwindCSS, Recharts (차트 라이브러리)
+- Backend: Python, FastAPI
+- Data: FinanceDataReader (한국 주식 데이터 무료 수집)
+- 배포: Vercel (Frontend), Render (Backend)
+- 개발 도구: Claude AI 페어 프로그래밍
+
+주요 기능
+- 16개 업종별 거래대금 순위 및 증감률 표시
+- 최대 2년치 거래 흐름 차트로 시각화
+- 전날 대비 갑자기 거래가 급증한 업종 자동 감지
+- 종목별 주가 오름/내림 표시 (▲▼)
+- 관리자 페이지에서 업종과 종목을 직접 추가·수정 가능
+- 반응형 디자인으로 모바일에서도 최적화된 화면 제공
+
+개발 과정에서 배운 점
+- AI와 협업해서 혼자서도 처음부터 끝까지 서비스를 만들 수 있다는 것
+- 배포하면서 생기는 오류들을 직접 찾아 해결하는 경험
+- 기능 하나를 추가할 때 화면과 서버를 함께 고려해야 한다는 것
+- 사용자 입장에서 계속 불편한 점을 찾고 개선하는 과정`,
+    image: sfImg
+  },
   {
     id: 0,
     category: "new",
@@ -72,7 +110,7 @@ export const portfolioList = [
 사용 기술
 - Frontend: Next.js 15, TypeScript, Tailwind CSS
 - Backend: Firebase (Auth, Firestore, Storage, Functions)
-- 개발 도구: Claude AI를 활용한 페어 프로그래밍
+- 개발 도구: Claude AI 페어 프로그래밍
 
 주요 기능
 - 사용자 인증 (이메일/Google OAuth)
