@@ -12,7 +12,8 @@ const Footer = () => {
           <a href="https://github.com/beomsKim" target="_blank" rel="noreferrer">GitHub</a>
         </div>
       </div>
-      <Link to="/gallery">Gallery</Link>
+      <Link to="/gallery">Gallery1</Link><br />
+      <Link to="https://next-image-gallery-board.vercel.app/" target="_blank" rel="noreferrer">Gallery2</Link>
     </footer>
   );
 };

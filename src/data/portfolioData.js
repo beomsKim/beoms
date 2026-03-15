@@ -50,6 +50,7 @@ import ayuncheImg from "../assets/images/portfolio/ayunche.JPG";
 import intimeImg from "../assets/images/portfolio/pickmaker.jpg"; // 인타임도 같은 이미지 쓰더라구!
 import drImg from "../assets/images/portfolio/drceviang.jpg";
 import hsgImg from "../assets/images/portfolio/hsg-cloud.jpg";
+import hgImg from "../assets/images/portfolio/header_gallery.png";
 import nigbImg from "../assets/images/portfolio/next-image-gallery-board.png";
 import sfImg from "../assets/images/portfolio/sector_flow.png";
 
@@ -62,7 +63,7 @@ export const portfolioList = [
     contribution: "100%",
     role: "기획, 디자인, 프론트엔드 개발",
     description: "한국 주식 섹터별 자금 흐름 분석 대시보드",
-    tags: ["React", "FastAPI", "Python", "FinanceDataReader", "Vercel", "Claude AI 활용"],
+    tags: ["React", "FastAPI", "Python", "FinanceDataReader", "Vercel", "AI 활용"],
     path: "https://sector-flow-three.vercel.app/",
     isExternal: true,
     isClosed: false,
@@ -101,7 +102,7 @@ AI(Claude)와 기획부터 배포까지 페어 프로그래밍 방식으로 풀�
     role: "기획, 디자인, 프론트엔드 개발",
     description: "Next.js + Firebase 기반 이미지 갤러리 커뮤니티",
     tags: [
-      "Next.js 15", "TypeScript", "Tailwind CSS", "Firebase", "Claude AI 활용"
+      "Next.js 15", "TypeScript", "Tailwind CSS", "Vercel", "Firebase", "AI 활용"
     ],
     path: "https://next-image-gallery-board.vercel.app/",
     isExternal: true,
@@ -110,6 +111,7 @@ AI(Claude)와 기획부터 배포까지 페어 프로그래밍 방식으로 풀�
 사용 기술
 - Frontend: Next.js 15, TypeScript, Tailwind CSS
 - Backend: Firebase (Auth, Firestore, Storage, Functions)
+- 배포: Vercel (Frontend)
 - 개발 도구: Claude AI 페어 프로그래밍
 
 주요 기능
@@ -127,6 +129,34 @@ AI(Claude)와 기획부터 배포까지 페어 프로그래밍 방식으로 풀�
 - 컴포넌트 분리를 통한 유지보수성 향상`,
     image: nigbImg
   },
+  {
+    id: 100,
+    category: "new",
+    title: "갤러리",
+    date: "2026.01 ~ 2026.01",
+    contribution: "100%",
+    role: "기획, 디자인, 프론트엔드 개발",
+    description: "React + Firebase 기반 이미지 갤러리",
+    tags: ["React", "SCSS", "Firebase","AI 활용"],
+    path: "/gallery",
+    isExternal: false,
+    isClosed: false,
+    closedMessage: `
+사용 기술
+- Frontend: React, SCSS
+- Backend: Firebase (Firestore, Storage)
+- 개발 도구: Claude AI 페어 프로그래밍
+
+주요 기능
+- 이미지 갤러리 리스트
+- 이미지 업로드
+- 이미지 상세 보기
+- 이미지 삭제
+
+개발 과정에서 배운 점
+- AI 도구를 활용한 효율적인 개발 프로세스`,
+    image: hgImg
+  },
   // 신규 구축 프로젝트 리스트 1~
   {
     id: 1,
@@ -135,18 +165,22 @@ AI(Claude)와 기획부터 배포까지 페어 프로그래밍 방식으로 풀�
     date: "2026.01 ~ 2026.01", // 작업 날짜
     contribution: "100%", // 기여도
     role: "기획, 디자인, 프론트엔드 개발", // 맡은 역할
-    description: "결정 장애를 해결해 주는 메뉴 추천 서비스입니다.", // 간단한 설명
-    tags: ["React", "Framer-motion", "SCSS"], // 사용 기술
+    description: "결정 장애를 해결해 주는 메뉴 추천", // 간단한 설명
+    tags: ["React", "Framer-motion", "SCSS", "AI 활용"], // 사용 기술
     path: "/lunch", // 이동 경로
     isExternal: false,  // 외부 링크 여부 false 내부 / true 외부
     isClosed: false, // 서비스 중단 여부 false 운영중 / true 중단
     closedMessage: `
-점심 메뉴 선택을 돕는 룰렛형 웹 토이 프로젝트.
-기획·디자인·프론트엔드 개발 전 과정을 직접 진행했으며,
-React 기반으로 UI 구성 및 룰렛 인터랙션 구현.
+사용 기술
+- Frontend: React, SCSS
+- 개발 도구: Claude AI 페어 프로그래밍
 
-React를 활용해 점심 메뉴 선택을 돕는 룰렛형 웹 토이 프로젝트 제작.
-기획·디자인·프론트엔드 개발 전 과정 단독 진행.`,
+주요 기능
+- 점심 메뉴 랜덤 추천
+- 점심 메뉴 공유
+
+개발 과정에서 배운 점
+- AI 도구를 활용한 효율적인 개발 프로세스`,
     image: lunchRouletteImg // 대표 이미지
   },
   {
