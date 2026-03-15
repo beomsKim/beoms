@@ -71,10 +71,10 @@ React + FastAPI 기반 한국 주식 섹터 자금 흐름 분석 대시보드
 AI(Claude)와 기획부터 배포까지 페어 프로그래밍 방식으로 풀스택 개발
 
 사용 기술
-- Frontend: React, TailwindCSS, Recharts (차트 라이브러리)
+- Frontend: React, Recharts (차트 라이브러리)
 - Backend: Python, FastAPI
 - Data: FinanceDataReader (한국 주식 데이터 무료 수집)
-- 배포: Vercel (Frontend), Render (Backend)
+- 배포: Vercel (Frontend), Render (Backend), UptimeRobot (모니터링)
 - 개발 도구: Claude AI 페어 프로그래밍
 
 주요 기능
