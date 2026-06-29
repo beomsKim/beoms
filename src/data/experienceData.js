@@ -40,7 +40,7 @@ export const experienceList = [
   {
     id: 4,
     period: "2018.03.21 ~ 2020.03.31",
-    company: "(주)윈드디자인",
+    company: "현성그룹",
     team: "프론트팀엔드팀",
     position: "퍼블리셔 / 사원",
     tasks: [
