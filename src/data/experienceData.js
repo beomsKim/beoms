@@ -41,7 +41,7 @@ export const experienceList = [
     id: 4,
     period: "2018.03.21 ~ 2020.03.31",
     company: "현성그룹",
-    team: "프론트팀엔드팀",
+    team: "온라인기획팀",
     position: "퍼블리셔 / 사원",
     tasks: [
       "웹 사이트 퍼블리싱 & 유지 보수 (Html, Css , JQuery)",
