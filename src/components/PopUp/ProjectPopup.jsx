@@ -7,7 +7,11 @@ const ProjectPopup = ({ isOpen, item, onClose }) => {
   // 링크 이동 함수
   const goToService = () => {
     if (!item.path) return;
-    item.isExternal ? window.open(item.path) : window.location.href = item.path;
+    if (item.isExternal) {
+      window.open(item.path, '_blank', 'noopener,noreferrer');
+    } else {
+      window.location.href = item.path;
+    }
   };
   return (
     <AnimatePresence>
