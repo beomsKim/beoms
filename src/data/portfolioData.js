@@ -302,7 +302,7 @@ SCSS 기반 퍼블리싱 환경에서 일부 마크업 수정 및 개발 서포�
     role: "프론트엔드 개발",
     description: "실시간 스포츠 경기 점수 확인이 가능한 하이브리드 앱입니다.",
     tags: ["Vue", "SCSS"],
-    path: "/https://intimegames.com/",
+    path: "https://intimegames.com/",
     isExternal: false,
     isClosed: true,
     closedMessage: `
@@ -327,7 +327,7 @@ Vue.js 기반 실시간 스포츠 스코어 하이브리드 앱 제작.
     role: "프론트엔드 개발",
     description: "인타임 게임즈 회사 소개 및 홍보를 위한 반응형 웹사이트입니다.",
     tags: ["Gulp", "HTML", "CSS", "JS"],
-    path: "/https://intimegames.com/",
+    path: "https://intimegames.com/",
     isExternal: false,
     isClosed: true,
     closedMessage: ``,
