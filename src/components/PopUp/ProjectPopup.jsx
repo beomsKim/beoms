@@ -4,15 +4,6 @@ import { trackClick } from "../../utils/googleAnalytics";
 import './ProjectPopup.scss';
 
 const ProjectPopup = ({ isOpen, item, onClose }) => {
-  // 링크 이동 함수
-  const goToService = () => {
-    if (!item.path) return;
-    if (item.isExternal) {
-      window.open(item.path, '_blank', 'noopener,noreferrer');
-    } else {
-      window.location.href = item.path;
-    }
-  };
   return (
     <AnimatePresence>
       {isOpen && item && (
@@ -58,17 +49,16 @@ const ProjectPopup = ({ isOpen, item, onClose }) => {
             </div>
             <div className="popup-footer" style={{ display: 'flex', gap: '10px' }}>
               {/* 운영 중인 서비스일 때만 '서비스 이동' 버튼 노출 */}
-              {!item.isClosed && (
-                <button
+              {!item.isClosed && item.path && (
+                <a
                   className="confirm-btn"
-                  onClick={() => {
-                      trackClick("popup_go_service" + `_${item.title}`);
-                      goToService();
-                    }
-                  }
+                  href={item.path}
+                  target={item.isExternal ? '_blank' : '_self'}
+                  rel={item.isExternal ? 'noopener noreferrer' : undefined}
+                  onClick={() => trackClick(`popup_go_service_${item.title}`)}
                 >
                   서비스 바로가기
-                </button>
+                </a>
               )}
               <button
                 className="cancel-btn"
