@@ -103,7 +103,11 @@
                 flex: 3;
                 background: #3182f6;
                 border: none;
+                border-radius: 12px;
+                line-height: 54px;
                 color: #fff;
+                text-align: center;
+                transition: 0.2s;
 
                 &:hover {
                     background: #1a66db;
