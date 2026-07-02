@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { trackClick } from "../../utils/googleAnalytics";
 import './ProjectPopup.scss';
 
 const ProjectPopup = ({ isOpen, item, onClose }) => {
+  // 팝업 열림 여부에 따라 헤더 z-index를 팝업 dim 아래로 동적 조정
+  useEffect(() => {
+    const header = document.querySelector('.header');
+    if (!header) return;
+    if (isOpen) {
+      header.style.zIndex = '1';
+    } else {
+      header.style.zIndex = '';
+    }
+    return () => {
+      header.style.zIndex = '';
+    };
+  }, [isOpen]);
+
   return (
     <AnimatePresence>
       {isOpen && item && (

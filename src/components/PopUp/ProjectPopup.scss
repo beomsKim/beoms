@@ -1,19 +1,25 @@
 @use "../../styles/variables" as *;
 
 .popup-overlay {
-    @include flex-custom;
+    // flex-custom 대신 직접 선언: align-items를 flex-start로 설정해 팝업 상단 잘림 방지
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
     position: fixed;
     inset: 0;
     z-index: 9999;
     padding: 20px;
+    overflow-y: auto; // 팝업 콘텐츠가 길 때 overlay 자체를 스크롤
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(5px);
 
     .popup-content {
-        overflow: hidden;
+        display: flex;
+        flex-direction: column;
         position: relative;
         width: 100%;
         max-width: 500px;
+        margin: auto; // 상하 여백을 auto로 설정해 콘텐츠가 짧을 때 수직 중앙 유지
         padding: 40px;
         background: #fff;
         border-radius: 24px;
@@ -55,6 +61,7 @@
         }
 
         .popup-body {
+            flex: 1;
             margin-bottom: 32px;
             text-align: left;
 
@@ -67,9 +74,9 @@
                 word-break: keep-all;
 
                 strong {
-                display: inline-block;
-                width: 80px;
-                color: #111;
+                    display: inline-block;
+                    width: 80px;
+                    color: #111;
                 }
             }
 
@@ -87,6 +94,7 @@
 
         .popup-footer {
             display: flex;
+            flex-shrink: 0; // footer는 항상 고정
             gap: 12px;
 
             button {
@@ -100,12 +108,17 @@
             }
 
             .confirm-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 flex: 3;
+                height: 54px;
                 background: #3182f6;
                 border: none;
                 border-radius: 12px;
-                line-height: 54px;
                 color: #fff;
+                font-size: 1rem;
+                font-weight: 600;
                 text-align: center;
                 transition: 0.2s;
 
@@ -122,6 +135,53 @@
                 
                 &:hover {
                     background: #e2e2e2;
+                }
+            }
+        }
+    }
+
+    // 모바일 대응
+    @media (max-width: 480px) {
+        padding: 12px;
+
+        .popup-content {
+            padding: 24px 20px 20px;
+            border-radius: 16px;
+
+            .close-btn {
+                top: 14px;
+                right: 4px;
+                font-size: 24px;
+            }
+
+            .popup-header {
+                margin-bottom: 16px;
+
+                h3 {
+                    font-size: 1.3rem;
+                }
+            }
+
+            .popup-body {
+                margin-bottom: 20px;
+
+                p {
+                    font-size: 0.88rem;
+                }
+
+                .message-box {
+                    font-size: 0.83rem;
+                }
+            }
+
+            .popup-footer {
+                button {
+                    height: 48px;
+                    font-size: 0.95rem;
+                }
+
+                .confirm-btn {
+                    height: 48px;
                 }
             }
         }

@@ -53,8 +53,52 @@ import hsgImg from "../assets/images/portfolio/hsg-cloud.jpg";
 import hgImg from "../assets/images/portfolio/header_gallery.png";
 import nigbImg from "../assets/images/portfolio/next-image-gallery-board.png";
 import sfImg from "../assets/images/portfolio/sector_flow.png";
+import ourtasteImg from "../assets/images/portfolio/our_taste.png";
 
 export const portfolioList = [
+  {
+    id: 117,
+    category: "new",
+    title: "우리의 맛지도",
+    date: "2026.04 ~ 2026.06",
+    contribution: "100%",
+    role: "기획, 디자인, 프론트엔드 개발",
+    description: "커플 전용 맛집 기록 · 공유 PWA",
+    tags: ["Next.js 16", "TypeScript", "Firebase", "Zustand", "Leaflet", "PWA", "AI 활용"],
+    path: "https://our-story-in-taste-mauve.vercel.app",
+    isExternal: true,
+    isClosed: false,
+    closedMessage: `
+Next.js 16(App Router) + Firebase 기반 커플 전용 맛집 기록·공유 PWA
+AI(Claude)와 기획부터 배포까지 페어 프로그래밍 방식으로 풀스택 개발
+
+사용 기술
+- Frontend: Next.js 16, TypeScript, 인라인 스타일 전용 디자인 시스템
+- 상태 관리: Zustand (authStore, uiStore, statsStore)
+- Backend: Firebase (Auth, Firestore, Storage, FCM, Cloud Functions)
+- 지도: Leaflet + Kakao Local API (장소 검색 + 자동 좌표 입력)
+- 배포: Vercel (git push 자동 배포), Google Play TWA
+- 개발 도구: Claude AI 페어 프로그래밍
+
+주요 기능
+- 커플 연동 시스템 (초대 코드 생성·입력, 실시간 동기화)
+- 다녀온 곳 기록 (별점, 태그 39개, 이미지 최대 5장, 카카오 장소 검색)
+- 재방문 감지 (동일 식당 500m 이내 자동 감지 후 방문 이력 누적)
+- 위시리스트 → 다녀온 곳 이동 기능
+- 커뮤니티 피드 (공유·좋아요·신고)
+- Leaflet 지도 핀 → 카카오/네이버 지도 연결
+- 음식 취향 분석 통계 (지역별 분포, 음식 종류)
+- FCM 푸시 알림 (포그라운드 토스트 + 백그라운드 OS 알림)
+- 데이터 내보내기 (CSV / 엑셀 / JSON)
+- PWA 홈 화면 설치, Google Play TWA 배포
+
+개발 과정에서 배운 점
+- Firestore 실시간 구독(onSnapshot) 동시 실행 시 발생하는 INTERNAL ASSERTION FAILED 오류를 탭별 lazy 구독 패턴으로 해결
+- coupleId 생성 직후 Cloud Functions 반영 전 통계가 0이 되는 문제를 authorUid + coupleId 동시 구독 합산 방식으로 해결
+- PWA 재실행 시 sessionStorage가 초기화되는 환경 특성을 파악하고 지속 데이터는 Firestore에 저장하는 원칙 정립
+- AI와 협업해 기획·디자인·개발·배포 전 과정을 혼자 완성한 경험`,
+    image: ourtasteImg
+  },
   {
     id: 116,
     category: "new",
